@@ -1,6 +1,7 @@
 import { RoomType } from "./roomType";
 import { Entity, Column, ManyToOne, OneToMany, ManyToMany, JoinTable } from "typeorm";
 import { Member } from "./member";
+import { GameLog } from './gameLog';
 @Entity()
 export class Room {
 
@@ -36,4 +37,7 @@ export class Room {
         name: 'room_member'
     })
     members: Member[];
+
+    @OneToMany(() => GameLog, type => type.room)
+    gameLogs: GameLog[];
 }

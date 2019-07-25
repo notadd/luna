@@ -1,6 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, ManyToMany, OneToMany } from 'typeorm';
 import { Room } from './room';
 import { TixianLog } from './tixianLog';
+import { GameLog } from './gameLog';
 
 @Entity()
 export class Member {
@@ -28,6 +29,15 @@ export class Member {
     @OneToMany(() => Room, type => type.owner)
     createRooms: Room[];
 
-    @OneToMany(() => TixianLog, type => type.id)
+    /**
+     * 提现记录
+     */
+    @OneToMany(() => TixianLog, type => type.member)
     tixianLogs: TixianLog[];
+
+    /**
+     * 游戏记录
+     */
+    @OneToMany(() => GameLog, type => type.member)
+    gameLogs: GameLog[];
 }
