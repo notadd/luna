@@ -1,0 +1,36 @@
+<form nz-form>
+    <nz-form-item>
+        <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="title">网站标题</nz-form-label>
+        <nz-form-control [nzSm]="16" [nzXs]="24">
+            <input nz-input name="title" type="text" id="title">
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="copyRight">网站版权</nz-form-label>
+        <nz-form-control [nzSm]="16" [nzXs]="24">
+            <input nz-input name="copyRight" type="text" id="copyRight">
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="logo">网站logo</nz-form-label>
+        <nz-form-control [nzSm]="16" [nzXs]="24">
+            <nz-upload class="avatar-uploader" nzAction="https://jsonplaceholder.typicode.com/posts/" nzName="avatar"
+                nzListType="picture-card" [nzShowUploadList]="false" [nzBeforeUpload]="beforeUpload"
+                (nzChange)="handleChange($event)">
+                <ng-container *ngIf="!avatarUrl">
+                    <i class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></i>
+                    <div class="ant-upload-text">上传</div>
+                </ng-container>
+                <img *ngIf="avatarUrl" [src]="avatarUrl" class="avatar" />
+            </nz-upload>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 16, offset: 8 }">
+            <button nz-button nzType="primary">Submit</button>
+        </nz-form-control>
+    </nz-form-item>
+</form>

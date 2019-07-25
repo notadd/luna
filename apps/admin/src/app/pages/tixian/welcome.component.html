@@ -1,0 +1,24 @@
+<nz-table #basicTable [nzData]="dataSet">
+    <thead>
+        <tr>
+            <th>编号</th>
+            <th>金额</th>
+            <th>用户</th>
+            <th>时间</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of basicTable.data">
+            <td>{{data.id}}</td>
+            <td>{{data.title}}</td>
+            <td>{{data.count}}</td>
+            <td>
+                <a>Action 一 {{data.name}}</a>
+                <nz-divider nzType="vertical"></nz-divider>
+                <a>Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</nz-table>
