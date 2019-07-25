@@ -1,3 +1,92 @@
 {
-  "Member": []
+  "Member": [
+    {
+      "name": "rooms",
+      "relation": "ManyToMany",
+      "entity": "Room"
+    },
+    {
+      "name": "createRooms",
+      "relation": "OneToMany",
+      "entity": "Room"
+    },
+    {
+      "name": "tixianLogs",
+      "relation": "OneToMany",
+      "entity": "TixianLog"
+    },
+    {
+      "name": "gameLogs",
+      "relation": "OneToMany",
+      "entity": "GameLog"
+    },
+    {
+      "name": "ticketLogs",
+      "relation": "OneToMany",
+      "entity": "TicketLog"
+    }
+  ],
+  "Room": [
+    {
+      "name": "type",
+      "relation": "ManyToOne",
+      "entity": "RoomType"
+    },
+    {
+      "name": "owner",
+      "relation": "ManyToOne",
+      "entity": "Member"
+    },
+    {
+      "name": "members",
+      "relation": "ManyToMany",
+      "entity": "Member"
+    },
+    {
+      "name": "gameLogs",
+      "relation": "OneToMany",
+      "entity": "GameLog"
+    }
+  ],
+  "RoomType": [
+    {
+      "name": "rooms",
+      "relation": "OneToMany",
+      "entity": "Room"
+    }
+  ],
+  "GameLog": [
+    {
+      "name": "room",
+      "relation": "ManyToOne",
+      "entity": "Room"
+    },
+    {
+      "name": "member",
+      "relation": "ManyToOne",
+      "entity": "Member"
+    }
+  ],
+  "TixianLog": [
+    {
+      "name": "member",
+      "relation": "ManyToOne",
+      "entity": "Member"
+    }
+  ],
+  "TicketLog": [
+    {
+      "name": "member",
+      "relation": "ManyToOne",
+      "entity": "Member"
+    }
+  ],
+  "Ticket": [
+    {
+      "name": "logs",
+      "relation": "ManyToOne",
+      "entity": "TicketLog"
+    }
+  ],
+  "Setting": []
 }

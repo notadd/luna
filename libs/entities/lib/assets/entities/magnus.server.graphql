@@ -30,31 +30,327 @@ scalar Empty
 
 scalar Error
 
+type RoomType {
+  "id"
+  id: Int
+  "类型名"
+  title: String!
+  rooms: [Room]
+}
+
+type GameLog {
+  id: Int
+  "输赢"
+  status: Int!
+  "注码"
+  count: Int!
+  "开始时间"
+  startTime: Int!
+  "结束时间"
+  endTime: Int!
+  "房间"
+  room: Room
+  member: Member
+}
+
+type Room {
+  "房间密码"
+  password: String!
+  "房间类型"
+  type: RoomType
+  "自动开启"
+  autoStart: Boolean!
+  "房主"
+  owner: Member
+  "加入房间的人"
+  members: [Member]
+  gameLogs: [GameLog]
+}
+
+type TixianLog {
+  id: Int
+  "提现人"
+  member: Member
+  "提现数量"
+  count: Int!
+  "提现状态"
+  status: Int!
+  "提现时间"
+  createDate: Int
+}
+
+type Ticket {
+  id: Int
+  title: String!
+  "领取记录"
+  logs: [TicketLog]
+}
+
+type TicketLog {
+  id: Int
+  ticket: Ticket
+  member: Member
+}
+
 type Member {
   id: Int
-  username: String!
-  password: String!
+  "昵称"
+  nickname: String!
+  "头像"
+  avatar: String!
+  "电话"
+  mobile: String!
+  "微信id"
+  openid: String!
+  "创建时间"
   createDate: Int
+  "余额"
+  fee: Int!
+  "金币"
+  fee2: Int!
+  "钻石"
+  fee3: Int!
+  "用户加入的房间"
+  rooms: [Room]
+  "用户创建的房间"
+  createRooms: [Room]
+  "提现记录"
+  tixianLogs: [TixianLog]
+  "游戏记录"
+  gameLogs: [GameLog]
+  "用户领取的劵"
+  ticketLogs: [TicketLog]
+}
+
+input RoomTypeInput {
+  "id"
+  id: Int
+  "类型名"
+  title: String!
+  rooms: [RoomInput]
+}
+
+input GameLogInput {
+  id: Int
+  "输赢"
+  status: Int!
+  "注码"
+  count: Int!
+  "开始时间"
+  startTime: Int!
+  "结束时间"
+  endTime: Int!
+  "房间"
+  room: RoomInput
+  member: MemberInput
+}
+
+input RoomInput {
+  "房间密码"
+  password: String!
+  "房间类型"
+  type: RoomTypeInput
+  "自动开启"
+  autoStart: Boolean!
+  "房主"
+  owner: MemberInput
+  "加入房间的人"
+  members: [MemberInput]
+  gameLogs: [GameLogInput]
+}
+
+input TixianLogInput {
+  id: Int
+  "提现人"
+  member: MemberInput
+  "提现数量"
+  count: Int!
+  "提现状态"
+  status: Int!
+  "提现时间"
+  createDate: Int
+}
+
+input TicketInput {
+  id: Int
+  title: String!
+  "领取记录"
+  logs: [TicketLogInput]
+}
+
+input TicketLogInput {
+  id: Int
+  ticket: TicketInput
+  member: MemberInput
 }
 
 input MemberInput {
   id: Int
-  username: String!
-  password: String!
+  "昵称"
+  nickname: String!
+  "头像"
+  avatar: String!
+  "电话"
+  mobile: String!
+  "微信id"
+  openid: String!
+  "创建时间"
   createDate: Int
+  "余额"
+  fee: Int!
+  "金币"
+  fee2: Int!
+  "钻石"
+  fee3: Int!
+  "用户加入的房间"
+  rooms: [RoomInput]
+  "用户创建的房间"
+  createRooms: [RoomInput]
+  "提现记录"
+  tixianLogs: [TixianLogInput]
+  "游戏记录"
+  gameLogs: [GameLogInput]
+  "用户领取的劵"
+  ticketLogs: [TicketLogInput]
 }
 
 input MemberPartial {
   id: Int
-  username: String
-  password: String
+  "昵称"
+  nickname: String
+  "头像"
+  avatar: String
+  "电话"
+  mobile: String
+  "微信id"
+  openid: String
+  "创建时间"
   createDate: Int
+  "余额"
+  fee: Int
+  "金币"
+  fee2: Int
+  "钻石"
+  fee3: Int
+  "用户加入的房间"
+  rooms: [RoomInput]
+  "用户创建的房间"
+  createRooms: [RoomInput]
+  "提现记录"
+  tixianLogs: [TixianLogInput]
+  "游戏记录"
+  gameLogs: [GameLogInput]
+  "用户领取的劵"
+  ticketLogs: [TicketLogInput]
+}
+
+input RoomPartial {
+  "房间密码"
+  password: String
+  "房间类型"
+  type: RoomTypeInput
+  "自动开启"
+  autoStart: Boolean
+  "房主"
+  owner: MemberInput
+  "加入房间的人"
+  members: [MemberInput]
+  gameLogs: [GameLogInput]
+}
+
+input RoomTypePartial {
+  "id"
+  id: Int
+  "类型名"
+  title: String
+  rooms: [RoomInput]
+}
+
+type Setting {
+  "id"
+  id: Int
+  "key"
+  key: String!
+  "value"
+  value: String!
+}
+
+input SettingInput {
+  "id"
+  id: Int
+  "key"
+  key: String!
+  "value"
+  value: String!
+}
+
+input SettingPartial {
+  "id"
+  id: Int
+  "key"
+  key: String
+  "value"
+  value: String
+}
+
+input TixianLogPartial {
+  id: Int
+  "提现人"
+  member: MemberInput
+  "提现数量"
+  count: Int
+  "提现状态"
+  status: Int
+  "提现时间"
+  createDate: Int
+}
+
+input GameLogPartial {
+  id: Int
+  "输赢"
+  status: Int
+  "注码"
+  count: Int
+  "开始时间"
+  startTime: Int
+  "结束时间"
+  endTime: Int
+  "房间"
+  room: RoomInput
+  member: MemberInput
+}
+
+input TicketPartial {
+  id: Int
+  title: String
+  "领取记录"
+  logs: [TicketLogInput]
+}
+
+input TicketLogPartial {
+  id: Int
+  ticket: TicketInput
+  member: MemberInput
 }
 
 type Query {
   getMember(entity: MemberPartial!): Member!
+  getRoom(entity: RoomPartial!): Room!
+  getRoomType(entity: RoomTypePartial!): RoomType!
+  getSetting(entity: SettingPartial!): Setting!
+  getTixianLog(entity: TixianLogPartial!): TixianLog!
+  getGameLog(entity: GameLogPartial!): GameLog!
+  getTicket(entity: TicketPartial!): Ticket!
+  getTicketLog(entity: TicketLogPartial!): TicketLog!
 }
 
 type Mutation {
   saveMember(entity: MemberInput!): Member!
+  saveRoom(entity: RoomInput!): Room!
+  saveRoomType(entity: RoomTypeInput!): RoomType!
+  saveSetting(entity: SettingInput!): Setting!
+  saveTixianLog(entity: TixianLogInput!): TixianLog!
+  saveGameLog(entity: GameLogInput!): GameLog!
+  saveTicket(entity: TicketInput!): Ticket!
+  saveTicketLog(entity: TicketLogInput!): TicketLog!
 }
