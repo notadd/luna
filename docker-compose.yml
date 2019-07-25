@@ -1,0 +1,24 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:11-alpine
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: default
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: magnus
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+    volumes:
+      - ./config/redis/conf:/usr/local/etc/redis
+      - ./data/redis:/data
+    command:
+      redis-server
+  rabbitmq:
+    image: rabbitmq
+volumes:
+  postgres:

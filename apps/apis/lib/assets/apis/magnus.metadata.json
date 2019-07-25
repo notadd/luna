@@ -1,0 +1,11 @@
+{
+  "query": [
+    [
+      "hello",
+      "AppResolver",
+      "",
+      "hello",
+      []
+    ]
+  ]
+}
