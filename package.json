@@ -1,6 +1,10 @@
 {
   "name": "root",
   "private": true,
+  "scripts": {
+    "commit": "git add . && git-cz",
+    "start": "ts-node apps/apis/lib/main.ts"
+  },
   "devDependencies": {
     "lerna": "^3.14.1",
     "ts-node": "^8.3.0",
