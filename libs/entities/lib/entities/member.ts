@@ -11,7 +11,6 @@ export class Member {
     @Column()
     password: string;
 
-
     @CreateDateColumn()
     createDate: number;
 }
