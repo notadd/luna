@@ -1,9 +1,10 @@
 import { Magnus, MagnusBase, Query, Mutation } from '@notadd/magnus-core'
-import { Member, Room, RoomType, Setting, TixianLog } from './index';
+import { Member, Room, RoomType, Setting, TixianLog, GameLog, Ticket, TicketLog } from './index';
 import { getRepository, Repository } from 'typeorm';
 @Magnus({
     entities: [
-        Member, Room, RoomType, Setting, TixianLog
+        Member, Room, RoomType, Setting, TixianLog,
+        GameLog, Ticket, TicketLog
     ]
 })
 export class Controller<T> extends MagnusBase<T> {

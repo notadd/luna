@@ -7,7 +7,7 @@ const metadata = require('./assets/entities/magnus.metadata.json');
 const server = require('./assets/entities/magnus.server.json');
 const entity = require('./assets/entities/magnus.entity.json');
 import {
-    Member, Room, RoomType, Setting, TixianLog
+    Member, Room, RoomType, Setting, TixianLog, GameLog, Ticket, TicketLog
 } from './entities/index';
 import { Magnus } from './runner';
 export * from './runner';
@@ -45,7 +45,7 @@ export class EntitiesModule {
             username: environment.db.username || 'default',
             password: environment.db.password || 'secret',
             entities: [
-                Member, Room, RoomType, Setting, TixianLog
+                Member, Room, RoomType, Setting, TixianLog, GameLog, Ticket, TicketLog
             ],
             synchronize: environment.db.synchronize || true
         });
