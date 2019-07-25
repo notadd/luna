@@ -1,0 +1,30 @@
+{
+  "query": [
+    [
+      "getMember",
+      "Controller",
+      "Member",
+      "get",
+      [
+        {
+          "name": "entity",
+          "type": "MemberPartial!"
+        }
+      ]
+    ]
+  ],
+  "mutation": [
+    [
+      "saveMember",
+      "Controller",
+      "Member",
+      "save",
+      [
+        {
+          "name": "entity",
+          "type": "MemberInput!"
+        }
+      ]
+    ]
+  ]
+}

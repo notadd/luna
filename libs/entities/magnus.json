@@ -1,0 +1,12 @@
+{
+  "name": "entities",
+  "inputs": [
+    "lib/**/*.ts"
+  ],
+  "output": "lib/magnus",
+  "assets": "lib/assets",
+  "port": 3000,
+  "root": "/Users/ims/Desktop/guanjie/luna/libs/entities",
+  "debug": true,
+  "host": "192.168.0.101"
+}
