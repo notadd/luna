@@ -95,6 +95,102 @@
           "type": "TicketLogPartial!"
         }
       ]
+    ],
+    [
+      "findMember",
+      "Controller",
+      "Member",
+      "find",
+      [
+        {
+          "name": "entity",
+          "type": "MemberPartial!"
+        }
+      ]
+    ],
+    [
+      "findRoom",
+      "Controller",
+      "Room",
+      "find",
+      [
+        {
+          "name": "entity",
+          "type": "RoomPartial!"
+        }
+      ]
+    ],
+    [
+      "findRoomType",
+      "Controller",
+      "RoomType",
+      "find",
+      [
+        {
+          "name": "entity",
+          "type": "RoomTypePartial!"
+        }
+      ]
+    ],
+    [
+      "findSetting",
+      "Controller",
+      "Setting",
+      "find",
+      [
+        {
+          "name": "entity",
+          "type": "SettingPartial!"
+        }
+      ]
+    ],
+    [
+      "findTixianLog",
+      "Controller",
+      "TixianLog",
+      "find",
+      [
+        {
+          "name": "entity",
+          "type": "TixianLogPartial!"
+        }
+      ]
+    ],
+    [
+      "findGameLog",
+      "Controller",
+      "GameLog",
+      "find",
+      [
+        {
+          "name": "entity",
+          "type": "GameLogPartial!"
+        }
+      ]
+    ],
+    [
+      "findTicket",
+      "Controller",
+      "Ticket",
+      "find",
+      [
+        {
+          "name": "entity",
+          "type": "TicketPartial!"
+        }
+      ]
+    ],
+    [
+      "findTicketLog",
+      "Controller",
+      "TicketLog",
+      "find",
+      [
+        {
+          "name": "entity",
+          "type": "TicketLogPartial!"
+        }
+      ]
     ]
   ],
   "mutation": [

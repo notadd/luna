@@ -6,7 +6,7 @@
   "output": "lib/magnus",
   "assets": "lib/assets",
   "port": 3000,
-  "root": "/Users/ims/Desktop/guanjie/luna/libs/entities",
+  "root": "/home/gj002/work-space/luna/libs/entities",
   "debug": false,
-  "host": "192.168.0.101"
+  "host": "10.0.0.147"
 }

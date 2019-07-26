@@ -76,6 +76,11 @@
   ],
   "TicketLog": [
     {
+      "name": "ticket",
+      "relation": "ManyToOne",
+      "entity": "Ticket"
+    },
+    {
       "name": "member",
       "relation": "ManyToOne",
       "entity": "Member"

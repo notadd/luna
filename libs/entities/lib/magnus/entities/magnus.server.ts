@@ -40,6 +40,8 @@ export interface GameLog {
 	member?: Member;
 }
 export interface Room {
+	/*id*/
+	id?: number;
 	/*房间密码*/
 	password: string;
 	/*房间类型*/
@@ -125,6 +127,8 @@ export interface GameLogInput {
 	member?: MemberInput;
 }
 export interface RoomInput {
+	/*id*/
+	id?: number;
 	/*房间密码*/
 	password: string;
 	/*房间类型*/
@@ -218,6 +222,8 @@ export interface MemberPartial {
 	ticketLogs?: TicketLogInput[];
 }
 export interface RoomPartial {
+	/*id*/
+	id?: number;
 	/*房间密码*/
 	password?: string;
 	/*房间类型*/
@@ -306,6 +312,22 @@ export interface Query {
 	getGameLog<T>(entity: GameLogPartial, selection?: string): Promise<T & GameLog>;
 	getTicket<T>(entity: TicketPartial, selection?: string): Promise<T & Ticket>;
 	getTicketLog<T>(entity: TicketLogPartial, selection?: string): Promise<T & TicketLog>;
+	/*通过制定条件获取一组数据*/
+	findMember<T>(/*条件*/entity: MemberPartial, selection?: string): Promise<T & Member[]>;
+	/*通过制定条件获取一组数据*/
+	findRoom<T>(/*条件*/entity: RoomPartial, selection?: string): Promise<T & Room[]>;
+	/*通过制定条件获取一组数据*/
+	findRoomType<T>(/*条件*/entity: RoomTypePartial, selection?: string): Promise<T & RoomType[]>;
+	/*通过制定条件获取一组数据*/
+	findSetting<T>(/*条件*/entity: SettingPartial, selection?: string): Promise<T & Setting[]>;
+	/*通过制定条件获取一组数据*/
+	findTixianLog<T>(/*条件*/entity: TixianLogPartial, selection?: string): Promise<T & TixianLog[]>;
+	/*通过制定条件获取一组数据*/
+	findGameLog<T>(/*条件*/entity: GameLogPartial, selection?: string): Promise<T & GameLog[]>;
+	/*通过制定条件获取一组数据*/
+	findTicket<T>(/*条件*/entity: TicketPartial, selection?: string): Promise<T & Ticket[]>;
+	/*通过制定条件获取一组数据*/
+	findTicketLog<T>(/*条件*/entity: TicketLogPartial, selection?: string): Promise<T & TicketLog[]>;
 }
 export interface Mutation {
 	saveMember<T>(entity: MemberInput, selection?: string): Promise<T & Member>;

@@ -8,7 +8,7 @@ export class TicketLog {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @ManyToOne()
+    @ManyToOne(() => Ticket, type => type.logs)
     ticket: Ticket;
 
     @ManyToOne(() => Member, type => type.ticketLogs)

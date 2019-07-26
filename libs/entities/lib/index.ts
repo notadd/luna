@@ -39,11 +39,11 @@ export class EntitiesModule {
         const environment = this.environment;
         await createConnection({
             type: environment.db.type || 'postgres',
-            host: environment.db.host || '10.0.1.2',
+            host: environment.db.host || '106.12.10.139',
             port: environment.db.port || 5432,
             database: environment.db.database || 'magnus',
-            username: environment.db.username || 'default',
-            password: environment.db.password || 'secret',
+            username: environment.db.username || 'magnus',
+            password: environment.db.password || 'magnus',
             entities: [
                 Member, Room, RoomType, Setting, TixianLog, GameLog, Ticket, TicketLog
             ],

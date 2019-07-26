@@ -1,9 +1,15 @@
 import { RoomType } from "./roomType";
-import { Entity, Column, ManyToOne, OneToMany, ManyToMany, JoinTable } from "typeorm";
+import { Entity, Column, ManyToOne, OneToMany, ManyToMany, JoinTable, PrimaryGeneratedColumn } from "typeorm";
 import { Member } from "./member";
 import { GameLog } from './gameLog';
 @Entity()
 export class Room {
+
+    /**
+     * id
+     */
+    @PrimaryGeneratedColumn()
+    id: number;
 
     /**
      * 房间密码

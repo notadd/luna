@@ -54,6 +54,8 @@ type GameLog {
 }
 
 type Room {
+  "id"
+  id: Int
   "房间密码"
   password: String!
   "房间类型"
@@ -146,6 +148,8 @@ input GameLogInput {
 }
 
 input RoomInput {
+  "id"
+  id: Int
   "房间密码"
   password: String!
   "房间类型"
@@ -245,6 +249,8 @@ input MemberPartial {
 }
 
 input RoomPartial {
+  "id"
+  id: Int
   "房间密码"
   password: String
   "房间类型"
@@ -342,6 +348,46 @@ type Query {
   getGameLog(entity: GameLogPartial!): GameLog!
   getTicket(entity: TicketPartial!): Ticket!
   getTicketLog(entity: TicketLogPartial!): TicketLog!
+  "通过制定条件获取一组数据"
+  findMember(
+    "条件"
+    entity: MemberPartial!
+  ): [Member]!
+  "通过制定条件获取一组数据"
+  findRoom(
+    "条件"
+    entity: RoomPartial!
+  ): [Room]!
+  "通过制定条件获取一组数据"
+  findRoomType(
+    "条件"
+    entity: RoomTypePartial!
+  ): [RoomType]!
+  "通过制定条件获取一组数据"
+  findSetting(
+    "条件"
+    entity: SettingPartial!
+  ): [Setting]!
+  "通过制定条件获取一组数据"
+  findTixianLog(
+    "条件"
+    entity: TixianLogPartial!
+  ): [TixianLog]!
+  "通过制定条件获取一组数据"
+  findGameLog(
+    "条件"
+    entity: GameLogPartial!
+  ): [GameLog]!
+  "通过制定条件获取一组数据"
+  findTicket(
+    "条件"
+    entity: TicketPartial!
+  ): [Ticket]!
+  "通过制定条件获取一组数据"
+  findTicketLog(
+    "条件"
+    entity: TicketLogPartial!
+  ): [TicketLog]!
 }
 
 type Mutation {

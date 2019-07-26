@@ -18,6 +18,23 @@ export class Controller<T> extends MagnusBase<T> {
         });
     }
 
+    /**
+	 * 通过制定条件获取一组数据
+	 * @param entity 条件
+	 */
+	@Query()
+	async find(entity: Partial<T>): Promise<T[]> {
+		const relations = Object.keys(this.selection).filter(
+			selec => !!this.relations.find(relation => relation.name === selec)
+		);
+		const res = await this.repository.find({
+			where: entity,
+			relations
+		});
+		return res;
+	}
+
+
     @Mutation()
     save(entity: T): Promise<T> {
         return this.repository.save(entity);
