@@ -3,9 +3,11 @@ import { Member } from "./member";
 
 @Entity()
 export class TixianLog {
+
+    static relations: string[] = ['member'];
+
     @PrimaryGeneratedColumn()
     id: number;
-
 
     /**
      * 提现人
@@ -13,6 +15,8 @@ export class TixianLog {
     @ManyToOne(() => Member, type => type.tixianLogs)
     member: Member;
 
+    @Column()
+    memberId: number;
 
     /**
      * 提现数量
@@ -29,7 +33,21 @@ export class TixianLog {
     /**
      * 提现时间
      */
-    @CreateDateColumn()
-    createDate: number;
+    @CreateDateColumn({
+        type: 'timestamptz',
+        transformer: {
+            to: (value: string): Date => {
+                let date = new Date();
+                if (value) {
+                    date = new Date(value);
+                }
+                return date;
+            },
+            from: (value: Date) => {
+                return value.toISOString();
+            }
+        }
+    })
+    createDate: string;
 
 }

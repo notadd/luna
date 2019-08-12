@@ -1,10 +1,38 @@
 {
   "query": [
     [
-      "hello",
+      "findMember",
       "AppResolver",
       "",
-      "hello",
+      "findMember",
+      [
+        {
+          "name": "where",
+          "type": "FindMemberInput!",
+          "index": 0,
+          "decorator": "Args"
+        }
+      ]
+    ],
+    [
+      "findRoomType",
+      "AppResolver",
+      "",
+      "findRoomType",
+      []
+    ],
+    [
+      "findRoom",
+      "AppResolver",
+      "",
+      "findRoom",
+      []
+    ],
+    [
+      "findAllTiXianLog",
+      "AppResolver",
+      "",
+      "findAllTiXianLog",
       []
     ]
   ]

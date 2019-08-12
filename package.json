@@ -18,8 +18,10 @@
     "@nestjs/graphql": "^6.4.2",
     "@nestjs/microservices": "^6.5.3",
     "@nestjs/platform-express": "^6.5.3",
-    "@notadd/magnus-core": "^2.3.11",
+    "@notadd/magnus-apollo": "^3.0.1",
+    "@notadd/magnus-core": "^3.0.1",
     "dotenv": "^8.0.0",
+    "nestjs-config": "^1.4.3",
     "pg": "^7.11.0",
     "rxjs": "^6.5.2",
     "typeorm": "^0.2.18"

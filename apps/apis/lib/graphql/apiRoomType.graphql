@@ -1,0 +1,9 @@
+query findRoomType($entity: RoomTypeInputWhere!,$order:RoomTypeInputOrder!){
+  findRoomType(entity: $entity,order:$order){
+    id,
+    title,
+    getRooms{
+      id
+    }
+  }
+}

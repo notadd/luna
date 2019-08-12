@@ -1,9 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToOne } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToOne, CreateDateColumn } from "typeorm";
 import { Room } from "./room";
 import { Member } from "./member";
 
 @Entity()
 export class GameLog {
+
+    static relations: string[] = ['room','member'];
 
     @PrimaryGeneratedColumn()
     id: number;
@@ -38,6 +40,32 @@ export class GameLog {
     @ManyToOne(() => Room, type => type.gameLogs)
     room: Room;
 
+    @Column()
+    roomId: number;
+
     @ManyToOne(() => Member, type => type.gameLogs)
     member: Member;
+
+    @Column()
+    memberId: number;
+    
+    /**
+     * 提现时间
+     */
+    @CreateDateColumn({
+        type: 'timestamptz',
+        transformer: {
+            to: (value: string): Date => {
+                let date = new Date();
+                if (value) {
+                    date = new Date(value);
+                }
+                return date;
+            },
+            from: (value: Date) => {
+                return value.toISOString();
+            }
+        }
+    })
+    createDate: string;
 }

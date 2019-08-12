@@ -1,0 +1,142 @@
+{
+  "Member": [
+    {
+      "name": "rooms",
+      "relation": "ManyToMany",
+      "entity": "Room"
+    },
+    {
+      "name": "getRooms",
+      "relation": "ResolveProperty",
+      "entity": "Promise"
+    },
+    {
+      "name": "createRooms",
+      "relation": "OneToMany",
+      "entity": "Room"
+    },
+    {
+      "name": "getCreateRooms",
+      "relation": "ResolveProperty",
+      "entity": "Promise"
+    },
+    {
+      "name": "tixianLogs",
+      "relation": "OneToMany",
+      "entity": "TixianLog"
+    },
+    {
+      "name": "getTixianLogs",
+      "relation": "ResolveProperty",
+      "entity": "Promise"
+    },
+    {
+      "name": "gameLogs",
+      "relation": "OneToMany",
+      "entity": "GameLog"
+    },
+    {
+      "name": "getGameLogs",
+      "relation": "ResolveProperty",
+      "entity": "Promise"
+    },
+    {
+      "name": "ticketLogs",
+      "relation": "OneToMany",
+      "entity": "TicketLog"
+    },
+    {
+      "name": "getTicketLogs",
+      "relation": "ResolveProperty",
+      "entity": "Promise"
+    }
+  ],
+  "Room": [
+    {
+      "name": "roomType",
+      "relation": "ManyToOne",
+      "entity": "RoomType"
+    },
+    {
+      "name": "owner",
+      "relation": "ManyToOne",
+      "entity": "Member"
+    },
+    {
+      "name": "members",
+      "relation": "ManyToMany",
+      "entity": "Member"
+    },
+    {
+      "name": "getMembers",
+      "relation": "ResolveProperty",
+      "entity": "Promise"
+    },
+    {
+      "name": "gameLogs",
+      "relation": "OneToMany",
+      "entity": "GameLog"
+    },
+    {
+      "name": "getGameLogs",
+      "relation": "ResolveProperty",
+      "entity": "Promise"
+    }
+  ],
+  "RoomType": [
+    {
+      "name": "rooms",
+      "relation": "OneToMany",
+      "entity": "Room"
+    },
+    {
+      "name": "getRooms",
+      "relation": "ResolveProperty",
+      "entity": "Promise"
+    }
+  ],
+  "TixianLog": [
+    {
+      "name": "member",
+      "relation": "ManyToOne",
+      "entity": "Member"
+    }
+  ],
+  "GameLog": [
+    {
+      "name": "room",
+      "relation": "ManyToOne",
+      "entity": "Room"
+    },
+    {
+      "name": "member",
+      "relation": "ManyToOne",
+      "entity": "Member"
+    }
+  ],
+  "TicketLog": [
+    {
+      "name": "ticket",
+      "relation": "ManyToOne",
+      "entity": "Ticket"
+    },
+    {
+      "name": "member",
+      "relation": "ManyToOne",
+      "entity": "Member"
+    }
+  ],
+  "Ticket": [
+    {
+      "name": "logs",
+      "relation": "OneToMany",
+      "entity": "TicketLog"
+    },
+    {
+      "name": "getTicketLogs",
+      "relation": "ResolveProperty",
+      "entity": "Promise"
+    }
+  ],
+  "Setting": []
+}

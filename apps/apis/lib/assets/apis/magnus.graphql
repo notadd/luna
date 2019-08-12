@@ -30,6 +30,67 @@ scalar Empty
 
 scalar Error
 
+scalar Json
+
+scalar Timestamp
+
+scalar Date
+
+type FindMemberData {
+  id: Int!
+  nickname: String!
+  avatar: String!
+  mobile: String!
+  fee: Int!
+  fee2: Int!
+  fee3: Int!
+  gameCount: Int!
+}
+
+type FindMemberResult {
+  code: Int!
+  message: String!
+  count: Int!
+  data: [FindMemberData]
+}
+
+input FindMemberInput {
+  page: Int
+  psize: Int
+}
+
+type FindRoomTypeData {
+  id: Int!
+  title: String!
+  roomCount: Int!
+}
+
+type FindRoomTypeResult {
+  code: Int!
+  message: String!
+  data: [FindRoomTypeData]
+}
+
+type FindRoomData {
+  id: Int!
+  status: Int!
+  memberName: [String]!
+  createUserName: String!
+}
+
+type FindRoomResult {
+  code: Int!
+  message: String!
+  data: [FindRoomData]
+}
+
 type Query {
-  hello: String!
+  "查询用户"
+  findMember(where: FindMemberInput!): FindMemberResult
+  "查询房间类型及所对应的房间个数"
+  findRoomType: FindRoomTypeResult
+  "查询房间"
+  findRoom: FindRoomResult
+  "查询提现记录，根据时间倒序"
+  findAllTiXianLog: Empty
 }
