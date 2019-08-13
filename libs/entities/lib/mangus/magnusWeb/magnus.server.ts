@@ -112,6 +112,8 @@ export interface RoomInput {
 	/*房间类型*/
 	roomType?: RoomTypeInput;
 	roomTypeId?: number;
+	/*房间状态 1正常*/
+	status?: number;
 	/*自动开启*/
 	autoStart?: boolean;
 	/*房主*/
@@ -183,6 +185,22 @@ export interface RoomInputWhere {
 	/**/
 	roomTypeId_Gte?: number;
 	roomTypeId?: number;
+	/*房间状态 1正常 不等于*/
+	status_Not?: number;
+	/*房间状态 1正常 在制定内，如[1,2]*/
+	status_In?: number[];
+	/*房间状态 1正常 不在制定内,如[1,2]*/
+	status_NotIn?: number[];
+	/*房间状态 1正常 小于*/
+	status_Lt?: number;
+	/*房间状态 1正常 小于等于*/
+	status_Lte?: number;
+	/*房间状态 1正常 大于*/
+	status_Gt?: number;
+	/*房间状态 1正常 大于等于*/
+	status_Gte?: number;
+	/*房间状态 1正常*/
+	status?: number;
 	/**/
 	ownerId_Not?: number;
 	/**/
@@ -242,6 +260,9 @@ export interface RoomInputOrder {
 排序可选值为ASC或者DESC*/
 	roomType?: string;
 	roomTypeId?: string;
+	/*房间状态 1正常
+排序可选值为ASC或者DESC*/
+	status?: string;
 	/*自动开启
 排序可选值为ASC或者DESC*/
 	autoStart?: string;
@@ -715,11 +736,14 @@ export interface Room {
 	/*房间类型*/
 	roomType?: RoomType;
 	roomTypeId?: number;
+	/*房间状态 1正常*/
+	status?: number;
 	/*自动开启*/
 	autoStart?: boolean;
 	/*房主*/
 	owner?: Member;
 	ownerId?: number;
+	getOwner(__selection?: string): Member;
 	/*加入房间的人*/
 	members?: Member[];
 	getMembers(where?: MemberInputWhere, order?: MemberInputOrder, limit?: PageLimitInput, __selection?: string): Member[];
@@ -734,6 +758,7 @@ export interface TixianLog {
 	/*提现人*/
 	member?: Member;
 	memberId?: number;
+	getMember(__selection?: string): Member;
 	/*提现数量*/
 	count?: number;
 	/*提现状态*/
@@ -1249,6 +1274,8 @@ export interface RoomPartial {
 	/*房间类型*/
 	roomType?: RoomTypeInput;
 	roomTypeId?: number;
+	/*房间状态 1正常*/
+	status?: number;
 	/*自动开启*/
 	autoStart?: boolean;
 	/*房主*/

@@ -1,6 +1,6 @@
 
 import { runner } from '@luna/entities';
-import { MemberInputWhere, MemberInputOrder, PageLimitInput, RoomTypeInputWhere, RoomTypeInputOrder } from '@luna/entities';
+import { MemberInputWhere, MemberInputOrder, PageLimitInput, RoomInputWhere, RoomInputOrder, RoomTypeInputWhere, RoomTypeInputOrder } from '@luna/entities';
 interface FindRoomTypeResult {
     	findRoomType: {
 	id: number;

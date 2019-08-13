@@ -1,0 +1,13 @@
+query findTiXianLog($entity:TixianLogInputWhere!,$order: TixianLogInputOrder!,$limit: PageLimitInput){
+  findTixianLog(entity: $entity,order: $order,limit: $limit){
+    id,
+    count,
+    status,
+    createDate,
+    getMember{
+      id,
+      nickname
+    }
+  }
+  countTixianLog
+}

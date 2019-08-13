@@ -1146,6 +1146,25 @@
           "kind": "FieldDefinition",
           "description": {
             "kind": "StringValue",
+            "value": "房间状态 1正常"
+          },
+          "name": {
+            "kind": "Name",
+            "value": "status"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
             "value": "自动开启"
           },
           "name": {
@@ -1870,6 +1889,170 @@
           "kind": "FieldDefinition",
           "description": {
             "kind": "StringValue",
+            "value": "房间状态 1正常 不等于"
+          },
+          "name": {
+            "kind": "Name",
+            "value": "status_Not"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": "房间状态 1正常 在制定内，如[1,2]"
+          },
+          "name": {
+            "kind": "Name",
+            "value": "status_In"
+          },
+          "type": {
+            "kind": "ListType",
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": {
+                  "kind": "Name",
+                  "value": "Int"
+                }
+              }
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": "房间状态 1正常 不在制定内,如[1,2]"
+          },
+          "name": {
+            "kind": "Name",
+            "value": "status_NotIn"
+          },
+          "type": {
+            "kind": "ListType",
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": {
+                  "kind": "Name",
+                  "value": "Int"
+                }
+              }
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": "房间状态 1正常 小于"
+          },
+          "name": {
+            "kind": "Name",
+            "value": "status_Lt"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": "房间状态 1正常 小于等于"
+          },
+          "name": {
+            "kind": "Name",
+            "value": "status_Lte"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": "房间状态 1正常 大于"
+          },
+          "name": {
+            "kind": "Name",
+            "value": "status_Gt"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": "房间状态 1正常 大于等于"
+          },
+          "name": {
+            "kind": "Name",
+            "value": "status_Gte"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": "房间状态 1正常"
+          },
+          "name": {
+            "kind": "Name",
+            "value": "status"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
             "value": ""
           },
           "name": {
@@ -2454,6 +2637,25 @@
           "name": {
             "kind": "Name",
             "value": "roomTypeId"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": "房间状态 1正常\n排序可选值为ASC或者DESC"
+          },
+          "name": {
+            "kind": "Name",
+            "value": "status"
           },
           "type": {
             "kind": "NamedType",
@@ -7146,6 +7348,25 @@
           "kind": "FieldDefinition",
           "description": {
             "kind": "StringValue",
+            "value": "房间状态 1正常"
+          },
+          "name": {
+            "kind": "Name",
+            "value": "status"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
             "value": "自动开启"
           },
           "name": {
@@ -7191,6 +7412,22 @@
             "name": {
               "kind": "Name",
               "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "getOwner"
+          },
+          "arguments": [],
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Member"
             }
           },
           "directives": []
@@ -7458,6 +7695,22 @@
             "name": {
               "kind": "Name",
               "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "getMember"
+          },
+          "arguments": [],
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Member"
             }
           },
           "directives": []
@@ -13015,6 +13268,25 @@
           "name": {
             "kind": "Name",
             "value": "roomTypeId"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": "房间状态 1正常"
+          },
+          "name": {
+            "kind": "Name",
+            "value": "status"
           },
           "type": {
             "kind": "NamedType",

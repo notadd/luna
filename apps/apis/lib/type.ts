@@ -1,3 +1,5 @@
+import { findTiXianLog } from "./graphql/apiTiXianLog";
+
 export interface FindMemberInput {
     page?: number;
     psize?: number;
@@ -7,7 +9,7 @@ export interface FindMemberResult {
     code: number;
     message: string;
     count: number;
-    data?: FindMemberData[];
+    data: FindMemberData[];
 }
 
 export interface FindMemberData {
@@ -27,7 +29,7 @@ export interface FindMemberData {
 export interface FindRoomTypeResult {
     code: number;
     message: string;
-    data?: FindRoomTypeData[];
+    data: FindRoomTypeData[];
 }
 export interface FindRoomTypeData {
     id: number;
@@ -35,10 +37,16 @@ export interface FindRoomTypeData {
     roomCount: number;
 }
 
+export interface FindRoomInput {
+    page: number;
+    psize: number;
+}
+
 export interface FindRoomResult {
     code: number;
     message: string;
-    data?: FindRoomData[];
+    count: number;
+    data: FindRoomData[];
 }
 
 export interface FindRoomData {
@@ -46,4 +54,24 @@ export interface FindRoomData {
     status: number;
     memberName: string[];
     createUserName: string;
+}
+
+export interface FindTiXianLogInput {
+    page: number;
+    psize: number;
+}
+
+export interface FindTiXianLogData {
+    id: number;
+    moneyCount: number;
+    nickname: string;
+    status: number;
+    createDate: string;
+}
+
+export interface FindTiXianLogResult {
+    code: number;
+    message: string;
+    count: number;
+    data: FindTiXianLogData[];
 }

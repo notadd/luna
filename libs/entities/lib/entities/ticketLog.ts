@@ -22,9 +22,6 @@ export class TicketLog {
     @Column()
     member_id: number;
 
-    /**
-     * 提现时间
-     */
     @CreateDateColumn({
         type: 'timestamptz',
         transformer: {

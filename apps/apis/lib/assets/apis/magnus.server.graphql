@@ -51,7 +51,7 @@ type FindMemberResult {
   code: Int!
   message: String!
   count: Int!
-  data: [FindMemberData]
+  data: [FindMemberData]!
 }
 
 input FindMemberInput {
@@ -68,7 +68,7 @@ type FindRoomTypeData {
 type FindRoomTypeResult {
   code: Int!
   message: String!
-  data: [FindRoomTypeData]
+  data: [FindRoomTypeData]!
 }
 
 type FindRoomData {
@@ -81,7 +81,33 @@ type FindRoomData {
 type FindRoomResult {
   code: Int!
   message: String!
-  data: [FindRoomData]
+  count: Int!
+  data: [FindRoomData]!
+}
+
+input FindRoomInput {
+  page: Int!
+  psize: Int!
+}
+
+type FindTiXianLogData {
+  id: Int!
+  moneyCount: Int!
+  nickname: String!
+  status: Int!
+  createDate: String!
+}
+
+type FindTiXianLogResult {
+  code: Int!
+  message: String!
+  count: Int!
+  data: [FindTiXianLogData]!
+}
+
+input FindTiXianLogInput {
+  page: Int!
+  psize: Int!
 }
 
 type Query {
@@ -90,7 +116,7 @@ type Query {
   "查询房间类型及所对应的房间个数"
   findRoomType: FindRoomTypeResult
   "查询房间"
-  findRoom: FindRoomResult
+  findRoom(where: FindRoomInput!): FindRoomResult
   "查询提现记录，根据时间倒序"
-  findAllTiXianLog: Empty
+  findAllTiXianLog(where: FindTiXianLogInput!): FindTiXianLogResult
 }

@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, ManyToOne, Column, CreateDateColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, ManyToOne, Column, CreateDateColumn, getRepository } from "typeorm";
 import { Member } from "./member";
+import { ResolveProperty } from '@notadd/magnus-core';
 
 @Entity()
 export class TixianLog {
@@ -18,6 +19,11 @@ export class TixianLog {
     @Column()
     memberId: number;
 
+    @ResolveProperty()
+    async getMember(): Promise<Member | undefined> {
+        return await getRepository(Member).findOne(this.memberId);
+    }
+
     /**
      * 提现数量
      */
@@ -34,6 +40,7 @@ export class TixianLog {
      * 提现时间
      */
     @CreateDateColumn({
+        name: 'create_data',
         type: 'timestamptz',
         transformer: {
             to: (value: string): Date => {

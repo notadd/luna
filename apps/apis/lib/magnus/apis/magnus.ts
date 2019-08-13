@@ -32,7 +32,7 @@ export interface FindMemberResult {
 	code: number;
 	message: string;
 	count: number;
-	data?: FindMemberData[];
+	data: FindMemberData[];
 }
 export interface FindMemberInput {
 	page?: number;
@@ -46,7 +46,7 @@ export interface FindRoomTypeData {
 export interface FindRoomTypeResult {
 	code: number;
 	message: string;
-	data?: FindRoomTypeData[];
+	data: FindRoomTypeData[];
 }
 export interface FindRoomData {
 	id: number;
@@ -57,7 +57,29 @@ export interface FindRoomData {
 export interface FindRoomResult {
 	code: number;
 	message: string;
-	data?: FindRoomData[];
+	count: number;
+	data: FindRoomData[];
+}
+export interface FindRoomInput {
+	page: number;
+	psize: number;
+}
+export interface FindTiXianLogData {
+	id: number;
+	moneyCount: number;
+	nickname: string;
+	status: number;
+	createDate: string;
+}
+export interface FindTiXianLogResult {
+	code: number;
+	message: string;
+	count: number;
+	data: FindTiXianLogData[];
+}
+export interface FindTiXianLogInput {
+	page: number;
+	psize: number;
 }
 export interface Query {
 	/*查询用户*/
@@ -65,7 +87,7 @@ export interface Query {
 	/*查询房间类型及所对应的房间个数*/
 	findRoomType<T>(__selection?: string): Promise<T & FindRoomTypeResult>;
 	/*查询房间*/
-	findRoom<T>(__selection?: string): Promise<T & FindRoomResult>;
+	findRoom<T>(where: FindRoomInput, __selection?: string): Promise<T & FindRoomResult>;
 	/*查询提现记录，根据时间倒序*/
-	findAllTiXianLog<T>(__selection?: string): Promise<T & Empty>;
+	findAllTiXianLog<T>(where: FindTiXianLogInput, __selection?: string): Promise<T & FindTiXianLogResult>;
 }

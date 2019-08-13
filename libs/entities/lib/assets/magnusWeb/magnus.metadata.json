@@ -32,6 +32,13 @@
   ],
   "Room": [
     [
+      "getOwner",
+      "Room",
+      "Room",
+      "getOwner",
+      []
+    ],
+    [
       "getMembers",
       "Room",
       "Room",
@@ -235,6 +242,15 @@
           "index": 3
         }
       ]
+    ]
+  ],
+  "TixianLog": [
+    [
+      "getMember",
+      "TixianLog",
+      "TixianLog",
+      "getMember",
+      []
     ]
   ],
   "Ticket": [

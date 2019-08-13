@@ -1,0 +1,17 @@
+query findRoom($entity:RoomInputWhere!,$order: RoomInputOrder!,$limit:PageLimitInput ){
+  findRoom(entity: $entity,order: $order,limit: $limit){
+    id,
+    ownerId,
+    status,
+    getOwner{
+      id,
+      nickname
+    }
+    getMembers{
+      id,
+      nickname
+    },
+    createDate
+  }
+  countRoom
+}

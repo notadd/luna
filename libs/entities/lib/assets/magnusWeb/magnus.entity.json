@@ -63,6 +63,11 @@
       "entity": "Member"
     },
     {
+      "name": "getOwner",
+      "relation": "ResolveProperty",
+      "entity": "Promise"
+    },
+    {
       "name": "members",
       "relation": "ManyToMany",
       "entity": "Member"
@@ -100,6 +105,11 @@
       "name": "member",
       "relation": "ManyToOne",
       "entity": "Member"
+    },
+    {
+      "name": "getMember",
+      "relation": "ResolveProperty",
+      "entity": "Promise"
     }
   ],
   "GameLog": [

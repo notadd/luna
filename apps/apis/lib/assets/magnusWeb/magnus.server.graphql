@@ -136,6 +136,8 @@ input RoomInput {
   "房间类型"
   roomType: RoomTypeInput
   roomTypeId: Int
+  "房间状态 1正常"
+  status: Int
   "自动开启"
   autoStart: Boolean
   "房主"
@@ -208,6 +210,22 @@ input RoomInputWhere {
   ""
   roomTypeId_Gte: Int
   roomTypeId: Int
+  "房间状态 1正常 不等于"
+  status_Not: Int
+  "房间状态 1正常 在制定内，如[1,2]"
+  status_In: [Int!]
+  "房间状态 1正常 不在制定内,如[1,2]"
+  status_NotIn: [Int!]
+  "房间状态 1正常 小于"
+  status_Lt: Int
+  "房间状态 1正常 小于等于"
+  status_Lte: Int
+  "房间状态 1正常 大于"
+  status_Gt: Int
+  "房间状态 1正常 大于等于"
+  status_Gte: Int
+  "房间状态 1正常"
+  status: Int
   ""
   ownerId_Not: Int
   ""
@@ -265,6 +283,8 @@ input RoomInputOrder {
   "房间类型\n排序可选值为ASC或者DESC"
   roomType: String
   roomTypeId: String
+  "房间状态 1正常\n排序可选值为ASC或者DESC"
+  status: String
   "自动开启\n排序可选值为ASC或者DESC"
   autoStart: String
   "房主\n排序可选值为ASC或者DESC"
@@ -725,11 +745,14 @@ type Room {
   "房间类型"
   roomType: RoomType
   roomTypeId: Int
+  "房间状态 1正常"
+  status: Int
   "自动开启"
   autoStart: Boolean
   "房主"
   owner: Member
   ownerId: Int
+  getOwner: Member
   "加入房间的人"
   members: [Member]
   getMembers(where: MemberInputWhere, order: MemberInputOrder, limit: PageLimitInput): [Member]
@@ -745,6 +768,7 @@ type TixianLog {
   "提现人"
   member: Member
   memberId: Int
+  getMember: Member
   "提现数量"
   count: Int
   "提现状态"
@@ -1266,6 +1290,8 @@ input RoomPartial {
   "房间类型"
   roomType: RoomTypeInput
   roomTypeId: Int
+  "房间状态 1正常"
+  status: Int
   "自动开启"
   autoStart: Boolean
   "房主"

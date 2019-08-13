@@ -1,6 +1,5 @@
 import { Resolver, Query, Args } from "@nestjs/graphql";
-import { FindAllTixianLogResult, FindAllTixianLogData } from "./magnus/type";
-import { FindMemberResult, FindRoomTypeResult, FindRoomResult, FindMemberInput } from "./type";
+import { FindMemberResult, FindMemberInput, FindRoomTypeResult, FindTiXianLogResult, FindRoomInput, FindRoomResult, FindTiXianLogInput } from "./type";
 import { AppService } from "./app.service";
 
 @Resolver()
@@ -27,29 +26,17 @@ export class AppResolver {
    * 查询房间
    */
   @Query()
-  findRoom(): Promise<FindRoomResult> {
-    return {} as any;
+  async findRoom(where: FindRoomInput): Promise<FindRoomResult> {
+    return await this.appService.findAllRoomAndCount(where);
   }
 
   /**
    * 查询提现记录，根据时间倒序
    */
   @Query()
-  findAllTiXianLog() {
-    return {} as any;
+  async findAllTiXianLog(@Args('where') where: FindTiXianLogInput): Promise<FindTiXianLogResult> {
+    return await this.appService.findAllTixianLogAndCount(where);
   }
 
 
-
-  // @Query()
-  // async findAllTixianLog(): Promise<FindAllTixianLogResult> {
-  //   const res = await this.magnus.query.findTixianLog<FindAllTixianLogData[]>(
-  //     {},
-  //     `{id, count, createDate, status, member{id, nikename}}`
-  //   );
-  //   return {
-  //     code: 200,
-  //     data: res
-  //   };
-  // }
 }

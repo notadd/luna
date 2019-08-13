@@ -26,14 +26,27 @@
       "AppResolver",
       "",
       "findRoom",
-      []
+      [
+        {
+          "name": "where",
+          "type": "FindRoomInput!",
+          "index": 0
+        }
+      ]
     ],
     [
       "findAllTiXianLog",
       "AppResolver",
       "",
       "findAllTiXianLog",
-      []
+      [
+        {
+          "name": "where",
+          "type": "FindTiXianLogInput!",
+          "index": 0,
+          "decorator": "Args"
+        }
+      ]
     ]
   ]
 }

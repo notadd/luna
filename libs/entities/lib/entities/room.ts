@@ -1,5 +1,5 @@
 import { RoomType } from "./roomType";
-import { Entity, Column, ManyToOne, OneToMany, ManyToMany, JoinTable, PrimaryGeneratedColumn, CreateDateColumn } from "typeorm";
+import { Entity, Column, ManyToOne, OneToMany, ManyToMany, JoinTable, PrimaryGeneratedColumn, CreateDateColumn, getRepository } from "typeorm";
 import { Member } from "./member";
 import { GameLog } from './gameLog';
 import { ResolveProperty, Order, Where, Selection } from '@notadd/magnus-core';
@@ -7,7 +7,7 @@ import { PageLimit, createBuilder, createManyBuilder } from "./type";
 @Entity()
 export class Room {
 
-    static relations: string[] = ['type','owner','members','gameLogs']
+    static relations: string[] = ['type', 'owner', 'members', 'gameLogs']
 
     /**
      * id
@@ -31,6 +31,11 @@ export class Room {
     roomTypeId: number;
 
     /**
+     * 房间状态 1正常
+     */
+    status: number;
+
+    /**
      * 自动开启
      */
     @Column()
@@ -39,12 +44,16 @@ export class Room {
     /**
      * 房主
      */
-    @ManyToOne(() => Member, type => type.createRooms,{})
+    @ManyToOne(() => Member, type => type.createRooms)
     owner: Member;
 
     @Column()
     ownerId: number;
 
+    @ResolveProperty()
+    async getOwner(): Promise<Member | undefined> {
+        return await getRepository(Member).findOne(this.ownerId);
+    }
     /**
      * 加入房间的人
      */
@@ -77,23 +86,24 @@ export class Room {
     gameLogs: GameLog[];
 
     @ResolveProperty()
-	async getGameLogs(
-		@Selection() selection: any,
-		where?: Where<GameLog>,
-		order?: Order<GameLog>,
-		limit?: PageLimit
-	): Promise<GameLog[]> {
-		const copyWhere: any = {
-			root_id: this.id,
-			...where
-		};
-		return createBuilder(copyWhere, selection, order, GameLog.relations, GameLog, limit);
+    async getGameLogs(
+        @Selection() selection: any,
+        where?: Where<GameLog>,
+        order?: Order<GameLog>,
+        limit?: PageLimit
+    ): Promise<GameLog[]> {
+        const copyWhere: any = {
+            root_id: this.id,
+            ...where
+        };
+        return createBuilder(copyWhere, selection, order, GameLog.relations, GameLog, limit);
     }
-    
+
     /**
      * 提现时间
      */
     @CreateDateColumn({
+        name: 'create_date',
         type: 'timestamptz',
         transformer: {
             to: (value: string): Date => {
