@@ -66,13 +66,13 @@ input GameLogInput {
   "注码"
   count: Int
   "开始时间"
-  startTime: Int
+  startTime: String
   "结束时间"
-  endTime: Int
+  endTime: String
   "房间"
   room: RoomInput
   roomId: Int
-  member: MemberInput
+  members: [MemberInput]
   memberId: Int
   "提现时间"
   createDate: String
@@ -92,7 +92,6 @@ input TicketLogInput {
   ticket_Id: Int
   member: MemberInput
   member_id: Int
-  "提现时间"
   createDate: String
 }
 
@@ -101,12 +100,16 @@ input MemberInput {
   id: Int
   "昵称"
   nickname: String
+  "密码"
+  password: String
   "头像"
   avatar: String
   "电话"
   mobile: String
   "微信id"
   openid: String
+  "状态 0禁用 1正常"
+  status: Int
   "余额"
   fee: Int
   "金币"
@@ -313,455 +316,6 @@ type RoomType {
   getRooms(where: RoomInputWhere, order: RoomInputOrder, limit: PageLimitInput): [Room]
 }
 
-input MemberInputWhere {
-  ""
-  id_Not: Int
-  ""
-  id_In: [Int!]
-  ""
-  id_NotIn: [Int!]
-  ""
-  id_Lt: Int
-  ""
-  id_Lte: Int
-  ""
-  id_Gt: Int
-  ""
-  id_Gte: Int
-  id: Int
-  "昵称 不等于"
-  nickname_Not: String
-  "昵称 在制定内，如[1,2]"
-  nickname_In: [String!]
-  "昵称 不在制定内,如[1,2]"
-  nickname_NotIn: [String!]
-  "昵称 小于"
-  nickname_Lt: String
-  "昵称 小于等于"
-  nickname_Lte: String
-  "昵称 大于"
-  nickname_Gt: String
-  "昵称 大于等于"
-  nickname_Gte: String
-  "昵称 包含"
-  nickname_Contains: String
-  "昵称 不包含"
-  nickname_NotContains: String
-  "昵称 开头等于"
-  nickname_StartsWith: String
-  "昵称 开头不等于"
-  nickname_NotStartsWith: String
-  "昵称 结尾等于"
-  nickname_EndsWith: String
-  "昵称 结尾不等于"
-  nickname_NotEndsWith: String
-  "昵称"
-  nickname: String
-  "头像 不等于"
-  avatar_Not: String
-  "头像 在制定内，如[1,2]"
-  avatar_In: [String!]
-  "头像 不在制定内,如[1,2]"
-  avatar_NotIn: [String!]
-  "头像 小于"
-  avatar_Lt: String
-  "头像 小于等于"
-  avatar_Lte: String
-  "头像 大于"
-  avatar_Gt: String
-  "头像 大于等于"
-  avatar_Gte: String
-  "头像 包含"
-  avatar_Contains: String
-  "头像 不包含"
-  avatar_NotContains: String
-  "头像 开头等于"
-  avatar_StartsWith: String
-  "头像 开头不等于"
-  avatar_NotStartsWith: String
-  "头像 结尾等于"
-  avatar_EndsWith: String
-  "头像 结尾不等于"
-  avatar_NotEndsWith: String
-  "头像"
-  avatar: String
-  "电话 不等于"
-  mobile_Not: String
-  "电话 在制定内，如[1,2]"
-  mobile_In: [String!]
-  "电话 不在制定内,如[1,2]"
-  mobile_NotIn: [String!]
-  "电话 小于"
-  mobile_Lt: String
-  "电话 小于等于"
-  mobile_Lte: String
-  "电话 大于"
-  mobile_Gt: String
-  "电话 大于等于"
-  mobile_Gte: String
-  "电话 包含"
-  mobile_Contains: String
-  "电话 不包含"
-  mobile_NotContains: String
-  "电话 开头等于"
-  mobile_StartsWith: String
-  "电话 开头不等于"
-  mobile_NotStartsWith: String
-  "电话 结尾等于"
-  mobile_EndsWith: String
-  "电话 结尾不等于"
-  mobile_NotEndsWith: String
-  "电话"
-  mobile: String
-  "微信id 不等于"
-  openid_Not: String
-  "微信id 在制定内，如[1,2]"
-  openid_In: [String!]
-  "微信id 不在制定内,如[1,2]"
-  openid_NotIn: [String!]
-  "微信id 小于"
-  openid_Lt: String
-  "微信id 小于等于"
-  openid_Lte: String
-  "微信id 大于"
-  openid_Gt: String
-  "微信id 大于等于"
-  openid_Gte: String
-  "微信id 包含"
-  openid_Contains: String
-  "微信id 不包含"
-  openid_NotContains: String
-  "微信id 开头等于"
-  openid_StartsWith: String
-  "微信id 开头不等于"
-  openid_NotStartsWith: String
-  "微信id 结尾等于"
-  openid_EndsWith: String
-  "微信id 结尾不等于"
-  openid_NotEndsWith: String
-  "微信id"
-  openid: String
-  "余额 不等于"
-  fee_Not: Int
-  "余额 在制定内，如[1,2]"
-  fee_In: [Int!]
-  "余额 不在制定内,如[1,2]"
-  fee_NotIn: [Int!]
-  "余额 小于"
-  fee_Lt: Int
-  "余额 小于等于"
-  fee_Lte: Int
-  "余额 大于"
-  fee_Gt: Int
-  "余额 大于等于"
-  fee_Gte: Int
-  "余额"
-  fee: Int
-  "金币 不等于"
-  fee2_Not: Int
-  "金币 在制定内，如[1,2]"
-  fee2_In: [Int!]
-  "金币 不在制定内,如[1,2]"
-  fee2_NotIn: [Int!]
-  "金币 小于"
-  fee2_Lt: Int
-  "金币 小于等于"
-  fee2_Lte: Int
-  "金币 大于"
-  fee2_Gt: Int
-  "金币 大于等于"
-  fee2_Gte: Int
-  "金币"
-  fee2: Int
-  "钻石 不等于"
-  fee3_Not: Int
-  "钻石 在制定内，如[1,2]"
-  fee3_In: [Int!]
-  "钻石 不在制定内,如[1,2]"
-  fee3_NotIn: [Int!]
-  "钻石 小于"
-  fee3_Lt: Int
-  "钻石 小于等于"
-  fee3_Lte: Int
-  "钻石 大于"
-  fee3_Gt: Int
-  "钻石 大于等于"
-  fee3_Gte: Int
-  "钻石"
-  fee3: Int
-  "提现时间 不等于"
-  createDate_Not: String
-  "提现时间 在制定内，如[1,2]"
-  createDate_In: [String!]
-  "提现时间 不在制定内,如[1,2]"
-  createDate_NotIn: [String!]
-  "提现时间 小于"
-  createDate_Lt: String
-  "提现时间 小于等于"
-  createDate_Lte: String
-  "提现时间 大于"
-  createDate_Gt: String
-  "提现时间 大于等于"
-  createDate_Gte: String
-  "提现时间 包含"
-  createDate_Contains: String
-  "提现时间 不包含"
-  createDate_NotContains: String
-  "提现时间 开头等于"
-  createDate_StartsWith: String
-  "提现时间 开头不等于"
-  createDate_NotStartsWith: String
-  "提现时间 结尾等于"
-  createDate_EndsWith: String
-  "提现时间 结尾不等于"
-  createDate_NotEndsWith: String
-  "提现时间"
-  createDate: String
-  AND: [MemberInputWhere!]
-  OR: [MemberInputWhere!]
-  NOT: [MemberInputWhere!]
-}
-
-input MemberInputOrder {
-  relations: String
-  id: String
-  "昵称\n排序可选值为ASC或者DESC"
-  nickname: String
-  "头像\n排序可选值为ASC或者DESC"
-  avatar: String
-  "电话\n排序可选值为ASC或者DESC"
-  mobile: String
-  "微信id\n排序可选值为ASC或者DESC"
-  openid: String
-  "余额\n排序可选值为ASC或者DESC"
-  fee: String
-  "金币\n排序可选值为ASC或者DESC"
-  fee2: String
-  "钻石\n排序可选值为ASC或者DESC"
-  fee3: String
-  "用户加入的房间\n排序可选值为ASC或者DESC"
-  rooms: String
-  "用户创建的房间\n排序可选值为ASC或者DESC"
-  createRooms: String
-  "提现记录\n排序可选值为ASC或者DESC"
-  tixianLogs: String
-  "游戏记录\n排序可选值为ASC或者DESC"
-  gameLogs: String
-  "用户领取的劵\n排序可选值为ASC或者DESC"
-  ticketLogs: String
-  "提现时间\n排序可选值为ASC或者DESC"
-  createDate: String
-}
-
-type GameLog {
-  relations: [String]
-  id: Int
-  "输赢"
-  status: Int
-  "注码"
-  count: Int
-  "开始时间"
-  startTime: Int
-  "结束时间"
-  endTime: Int
-  "房间"
-  room: Room
-  roomId: Int
-  member: Member
-  memberId: Int
-  "提现时间"
-  createDate: String
-}
-
-input GameLogInputWhere {
-  ""
-  id_Not: Int
-  ""
-  id_In: [Int!]
-  ""
-  id_NotIn: [Int!]
-  ""
-  id_Lt: Int
-  ""
-  id_Lte: Int
-  ""
-  id_Gt: Int
-  ""
-  id_Gte: Int
-  id: Int
-  "输赢 不等于"
-  status_Not: Int
-  "输赢 在制定内，如[1,2]"
-  status_In: [Int!]
-  "输赢 不在制定内,如[1,2]"
-  status_NotIn: [Int!]
-  "输赢 小于"
-  status_Lt: Int
-  "输赢 小于等于"
-  status_Lte: Int
-  "输赢 大于"
-  status_Gt: Int
-  "输赢 大于等于"
-  status_Gte: Int
-  "输赢"
-  status: Int
-  "注码 不等于"
-  count_Not: Int
-  "注码 在制定内，如[1,2]"
-  count_In: [Int!]
-  "注码 不在制定内,如[1,2]"
-  count_NotIn: [Int!]
-  "注码 小于"
-  count_Lt: Int
-  "注码 小于等于"
-  count_Lte: Int
-  "注码 大于"
-  count_Gt: Int
-  "注码 大于等于"
-  count_Gte: Int
-  "注码"
-  count: Int
-  "开始时间 不等于"
-  startTime_Not: Int
-  "开始时间 在制定内，如[1,2]"
-  startTime_In: [Int!]
-  "开始时间 不在制定内,如[1,2]"
-  startTime_NotIn: [Int!]
-  "开始时间 小于"
-  startTime_Lt: Int
-  "开始时间 小于等于"
-  startTime_Lte: Int
-  "开始时间 大于"
-  startTime_Gt: Int
-  "开始时间 大于等于"
-  startTime_Gte: Int
-  "开始时间"
-  startTime: Int
-  "结束时间 不等于"
-  endTime_Not: Int
-  "结束时间 在制定内，如[1,2]"
-  endTime_In: [Int!]
-  "结束时间 不在制定内,如[1,2]"
-  endTime_NotIn: [Int!]
-  "结束时间 小于"
-  endTime_Lt: Int
-  "结束时间 小于等于"
-  endTime_Lte: Int
-  "结束时间 大于"
-  endTime_Gt: Int
-  "结束时间 大于等于"
-  endTime_Gte: Int
-  "结束时间"
-  endTime: Int
-  ""
-  roomId_Not: Int
-  ""
-  roomId_In: [Int!]
-  ""
-  roomId_NotIn: [Int!]
-  ""
-  roomId_Lt: Int
-  ""
-  roomId_Lte: Int
-  ""
-  roomId_Gt: Int
-  ""
-  roomId_Gte: Int
-  roomId: Int
-  ""
-  memberId_Not: Int
-  ""
-  memberId_In: [Int!]
-  ""
-  memberId_NotIn: [Int!]
-  ""
-  memberId_Lt: Int
-  ""
-  memberId_Lte: Int
-  ""
-  memberId_Gt: Int
-  ""
-  memberId_Gte: Int
-  memberId: Int
-  "提现时间 不等于"
-  createDate_Not: String
-  "提现时间 在制定内，如[1,2]"
-  createDate_In: [String!]
-  "提现时间 不在制定内,如[1,2]"
-  createDate_NotIn: [String!]
-  "提现时间 小于"
-  createDate_Lt: String
-  "提现时间 小于等于"
-  createDate_Lte: String
-  "提现时间 大于"
-  createDate_Gt: String
-  "提现时间 大于等于"
-  createDate_Gte: String
-  "提现时间 包含"
-  createDate_Contains: String
-  "提现时间 不包含"
-  createDate_NotContains: String
-  "提现时间 开头等于"
-  createDate_StartsWith: String
-  "提现时间 开头不等于"
-  createDate_NotStartsWith: String
-  "提现时间 结尾等于"
-  createDate_EndsWith: String
-  "提现时间 结尾不等于"
-  createDate_NotEndsWith: String
-  "提现时间"
-  createDate: String
-  AND: [GameLogInputWhere!]
-  OR: [GameLogInputWhere!]
-  NOT: [GameLogInputWhere!]
-}
-
-input GameLogInputOrder {
-  relations: String
-  id: String
-  "输赢\n排序可选值为ASC或者DESC"
-  status: String
-  "注码\n排序可选值为ASC或者DESC"
-  count: String
-  "开始时间\n排序可选值为ASC或者DESC"
-  startTime: String
-  "结束时间\n排序可选值为ASC或者DESC"
-  endTime: String
-  "房间\n排序可选值为ASC或者DESC"
-  room: String
-  roomId: String
-  member: String
-  memberId: String
-  "提现时间\n排序可选值为ASC或者DESC"
-  createDate: String
-}
-
-type Room {
-  relations: [String]
-  "id"
-  id: Int
-  "房间密码"
-  password: String
-  "房间类型"
-  roomType: RoomType
-  roomTypeId: Int
-  "房间状态 1正常"
-  status: Int
-  "自动开启"
-  autoStart: Boolean
-  "房主"
-  owner: Member
-  ownerId: Int
-  getOwner: Member
-  "加入房间的人"
-  members: [Member]
-  getMembers(where: MemberInputWhere, order: MemberInputOrder, limit: PageLimitInput): [Member]
-  gameLogs: [GameLog]
-  getGameLogs(where: GameLogInputWhere, order: GameLogInputOrder, limit: PageLimitInput): [GameLog]
-  "提现时间"
-  createDate: String
-}
-
 type TixianLog {
   relations: [String]
   id: Int
@@ -887,6 +441,502 @@ input TixianLogInputOrder {
   createDate: String
 }
 
+input MemberInputWhere {
+  ""
+  id_Not: Int
+  ""
+  id_In: [Int!]
+  ""
+  id_NotIn: [Int!]
+  ""
+  id_Lt: Int
+  ""
+  id_Lte: Int
+  ""
+  id_Gt: Int
+  ""
+  id_Gte: Int
+  id: Int
+  "昵称 不等于"
+  nickname_Not: String
+  "昵称 在制定内，如[1,2]"
+  nickname_In: [String!]
+  "昵称 不在制定内,如[1,2]"
+  nickname_NotIn: [String!]
+  "昵称 小于"
+  nickname_Lt: String
+  "昵称 小于等于"
+  nickname_Lte: String
+  "昵称 大于"
+  nickname_Gt: String
+  "昵称 大于等于"
+  nickname_Gte: String
+  "昵称 包含"
+  nickname_Contains: String
+  "昵称 不包含"
+  nickname_NotContains: String
+  "昵称 开头等于"
+  nickname_StartsWith: String
+  "昵称 开头不等于"
+  nickname_NotStartsWith: String
+  "昵称 结尾等于"
+  nickname_EndsWith: String
+  "昵称 结尾不等于"
+  nickname_NotEndsWith: String
+  "昵称"
+  nickname: String
+  "密码 不等于"
+  password_Not: String
+  "密码 在制定内，如[1,2]"
+  password_In: [String!]
+  "密码 不在制定内,如[1,2]"
+  password_NotIn: [String!]
+  "密码 小于"
+  password_Lt: String
+  "密码 小于等于"
+  password_Lte: String
+  "密码 大于"
+  password_Gt: String
+  "密码 大于等于"
+  password_Gte: String
+  "密码 包含"
+  password_Contains: String
+  "密码 不包含"
+  password_NotContains: String
+  "密码 开头等于"
+  password_StartsWith: String
+  "密码 开头不等于"
+  password_NotStartsWith: String
+  "密码 结尾等于"
+  password_EndsWith: String
+  "密码 结尾不等于"
+  password_NotEndsWith: String
+  "密码"
+  password: String
+  "头像 不等于"
+  avatar_Not: String
+  "头像 在制定内，如[1,2]"
+  avatar_In: [String!]
+  "头像 不在制定内,如[1,2]"
+  avatar_NotIn: [String!]
+  "头像 小于"
+  avatar_Lt: String
+  "头像 小于等于"
+  avatar_Lte: String
+  "头像 大于"
+  avatar_Gt: String
+  "头像 大于等于"
+  avatar_Gte: String
+  "头像 包含"
+  avatar_Contains: String
+  "头像 不包含"
+  avatar_NotContains: String
+  "头像 开头等于"
+  avatar_StartsWith: String
+  "头像 开头不等于"
+  avatar_NotStartsWith: String
+  "头像 结尾等于"
+  avatar_EndsWith: String
+  "头像 结尾不等于"
+  avatar_NotEndsWith: String
+  "头像"
+  avatar: String
+  "电话 不等于"
+  mobile_Not: String
+  "电话 在制定内，如[1,2]"
+  mobile_In: [String!]
+  "电话 不在制定内,如[1,2]"
+  mobile_NotIn: [String!]
+  "电话 小于"
+  mobile_Lt: String
+  "电话 小于等于"
+  mobile_Lte: String
+  "电话 大于"
+  mobile_Gt: String
+  "电话 大于等于"
+  mobile_Gte: String
+  "电话 包含"
+  mobile_Contains: String
+  "电话 不包含"
+  mobile_NotContains: String
+  "电话 开头等于"
+  mobile_StartsWith: String
+  "电话 开头不等于"
+  mobile_NotStartsWith: String
+  "电话 结尾等于"
+  mobile_EndsWith: String
+  "电话 结尾不等于"
+  mobile_NotEndsWith: String
+  "电话"
+  mobile: String
+  "微信id 不等于"
+  openid_Not: String
+  "微信id 在制定内，如[1,2]"
+  openid_In: [String!]
+  "微信id 不在制定内,如[1,2]"
+  openid_NotIn: [String!]
+  "微信id 小于"
+  openid_Lt: String
+  "微信id 小于等于"
+  openid_Lte: String
+  "微信id 大于"
+  openid_Gt: String
+  "微信id 大于等于"
+  openid_Gte: String
+  "微信id 包含"
+  openid_Contains: String
+  "微信id 不包含"
+  openid_NotContains: String
+  "微信id 开头等于"
+  openid_StartsWith: String
+  "微信id 开头不等于"
+  openid_NotStartsWith: String
+  "微信id 结尾等于"
+  openid_EndsWith: String
+  "微信id 结尾不等于"
+  openid_NotEndsWith: String
+  "微信id"
+  openid: String
+  "状态 0禁用 1正常 不等于"
+  status_Not: Int
+  "状态 0禁用 1正常 在制定内，如[1,2]"
+  status_In: [Int!]
+  "状态 0禁用 1正常 不在制定内,如[1,2]"
+  status_NotIn: [Int!]
+  "状态 0禁用 1正常 小于"
+  status_Lt: Int
+  "状态 0禁用 1正常 小于等于"
+  status_Lte: Int
+  "状态 0禁用 1正常 大于"
+  status_Gt: Int
+  "状态 0禁用 1正常 大于等于"
+  status_Gte: Int
+  "状态 0禁用 1正常"
+  status: Int
+  "余额 不等于"
+  fee_Not: Int
+  "余额 在制定内，如[1,2]"
+  fee_In: [Int!]
+  "余额 不在制定内,如[1,2]"
+  fee_NotIn: [Int!]
+  "余额 小于"
+  fee_Lt: Int
+  "余额 小于等于"
+  fee_Lte: Int
+  "余额 大于"
+  fee_Gt: Int
+  "余额 大于等于"
+  fee_Gte: Int
+  "余额"
+  fee: Int
+  "金币 不等于"
+  fee2_Not: Int
+  "金币 在制定内，如[1,2]"
+  fee2_In: [Int!]
+  "金币 不在制定内,如[1,2]"
+  fee2_NotIn: [Int!]
+  "金币 小于"
+  fee2_Lt: Int
+  "金币 小于等于"
+  fee2_Lte: Int
+  "金币 大于"
+  fee2_Gt: Int
+  "金币 大于等于"
+  fee2_Gte: Int
+  "金币"
+  fee2: Int
+  "钻石 不等于"
+  fee3_Not: Int
+  "钻石 在制定内，如[1,2]"
+  fee3_In: [Int!]
+  "钻石 不在制定内,如[1,2]"
+  fee3_NotIn: [Int!]
+  "钻石 小于"
+  fee3_Lt: Int
+  "钻石 小于等于"
+  fee3_Lte: Int
+  "钻石 大于"
+  fee3_Gt: Int
+  "钻石 大于等于"
+  fee3_Gte: Int
+  "钻石"
+  fee3: Int
+  "提现时间 不等于"
+  createDate_Not: String
+  "提现时间 在制定内，如[1,2]"
+  createDate_In: [String!]
+  "提现时间 不在制定内,如[1,2]"
+  createDate_NotIn: [String!]
+  "提现时间 小于"
+  createDate_Lt: String
+  "提现时间 小于等于"
+  createDate_Lte: String
+  "提现时间 大于"
+  createDate_Gt: String
+  "提现时间 大于等于"
+  createDate_Gte: String
+  "提现时间 包含"
+  createDate_Contains: String
+  "提现时间 不包含"
+  createDate_NotContains: String
+  "提现时间 开头等于"
+  createDate_StartsWith: String
+  "提现时间 开头不等于"
+  createDate_NotStartsWith: String
+  "提现时间 结尾等于"
+  createDate_EndsWith: String
+  "提现时间 结尾不等于"
+  createDate_NotEndsWith: String
+  "提现时间"
+  createDate: String
+  AND: [MemberInputWhere!]
+  OR: [MemberInputWhere!]
+  NOT: [MemberInputWhere!]
+}
+
+input MemberInputOrder {
+  relations: String
+  id: String
+  "昵称\n排序可选值为ASC或者DESC"
+  nickname: String
+  "密码\n排序可选值为ASC或者DESC"
+  password: String
+  "头像\n排序可选值为ASC或者DESC"
+  avatar: String
+  "电话\n排序可选值为ASC或者DESC"
+  mobile: String
+  "微信id\n排序可选值为ASC或者DESC"
+  openid: String
+  "状态 0禁用 1正常\n排序可选值为ASC或者DESC"
+  status: String
+  "余额\n排序可选值为ASC或者DESC"
+  fee: String
+  "金币\n排序可选值为ASC或者DESC"
+  fee2: String
+  "钻石\n排序可选值为ASC或者DESC"
+  fee3: String
+  "用户加入的房间\n排序可选值为ASC或者DESC"
+  rooms: String
+  "用户创建的房间\n排序可选值为ASC或者DESC"
+  createRooms: String
+  "提现记录\n排序可选值为ASC或者DESC"
+  tixianLogs: String
+  "游戏记录\n排序可选值为ASC或者DESC"
+  gameLogs: String
+  "用户领取的劵\n排序可选值为ASC或者DESC"
+  ticketLogs: String
+  "提现时间\n排序可选值为ASC或者DESC"
+  createDate: String
+}
+
+type GameLog {
+  relations: [String]
+  id: Int
+  "输赢"
+  status: Int
+  "注码"
+  count: Int
+  "开始时间"
+  startTime: String
+  "结束时间"
+  endTime: String
+  "房间"
+  room: Room
+  roomId: Int
+  members: [Member]
+  getMembers(where: MemberInputWhere, order: MemberInputOrder, limit: PageLimitInput): [Member]
+  memberId: Int
+  "提现时间"
+  createDate: String
+}
+
+input GameLogInputWhere {
+  ""
+  id_Not: Int
+  ""
+  id_In: [Int!]
+  ""
+  id_NotIn: [Int!]
+  ""
+  id_Lt: Int
+  ""
+  id_Lte: Int
+  ""
+  id_Gt: Int
+  ""
+  id_Gte: Int
+  id: Int
+  "输赢 不等于"
+  status_Not: Int
+  "输赢 在制定内，如[1,2]"
+  status_In: [Int!]
+  "输赢 不在制定内,如[1,2]"
+  status_NotIn: [Int!]
+  "输赢 小于"
+  status_Lt: Int
+  "输赢 小于等于"
+  status_Lte: Int
+  "输赢 大于"
+  status_Gt: Int
+  "输赢 大于等于"
+  status_Gte: Int
+  "输赢"
+  status: Int
+  "注码 不等于"
+  count_Not: Int
+  "注码 在制定内，如[1,2]"
+  count_In: [Int!]
+  "注码 不在制定内,如[1,2]"
+  count_NotIn: [Int!]
+  "注码 小于"
+  count_Lt: Int
+  "注码 小于等于"
+  count_Lte: Int
+  "注码 大于"
+  count_Gt: Int
+  "注码 大于等于"
+  count_Gte: Int
+  "注码"
+  count: Int
+  "开始时间 不等于"
+  startTime_Not: String
+  "开始时间 在制定内，如[1,2]"
+  startTime_In: [String!]
+  "开始时间 不在制定内,如[1,2]"
+  startTime_NotIn: [String!]
+  "开始时间 小于"
+  startTime_Lt: String
+  "开始时间 小于等于"
+  startTime_Lte: String
+  "开始时间 大于"
+  startTime_Gt: String
+  "开始时间 大于等于"
+  startTime_Gte: String
+  "开始时间 包含"
+  startTime_Contains: String
+  "开始时间 不包含"
+  startTime_NotContains: String
+  "开始时间 开头等于"
+  startTime_StartsWith: String
+  "开始时间 开头不等于"
+  startTime_NotStartsWith: String
+  "开始时间 结尾等于"
+  startTime_EndsWith: String
+  "开始时间 结尾不等于"
+  startTime_NotEndsWith: String
+  "开始时间"
+  startTime: String
+  "结束时间 不等于"
+  endTime_Not: String
+  "结束时间 在制定内，如[1,2]"
+  endTime_In: [String!]
+  "结束时间 不在制定内,如[1,2]"
+  endTime_NotIn: [String!]
+  "结束时间 小于"
+  endTime_Lt: String
+  "结束时间 小于等于"
+  endTime_Lte: String
+  "结束时间 大于"
+  endTime_Gt: String
+  "结束时间 大于等于"
+  endTime_Gte: String
+  "结束时间 包含"
+  endTime_Contains: String
+  "结束时间 不包含"
+  endTime_NotContains: String
+  "结束时间 开头等于"
+  endTime_StartsWith: String
+  "结束时间 开头不等于"
+  endTime_NotStartsWith: String
+  "结束时间 结尾等于"
+  endTime_EndsWith: String
+  "结束时间 结尾不等于"
+  endTime_NotEndsWith: String
+  "结束时间"
+  endTime: String
+  ""
+  roomId_Not: Int
+  ""
+  roomId_In: [Int!]
+  ""
+  roomId_NotIn: [Int!]
+  ""
+  roomId_Lt: Int
+  ""
+  roomId_Lte: Int
+  ""
+  roomId_Gt: Int
+  ""
+  roomId_Gte: Int
+  roomId: Int
+  ""
+  memberId_Not: Int
+  ""
+  memberId_In: [Int!]
+  ""
+  memberId_NotIn: [Int!]
+  ""
+  memberId_Lt: Int
+  ""
+  memberId_Lte: Int
+  ""
+  memberId_Gt: Int
+  ""
+  memberId_Gte: Int
+  memberId: Int
+  "提现时间 不等于"
+  createDate_Not: String
+  "提现时间 在制定内，如[1,2]"
+  createDate_In: [String!]
+  "提现时间 不在制定内,如[1,2]"
+  createDate_NotIn: [String!]
+  "提现时间 小于"
+  createDate_Lt: String
+  "提现时间 小于等于"
+  createDate_Lte: String
+  "提现时间 大于"
+  createDate_Gt: String
+  "提现时间 大于等于"
+  createDate_Gte: String
+  "提现时间 包含"
+  createDate_Contains: String
+  "提现时间 不包含"
+  createDate_NotContains: String
+  "提现时间 开头等于"
+  createDate_StartsWith: String
+  "提现时间 开头不等于"
+  createDate_NotStartsWith: String
+  "提现时间 结尾等于"
+  createDate_EndsWith: String
+  "提现时间 结尾不等于"
+  createDate_NotEndsWith: String
+  "提现时间"
+  createDate: String
+  AND: [GameLogInputWhere!]
+  OR: [GameLogInputWhere!]
+  NOT: [GameLogInputWhere!]
+}
+
+input GameLogInputOrder {
+  relations: String
+  id: String
+  "输赢\n排序可选值为ASC或者DESC"
+  status: String
+  "注码\n排序可选值为ASC或者DESC"
+  count: String
+  "开始时间\n排序可选值为ASC或者DESC"
+  startTime: String
+  "结束时间\n排序可选值为ASC或者DESC"
+  endTime: String
+  "房间\n排序可选值为ASC或者DESC"
+  room: String
+  roomId: String
+  members: String
+  memberId: String
+  "提现时间\n排序可选值为ASC或者DESC"
+  createDate: String
+}
+
 input TicketLogInputWhere {
   ""
   id_Not: Int
@@ -933,33 +983,32 @@ input TicketLogInputWhere {
   ""
   member_id_Gte: Int
   member_id: Int
-  "提现时间 不等于"
+  ""
   createDate_Not: String
-  "提现时间 在制定内，如[1,2]"
+  ""
   createDate_In: [String!]
-  "提现时间 不在制定内,如[1,2]"
+  ""
   createDate_NotIn: [String!]
-  "提现时间 小于"
+  ""
   createDate_Lt: String
-  "提现时间 小于等于"
+  ""
   createDate_Lte: String
-  "提现时间 大于"
+  ""
   createDate_Gt: String
-  "提现时间 大于等于"
+  ""
   createDate_Gte: String
-  "提现时间 包含"
+  ""
   createDate_Contains: String
-  "提现时间 不包含"
+  ""
   createDate_NotContains: String
-  "提现时间 开头等于"
+  ""
   createDate_StartsWith: String
-  "提现时间 开头不等于"
+  ""
   createDate_NotStartsWith: String
-  "提现时间 结尾等于"
+  ""
   createDate_EndsWith: String
-  "提现时间 结尾不等于"
+  ""
   createDate_NotEndsWith: String
-  "提现时间"
   createDate: String
   AND: [TicketLogInputWhere!]
   OR: [TicketLogInputWhere!]
@@ -973,7 +1022,6 @@ input TicketLogInputOrder {
   ticket_Id: String
   member: String
   member_id: String
-  "提现时间\n排序可选值为ASC或者DESC"
   createDate: String
 }
 
@@ -992,7 +1040,6 @@ type TicketLog {
   ticket_Id: Int
   member: Member
   member_id: Int
-  "提现时间"
   createDate: String
 }
 
@@ -1001,12 +1048,16 @@ type Member {
   id: Int
   "昵称"
   nickname: String
+  "密码"
+  password: String
   "头像"
   avatar: String
   "电话"
   mobile: String
   "微信id"
   openid: String
+  "状态 0禁用 1正常"
+  status: Int
   "余额"
   fee: Int
   "金币"
@@ -1024,10 +1075,36 @@ type Member {
   getTixianLogs(where: TixianLogInputWhere, order: TixianLogInputOrder, limit: PageLimitInput): [TixianLog]
   "游戏记录"
   gameLogs: [GameLog]
-  getGameLogs(where: GameLogInputWhere, order: GameLogInputOrder, limit: PageLimitInput): [GameLog]
+  getGameLogs(where: GameLogInputWhere, order: GameLogInputOrder, limit: PageLimitInput): [Member]
   "用户领取的劵"
   ticketLogs: [TicketLog]
   getTicketLogs(where: TicketLogInputWhere, order: TicketLogInputOrder, limit: PageLimitInput): [TicketLog]
+  "提现时间"
+  createDate: String
+}
+
+type Room {
+  relations: [String]
+  "id"
+  id: Int
+  "房间密码"
+  password: String
+  "房间类型"
+  roomType: RoomType
+  roomTypeId: Int
+  "房间状态 1正常"
+  status: Int
+  "自动开启"
+  autoStart: Boolean
+  "房主"
+  owner: Member
+  ownerId: Int
+  getOwner: Member
+  "加入房间的人"
+  members: [Member]
+  getMembers(where: MemberInputWhere, order: MemberInputOrder, limit: PageLimitInput): [Member]
+  gameLogs: [GameLog]
+  getGameLogs(where: GameLogInputWhere, order: GameLogInputOrder, limit: PageLimitInput): [GameLog]
   "提现时间"
   createDate: String
 }
@@ -1255,12 +1332,16 @@ input MemberPartial {
   id: Int
   "昵称"
   nickname: String
+  "密码"
+  password: String
   "头像"
   avatar: String
   "电话"
   mobile: String
   "微信id"
   openid: String
+  "状态 0禁用 1正常"
+  status: Int
   "余额"
   fee: Int
   "金币"
@@ -1343,13 +1424,13 @@ input GameLogPartial {
   "注码"
   count: Int
   "开始时间"
-  startTime: Int
+  startTime: String
   "结束时间"
-  endTime: Int
+  endTime: String
   "房间"
   room: RoomInput
   roomId: Int
-  member: MemberInput
+  members: [MemberInput]
   memberId: Int
   "提现时间"
   createDate: String
@@ -1369,291 +1450,314 @@ input TicketLogPartial {
   ticket_Id: Int
   member: MemberInput
   member_id: Int
-  "提现时间"
   createDate: String
 }
 
 type Query {
   "通过指定条件获取一条数据"
-  getMember(
+  memberGet(
     "条件"
     entity: MemberInputWhere!
   ): Member
   "通过指定条件获取一条数据"
-  getRoom(
+  roomGet(
     "条件"
     entity: RoomInputWhere!
   ): Room
   "通过指定条件获取一条数据"
-  getRoomType(
+  roomTypeGet(
     "条件"
     entity: RoomTypeInputWhere!
   ): RoomType
   "通过指定条件获取一条数据"
-  getSetting(
+  settingGet(
     "条件"
     entity: SettingInputWhere!
   ): Setting
   "通过指定条件获取一条数据"
-  getTixianLog(
+  tixianLogGet(
     "条件"
     entity: TixianLogInputWhere!
   ): TixianLog
   "通过指定条件获取一条数据"
-  getGameLog(
+  gameLogGet(
     "条件"
     entity: GameLogInputWhere!
   ): GameLog
   "通过指定条件获取一条数据"
-  getTicket(
+  ticketGet(
     "条件"
     entity: TicketInputWhere!
   ): Ticket
   "通过指定条件获取一条数据"
-  getTicketLog(
+  ticketLogGet(
     "条件"
     entity: TicketLogInputWhere!
   ): TicketLog
   "通过制定条件获取一组数据"
-  findMember(
+  memberFind(
     "条件"
     entity: MemberInputWhere!
     order: MemberInputOrder!
     limit: PageLimitInput
   ): [Member]
   "通过制定条件获取一组数据"
-  findRoom(
+  roomFind(
     "条件"
     entity: RoomInputWhere!
     order: RoomInputOrder!
     limit: PageLimitInput
   ): [Room]
   "通过制定条件获取一组数据"
-  findRoomType(
+  roomTypeFind(
     "条件"
     entity: RoomTypeInputWhere!
     order: RoomTypeInputOrder!
     limit: PageLimitInput
   ): [RoomType]
   "通过制定条件获取一组数据"
-  findSetting(
+  settingFind(
     "条件"
     entity: SettingInputWhere!
     order: SettingInputOrder!
     limit: PageLimitInput
   ): [Setting]
   "通过制定条件获取一组数据"
-  findTixianLog(
+  tixianLogFind(
     "条件"
     entity: TixianLogInputWhere!
     order: TixianLogInputOrder!
     limit: PageLimitInput
   ): [TixianLog]
   "通过制定条件获取一组数据"
-  findGameLog(
+  gameLogFind(
     "条件"
     entity: GameLogInputWhere!
     order: GameLogInputOrder!
     limit: PageLimitInput
   ): [GameLog]
   "通过制定条件获取一组数据"
-  findTicket(
+  ticketFind(
     "条件"
     entity: TicketInputWhere!
     order: TicketInputOrder!
     limit: PageLimitInput
   ): [Ticket]
   "通过制定条件获取一组数据"
-  findTicketLog(
+  ticketLogFind(
     "条件"
     entity: TicketLogInputWhere!
     order: TicketLogInputOrder!
     limit: PageLimitInput
   ): [TicketLog]
   "通过制定条件获取一组数据"
-  countMember: Int
+  memberCount(
+    "条件"
+    where: MemberInputWhere!
+  ): Int
   "通过制定条件获取一组数据"
-  countRoom: Int
+  roomCount(
+    "条件"
+    where: RoomInputWhere!
+  ): Int
   "通过制定条件获取一组数据"
-  countRoomType: Int
+  roomTypeCount(
+    "条件"
+    where: RoomTypeInputWhere!
+  ): Int
   "通过制定条件获取一组数据"
-  countSetting: Int
+  settingCount(
+    "条件"
+    where: SettingInputWhere!
+  ): Int
   "通过制定条件获取一组数据"
-  countTixianLog: Int
+  tixianLogCount(
+    "条件"
+    where: TixianLogInputWhere!
+  ): Int
   "通过制定条件获取一组数据"
-  countGameLog: Int
+  gameLogCount(
+    "条件"
+    where: GameLogInputWhere!
+  ): Int
   "通过制定条件获取一组数据"
-  countTicket: Int
+  ticketCount(
+    "条件"
+    where: TicketInputWhere!
+  ): Int
   "通过制定条件获取一组数据"
-  countTicketLog: Int
+  ticketLogCount(
+    "条件"
+    where: TicketLogInputWhere!
+  ): Int
 }
 
 type Mutation {
   "没有就插入，有就更新"
-  saveMember(
+  memberSave(
     "要保存的数据"
     entity: MemberInput!
   ): Member
   "没有就插入，有就更新"
-  saveRoom(
+  roomSave(
     "要保存的数据"
     entity: RoomInput!
   ): Room
   "没有就插入，有就更新"
-  saveRoomType(
+  roomTypeSave(
     "要保存的数据"
     entity: RoomTypeInput!
   ): RoomType
   "没有就插入，有就更新"
-  saveSetting(
+  settingSave(
     "要保存的数据"
     entity: SettingInput!
   ): Setting
   "没有就插入，有就更新"
-  saveTixianLog(
+  tixianLogSave(
     "要保存的数据"
     entity: TixianLogInput!
   ): TixianLog
   "没有就插入，有就更新"
-  saveGameLog(
+  gameLogSave(
     "要保存的数据"
     entity: GameLogInput!
   ): GameLog
   "没有就插入，有就更新"
-  saveTicket(
+  ticketSave(
     "要保存的数据"
     entity: TicketInput!
   ): Ticket
   "没有就插入，有就更新"
-  saveTicketLog(
+  ticketLogSave(
     "要保存的数据"
     entity: TicketLogInput!
   ): TicketLog
   "插入数据"
-  insertMember(
+  memberInsert(
     "要插入的数据"
     entity: MemberInput!
   ): Member
   "插入数据"
-  insertRoom(
+  roomInsert(
     "要插入的数据"
     entity: RoomInput!
   ): Room
   "插入数据"
-  insertRoomType(
+  roomTypeInsert(
     "要插入的数据"
     entity: RoomTypeInput!
   ): RoomType
   "插入数据"
-  insertSetting(
+  settingInsert(
     "要插入的数据"
     entity: SettingInput!
   ): Setting
   "插入数据"
-  insertTixianLog(
+  tixianLogInsert(
     "要插入的数据"
     entity: TixianLogInput!
   ): TixianLog
   "插入数据"
-  insertGameLog(
+  gameLogInsert(
     "要插入的数据"
     entity: GameLogInput!
   ): GameLog
   "插入数据"
-  insertTicket(
+  ticketInsert(
     "要插入的数据"
     entity: TicketInput!
   ): Ticket
   "插入数据"
-  insertTicketLog(
+  ticketLogInsert(
     "要插入的数据"
     entity: TicketLogInput!
   ): TicketLog
   "更新数据"
-  updateMember(
+  memberUpdate(
     ""
     where: MemberPartial!
     entity: MemberInput!
   ): Member
   "更新数据"
-  updateRoom(
+  roomUpdate(
     ""
     where: RoomPartial!
     entity: RoomInput!
   ): Room
   "更新数据"
-  updateRoomType(
+  roomTypeUpdate(
     ""
     where: RoomTypePartial!
     entity: RoomTypeInput!
   ): RoomType
   "更新数据"
-  updateSetting(
+  settingUpdate(
     ""
     where: SettingPartial!
     entity: SettingInput!
   ): Setting
   "更新数据"
-  updateTixianLog(
+  tixianLogUpdate(
     ""
     where: TixianLogPartial!
     entity: TixianLogInput!
   ): TixianLog
   "更新数据"
-  updateGameLog(
+  gameLogUpdate(
     ""
     where: GameLogPartial!
     entity: GameLogInput!
   ): GameLog
   "更新数据"
-  updateTicket(
+  ticketUpdate(
     ""
     where: TicketPartial!
     entity: TicketInput!
   ): Ticket
   "更新数据"
-  updateTicketLog(
+  ticketLogUpdate(
     ""
     where: TicketLogPartial!
     entity: TicketLogInput!
   ): TicketLog
-  "res\n删除"
-  deleteMember(
+  "删除"
+  memberDelete(
     "根据id删除"
     id: Int!
   ): Boolean
-  "res\n删除"
-  deleteRoom(
+  "删除"
+  roomDelete(
     "根据id删除"
     id: Int!
   ): Boolean
-  "res\n删除"
-  deleteRoomType(
+  "删除"
+  roomTypeDelete(
     "根据id删除"
     id: Int!
   ): Boolean
-  "res\n删除"
-  deleteSetting(
+  "删除"
+  settingDelete(
     "根据id删除"
     id: Int!
   ): Boolean
-  "res\n删除"
-  deleteTixianLog(
+  "删除"
+  tixianLogDelete(
     "根据id删除"
     id: Int!
   ): Boolean
-  "res\n删除"
-  deleteGameLog(
+  "删除"
+  gameLogDelete(
     "根据id删除"
     id: Int!
   ): Boolean
-  "res\n删除"
-  deleteTicket(
+  "删除"
+  ticketDelete(
     "根据id删除"
     id: Int!
   ): Boolean
-  "res\n删除"
-  deleteTicketLog(
+  "删除"
+  ticketLogDelete(
     "根据id删除"
     id: Int!
   ): Boolean

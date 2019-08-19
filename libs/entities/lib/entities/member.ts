@@ -21,6 +21,12 @@ export class Member {
     nickname: string;
 
     /**
+     * 密码
+     */
+    @Column()
+    password: string;
+
+    /**
      * 头像
      */
     @Column()
@@ -37,6 +43,12 @@ export class Member {
      */
     @Column()
     openid: string;
+
+    /**
+     * 状态 0禁用 1正常
+     */
+    @Column()
+    status: number;
 
     /**
      * 余额
@@ -123,22 +135,30 @@ export class Member {
     /**
      * 游戏记录
      */
-    @OneToMany(() => GameLog, type => type.member)
+    @OneToMany(() => GameLog, type => type.members)
+    @JoinTable({
+        name: 'member_game_log'
+    })
     gameLogs: GameLog[];
 
     @ResolveProperty()
-    async getGameLogs(
-        @Selection() selection: any,
-        where?: Where<GameLog>,
-        order?: Order<GameLog>,
-        limit?: PageLimit
-    ): Promise<GameLog[]> {
-        const copyWhere: any = {
-            memberId: this.id,
-            ...where
-        };
-        return createBuilder(copyWhere, selection, order, GameLog.relations, GameLog, limit);
-    }
+	async getGameLogs(
+		@Selection() selection: any,
+		where?: Where<GameLog>,
+		order?: Order<GameLog>,
+		limit?: PageLimit
+	): Promise<Member[]> {
+		const ids = await createManyBuilder(
+			`SELECT "gameLogId" FROM public.member_game_log WHERE "memberId"=${this.id}`,
+			'gameLogId'
+		);
+		const copyWhere: any = {
+			id_In: ids,
+			...where
+		};
+		return createBuilder(copyWhere, selection, order, GameLog.relations, GameLog, limit);
+	}
+   
 
     /**
      * 用户领取的劵

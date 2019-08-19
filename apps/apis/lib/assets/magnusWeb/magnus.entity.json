@@ -1,152 +1,533 @@
 {
-  "Member": [
+  "GameLog": [
     {
-      "name": "rooms",
-      "relation": "ManyToMany",
+      "name": "relations",
+      "decorators": [],
+      "entity": "string"
+    },
+    {
+      "name": "id",
+      "decorators": [
+        "PrimaryGeneratedColumn"
+      ],
+      "entity": "number"
+    },
+    {
+      "name": "status",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "number"
+    },
+    {
+      "name": "count",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "number"
+    },
+    {
+      "name": "startTime",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "string"
+    },
+    {
+      "name": "endTime",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "string"
+    },
+    {
+      "name": "room",
+      "decorators": [
+        "ManyToOne"
+      ],
       "entity": "Room"
     },
     {
-      "name": "getRooms",
-      "relation": "ResolveProperty",
-      "entity": "Promise"
-    },
-    {
-      "name": "createRooms",
-      "relation": "OneToMany",
-      "entity": "Room"
-    },
-    {
-      "name": "getCreateRooms",
-      "relation": "ResolveProperty",
-      "entity": "Promise"
-    },
-    {
-      "name": "tixianLogs",
-      "relation": "OneToMany",
-      "entity": "TixianLog"
-    },
-    {
-      "name": "getTixianLogs",
-      "relation": "ResolveProperty",
-      "entity": "Promise"
-    },
-    {
-      "name": "gameLogs",
-      "relation": "OneToMany",
-      "entity": "GameLog"
-    },
-    {
-      "name": "getGameLogs",
-      "relation": "ResolveProperty",
-      "entity": "Promise"
-    },
-    {
-      "name": "ticketLogs",
-      "relation": "OneToMany",
-      "entity": "TicketLog"
-    },
-    {
-      "name": "getTicketLogs",
-      "relation": "ResolveProperty",
-      "entity": "Promise"
-    }
-  ],
-  "Room": [
-    {
-      "name": "roomType",
-      "relation": "ManyToOne",
-      "entity": "RoomType"
-    },
-    {
-      "name": "owner",
-      "relation": "ManyToOne",
-      "entity": "Member"
-    },
-    {
-      "name": "getOwner",
-      "relation": "ResolveProperty",
-      "entity": "Promise"
+      "name": "roomId",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "number"
     },
     {
       "name": "members",
-      "relation": "ManyToMany",
+      "decorators": [
+        "ManyToMany"
+      ],
       "entity": "Member"
     },
     {
       "name": "getMembers",
-      "relation": "ResolveProperty",
+      "decorators": [
+        "ResolveProperty"
+      ],
+      "entity": "Promise"
+    },
+    {
+      "name": "memberId",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "number"
+    },
+    {
+      "name": "createDate",
+      "decorators": [
+        "CreateDateColumn"
+      ],
+      "entity": "string"
+    }
+  ],
+  "Room": [
+    {
+      "name": "relations",
+      "decorators": [],
+      "entity": "string"
+    },
+    {
+      "name": "id",
+      "decorators": [
+        "PrimaryGeneratedColumn"
+      ],
+      "entity": "number"
+    },
+    {
+      "name": "password",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "string"
+    },
+    {
+      "name": "roomType",
+      "decorators": [
+        "ManyToOne"
+      ],
+      "entity": "RoomType"
+    },
+    {
+      "name": "roomTypeId",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "number"
+    },
+    {
+      "name": "status",
+      "decorators": [],
+      "entity": "number"
+    },
+    {
+      "name": "autoStart",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "boolean"
+    },
+    {
+      "name": "owner",
+      "decorators": [
+        "ManyToOne"
+      ],
+      "entity": "Member"
+    },
+    {
+      "name": "ownerId",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "number"
+    },
+    {
+      "name": "getOwner",
+      "decorators": [
+        "ResolveProperty"
+      ],
+      "entity": "Promise"
+    },
+    {
+      "name": "members",
+      "decorators": [
+        "ManyToMany",
+        "JoinTable"
+      ],
+      "entity": "Member"
+    },
+    {
+      "name": "getMembers",
+      "decorators": [
+        "ResolveProperty"
+      ],
       "entity": "Promise"
     },
     {
       "name": "gameLogs",
-      "relation": "OneToMany",
+      "decorators": [
+        "OneToMany"
+      ],
       "entity": "GameLog"
     },
     {
       "name": "getGameLogs",
-      "relation": "ResolveProperty",
+      "decorators": [
+        "ResolveProperty"
+      ],
       "entity": "Promise"
+    },
+    {
+      "name": "createDate",
+      "decorators": [
+        "CreateDateColumn"
+      ],
+      "entity": "string"
     }
   ],
   "RoomType": [
     {
+      "name": "id",
+      "decorators": [
+        "PrimaryGeneratedColumn"
+      ],
+      "entity": "number"
+    },
+    {
+      "name": "title",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "string"
+    },
+    {
       "name": "rooms",
-      "relation": "OneToMany",
+      "decorators": [
+        "OneToMany"
+      ],
       "entity": "Room"
     },
     {
       "name": "getRooms",
-      "relation": "ResolveProperty",
+      "decorators": [
+        "ResolveProperty"
+      ],
       "entity": "Promise"
     }
   ],
-  "TixianLog": [
+  "Member": [
     {
-      "name": "member",
-      "relation": "ManyToOne",
-      "entity": "Member"
+      "name": "relations",
+      "decorators": [],
+      "entity": "string"
     },
     {
-      "name": "getMember",
-      "relation": "ResolveProperty",
-      "entity": "Promise"
-    }
-  ],
-  "GameLog": [
+      "name": "id",
+      "decorators": [
+        "PrimaryGeneratedColumn"
+      ],
+      "entity": "number"
+    },
     {
-      "name": "room",
-      "relation": "ManyToOne",
+      "name": "nickname",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "string"
+    },
+    {
+      "name": "password",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "string"
+    },
+    {
+      "name": "avatar",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "string"
+    },
+    {
+      "name": "mobile",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "string"
+    },
+    {
+      "name": "openid",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "string"
+    },
+    {
+      "name": "status",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "number"
+    },
+    {
+      "name": "fee",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "number"
+    },
+    {
+      "name": "fee2",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "number"
+    },
+    {
+      "name": "fee3",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "number"
+    },
+    {
+      "name": "rooms",
+      "decorators": [
+        "ManyToMany"
+      ],
       "entity": "Room"
     },
     {
-      "name": "member",
-      "relation": "ManyToOne",
-      "entity": "Member"
-    }
-  ],
-  "TicketLog": [
-    {
-      "name": "ticket",
-      "relation": "ManyToOne",
-      "entity": "Ticket"
+      "name": "getRooms",
+      "decorators": [
+        "ResolveProperty"
+      ],
+      "entity": "Promise"
     },
     {
-      "name": "member",
-      "relation": "ManyToOne",
-      "entity": "Member"
-    }
-  ],
-  "Ticket": [
+      "name": "createRooms",
+      "decorators": [
+        "OneToMany"
+      ],
+      "entity": "Room"
+    },
     {
-      "name": "logs",
-      "relation": "OneToMany",
+      "name": "getCreateRooms",
+      "decorators": [
+        "ResolveProperty"
+      ],
+      "entity": "Promise"
+    },
+    {
+      "name": "tixianLogs",
+      "decorators": [
+        "OneToMany"
+      ],
+      "entity": "TixianLog"
+    },
+    {
+      "name": "getTixianLogs",
+      "decorators": [
+        "ResolveProperty"
+      ],
+      "entity": "Promise"
+    },
+    {
+      "name": "gameLogs",
+      "decorators": [
+        "OneToMany",
+        "JoinTable"
+      ],
+      "entity": "GameLog"
+    },
+    {
+      "name": "getGameLogs",
+      "decorators": [
+        "ResolveProperty"
+      ],
+      "entity": "Promise"
+    },
+    {
+      "name": "ticketLogs",
+      "decorators": [
+        "OneToMany"
+      ],
       "entity": "TicketLog"
     },
     {
       "name": "getTicketLogs",
-      "relation": "ResolveProperty",
+      "decorators": [
+        "ResolveProperty"
+      ],
+      "entity": "Promise"
+    },
+    {
+      "name": "createDate",
+      "decorators": [
+        "CreateDateColumn"
+      ],
+      "entity": "string"
+    }
+  ],
+  "TixianLog": [
+    {
+      "name": "relations",
+      "decorators": [],
+      "entity": "string"
+    },
+    {
+      "name": "id",
+      "decorators": [
+        "PrimaryGeneratedColumn"
+      ],
+      "entity": "number"
+    },
+    {
+      "name": "member",
+      "decorators": [
+        "ManyToOne"
+      ],
+      "entity": "Member"
+    },
+    {
+      "name": "memberId",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "number"
+    },
+    {
+      "name": "getMember",
+      "decorators": [
+        "ResolveProperty"
+      ],
+      "entity": "Promise"
+    },
+    {
+      "name": "count",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "number"
+    },
+    {
+      "name": "status",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "number"
+    },
+    {
+      "name": "createDate",
+      "decorators": [
+        "CreateDateColumn"
+      ],
+      "entity": "string"
+    }
+  ],
+  "TicketLog": [
+    {
+      "name": "relations",
+      "decorators": [],
+      "entity": "string"
+    },
+    {
+      "name": "id",
+      "decorators": [
+        "PrimaryGeneratedColumn"
+      ],
+      "entity": "number"
+    },
+    {
+      "name": "ticket",
+      "decorators": [
+        "ManyToOne"
+      ],
+      "entity": "Ticket"
+    },
+    {
+      "name": "ticket_Id",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "number"
+    },
+    {
+      "name": "member",
+      "decorators": [
+        "ManyToOne"
+      ],
+      "entity": "Member"
+    },
+    {
+      "name": "member_id",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "number"
+    },
+    {
+      "name": "createDate",
+      "decorators": [
+        "CreateDateColumn"
+      ],
+      "entity": "string"
+    }
+  ],
+  "Ticket": [
+    {
+      "name": "id",
+      "decorators": [
+        "PrimaryGeneratedColumn"
+      ],
+      "entity": "number"
+    },
+    {
+      "name": "title",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "string"
+    },
+    {
+      "name": "logs",
+      "decorators": [
+        "OneToMany"
+      ],
+      "entity": "TicketLog"
+    },
+    {
+      "name": "getTicketLogs",
+      "decorators": [
+        "ResolveProperty"
+      ],
       "entity": "Promise"
     }
   ],
-  "Setting": []
+  "Setting": [
+    {
+      "name": "id",
+      "decorators": [
+        "PrimaryGeneratedColumn"
+      ],
+      "entity": "number"
+    },
+    {
+      "name": "key",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "string"
+    },
+    {
+      "name": "value",
+      "decorators": [
+        "Column"
+      ],
+      "entity": "string"
+    }
+  ]
 }

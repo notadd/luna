@@ -10,22 +10,559 @@
           "name": "selection",
           "type": "Json!",
           "index": 0,
-          "decorator": "Selection"
+          "decorator": [
+            "Selection"
+          ]
         },
         {
           "name": "where",
           "type": "RoomInputWhere",
-          "index": 1
+          "index": 1,
+          "decorator": []
         },
         {
           "name": "order",
           "type": "RoomInputOrder",
-          "index": 2
+          "index": 2,
+          "decorator": []
         },
         {
           "name": "limit",
           "type": "PageLimitInput",
-          "index": 3
+          "index": 3,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "getRooms",
+      "RoomType",
+      "RoomType",
+      "getRooms",
+      [
+        {
+          "name": "selection",
+          "type": "Json!",
+          "index": 0,
+          "decorator": [
+            "Selection"
+          ]
+        },
+        {
+          "name": "where",
+          "type": "RoomInputWhere",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "order",
+          "type": "RoomInputOrder",
+          "index": 2,
+          "decorator": []
+        },
+        {
+          "name": "limit",
+          "type": "PageLimitInput",
+          "index": 3,
+          "decorator": []
+        }
+      ]
+    ]
+  ],
+  "Member": [
+    [
+      "getRooms",
+      "Member",
+      "Member",
+      "getRooms",
+      [
+        {
+          "name": "selection",
+          "type": "Json!",
+          "index": 0,
+          "decorator": [
+            "Selection"
+          ]
+        },
+        {
+          "name": "where",
+          "type": "RoomInputWhere",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "order",
+          "type": "RoomInputOrder",
+          "index": 2,
+          "decorator": []
+        },
+        {
+          "name": "limit",
+          "type": "PageLimitInput",
+          "index": 3,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "getCreateRooms",
+      "Member",
+      "Member",
+      "getCreateRooms",
+      [
+        {
+          "name": "selection",
+          "type": "Json!",
+          "index": 0,
+          "decorator": [
+            "Selection"
+          ]
+        },
+        {
+          "name": "where",
+          "type": "RoomInputWhere",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "order",
+          "type": "RoomInputOrder",
+          "index": 2,
+          "decorator": []
+        },
+        {
+          "name": "limit",
+          "type": "PageLimitInput",
+          "index": 3,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "getTixianLogs",
+      "Member",
+      "Member",
+      "getTixianLogs",
+      [
+        {
+          "name": "selection",
+          "type": "Json!",
+          "index": 0,
+          "decorator": [
+            "Selection"
+          ]
+        },
+        {
+          "name": "where",
+          "type": "TixianLogInputWhere",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "order",
+          "type": "TixianLogInputOrder",
+          "index": 2,
+          "decorator": []
+        },
+        {
+          "name": "limit",
+          "type": "PageLimitInput",
+          "index": 3,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "getGameLogs",
+      "Member",
+      "Member",
+      "getGameLogs",
+      [
+        {
+          "name": "selection",
+          "type": "Json!",
+          "index": 0,
+          "decorator": [
+            "Selection"
+          ]
+        },
+        {
+          "name": "where",
+          "type": "GameLogInputWhere",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "order",
+          "type": "GameLogInputOrder",
+          "index": 2,
+          "decorator": []
+        },
+        {
+          "name": "limit",
+          "type": "PageLimitInput",
+          "index": 3,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "getTicketLogs",
+      "Member",
+      "Member",
+      "getTicketLogs",
+      [
+        {
+          "name": "selection",
+          "type": "Json!",
+          "index": 0,
+          "decorator": [
+            "Selection"
+          ]
+        },
+        {
+          "name": "where",
+          "type": "TicketLogInputWhere",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "order",
+          "type": "TicketLogInputOrder",
+          "index": 2,
+          "decorator": []
+        },
+        {
+          "name": "limit",
+          "type": "PageLimitInput",
+          "index": 3,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "getRooms",
+      "Member",
+      "Member",
+      "getRooms",
+      [
+        {
+          "name": "selection",
+          "type": "Json!",
+          "index": 0,
+          "decorator": [
+            "Selection"
+          ]
+        },
+        {
+          "name": "where",
+          "type": "RoomInputWhere",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "order",
+          "type": "RoomInputOrder",
+          "index": 2,
+          "decorator": []
+        },
+        {
+          "name": "limit",
+          "type": "PageLimitInput",
+          "index": 3,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "getCreateRooms",
+      "Member",
+      "Member",
+      "getCreateRooms",
+      [
+        {
+          "name": "selection",
+          "type": "Json!",
+          "index": 0,
+          "decorator": [
+            "Selection"
+          ]
+        },
+        {
+          "name": "where",
+          "type": "RoomInputWhere",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "order",
+          "type": "RoomInputOrder",
+          "index": 2,
+          "decorator": []
+        },
+        {
+          "name": "limit",
+          "type": "PageLimitInput",
+          "index": 3,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "getTixianLogs",
+      "Member",
+      "Member",
+      "getTixianLogs",
+      [
+        {
+          "name": "selection",
+          "type": "Json!",
+          "index": 0,
+          "decorator": [
+            "Selection"
+          ]
+        },
+        {
+          "name": "where",
+          "type": "TixianLogInputWhere",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "order",
+          "type": "TixianLogInputOrder",
+          "index": 2,
+          "decorator": []
+        },
+        {
+          "name": "limit",
+          "type": "PageLimitInput",
+          "index": 3,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "getGameLogs",
+      "Member",
+      "Member",
+      "getGameLogs",
+      [
+        {
+          "name": "selection",
+          "type": "Json!",
+          "index": 0,
+          "decorator": [
+            "Selection"
+          ]
+        },
+        {
+          "name": "where",
+          "type": "GameLogInputWhere",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "order",
+          "type": "GameLogInputOrder",
+          "index": 2,
+          "decorator": []
+        },
+        {
+          "name": "limit",
+          "type": "PageLimitInput",
+          "index": 3,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "getTicketLogs",
+      "Member",
+      "Member",
+      "getTicketLogs",
+      [
+        {
+          "name": "selection",
+          "type": "Json!",
+          "index": 0,
+          "decorator": [
+            "Selection"
+          ]
+        },
+        {
+          "name": "where",
+          "type": "TicketLogInputWhere",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "order",
+          "type": "TicketLogInputOrder",
+          "index": 2,
+          "decorator": []
+        },
+        {
+          "name": "limit",
+          "type": "PageLimitInput",
+          "index": 3,
+          "decorator": []
+        }
+      ]
+    ]
+  ],
+  "TixianLog": [
+    [
+      "getMember",
+      "TixianLog",
+      "TixianLog",
+      "getMember",
+      []
+    ],
+    [
+      "getMember",
+      "TixianLog",
+      "TixianLog",
+      "getMember",
+      []
+    ]
+  ],
+  "GameLog": [
+    [
+      "getMembers",
+      "GameLog",
+      "GameLog",
+      "getMembers",
+      [
+        {
+          "name": "selection",
+          "type": "Json!",
+          "index": 0,
+          "decorator": [
+            "Selection"
+          ]
+        },
+        {
+          "name": "where",
+          "type": "MemberInputWhere",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "order",
+          "type": "MemberInputOrder",
+          "index": 2,
+          "decorator": []
+        },
+        {
+          "name": "limit",
+          "type": "PageLimitInput",
+          "index": 3,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "getMembers",
+      "GameLog",
+      "GameLog",
+      "getMembers",
+      [
+        {
+          "name": "selection",
+          "type": "Json!",
+          "index": 0,
+          "decorator": [
+            "Selection"
+          ]
+        },
+        {
+          "name": "where",
+          "type": "MemberInputWhere",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "order",
+          "type": "MemberInputOrder",
+          "index": 2,
+          "decorator": []
+        },
+        {
+          "name": "limit",
+          "type": "PageLimitInput",
+          "index": 3,
+          "decorator": []
+        }
+      ]
+    ]
+  ],
+  "Ticket": [
+    [
+      "getTicketLogs",
+      "Ticket",
+      "Ticket",
+      "getTicketLogs",
+      [
+        {
+          "name": "selection",
+          "type": "Json!",
+          "index": 0,
+          "decorator": [
+            "Selection"
+          ]
+        },
+        {
+          "name": "where",
+          "type": "TicketLogInputWhere",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "order",
+          "type": "TicketLogInputOrder",
+          "index": 2,
+          "decorator": []
+        },
+        {
+          "name": "limit",
+          "type": "PageLimitInput",
+          "index": 3,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "getTicketLogs",
+      "Ticket",
+      "Ticket",
+      "getTicketLogs",
+      [
+        {
+          "name": "selection",
+          "type": "Json!",
+          "index": 0,
+          "decorator": [
+            "Selection"
+          ]
+        },
+        {
+          "name": "where",
+          "type": "TicketLogInputWhere",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "order",
+          "type": "TicketLogInputOrder",
+          "index": 2,
+          "decorator": []
+        },
+        {
+          "name": "limit",
+          "type": "PageLimitInput",
+          "index": 3,
+          "decorator": []
         }
       ]
     ]
@@ -48,22 +585,27 @@
           "name": "selection",
           "type": "Json!",
           "index": 0,
-          "decorator": "Selection"
+          "decorator": [
+            "Selection"
+          ]
         },
         {
           "name": "where",
           "type": "MemberInputWhere",
-          "index": 1
+          "index": 1,
+          "decorator": []
         },
         {
           "name": "order",
           "type": "MemberInputOrder",
-          "index": 2
+          "index": 2,
+          "decorator": []
         },
         {
           "name": "limit",
           "type": "PageLimitInput",
-          "index": 3
+          "index": 3,
+          "decorator": []
         }
       ]
     ],
@@ -77,216 +619,109 @@
           "name": "selection",
           "type": "Json!",
           "index": 0,
-          "decorator": "Selection"
+          "decorator": [
+            "Selection"
+          ]
         },
         {
           "name": "where",
           "type": "GameLogInputWhere",
-          "index": 1
+          "index": 1,
+          "decorator": []
         },
         {
           "name": "order",
           "type": "GameLogInputOrder",
-          "index": 2
+          "index": 2,
+          "decorator": []
         },
         {
           "name": "limit",
           "type": "PageLimitInput",
-          "index": 3
-        }
-      ]
-    ]
-  ],
-  "Member": [
-    [
-      "getRooms",
-      "Member",
-      "Member",
-      "getRooms",
-      [
-        {
-          "name": "selection",
-          "type": "Json!",
-          "index": 0,
-          "decorator": "Selection"
-        },
-        {
-          "name": "where",
-          "type": "RoomInputWhere",
-          "index": 1
-        },
-        {
-          "name": "order",
-          "type": "RoomInputOrder",
-          "index": 2
-        },
-        {
-          "name": "limit",
-          "type": "PageLimitInput",
-          "index": 3
+          "index": 3,
+          "decorator": []
         }
       ]
     ],
     [
-      "getCreateRooms",
-      "Member",
-      "Member",
-      "getCreateRooms",
-      [
-        {
-          "name": "selection",
-          "type": "Json!",
-          "index": 0,
-          "decorator": "Selection"
-        },
-        {
-          "name": "where",
-          "type": "RoomInputWhere",
-          "index": 1
-        },
-        {
-          "name": "order",
-          "type": "RoomInputOrder",
-          "index": 2
-        },
-        {
-          "name": "limit",
-          "type": "PageLimitInput",
-          "index": 3
-        }
-      ]
-    ],
-    [
-      "getTixianLogs",
-      "Member",
-      "Member",
-      "getTixianLogs",
-      [
-        {
-          "name": "selection",
-          "type": "Json!",
-          "index": 0,
-          "decorator": "Selection"
-        },
-        {
-          "name": "where",
-          "type": "TixianLogInputWhere",
-          "index": 1
-        },
-        {
-          "name": "order",
-          "type": "TixianLogInputOrder",
-          "index": 2
-        },
-        {
-          "name": "limit",
-          "type": "PageLimitInput",
-          "index": 3
-        }
-      ]
-    ],
-    [
-      "getGameLogs",
-      "Member",
-      "Member",
-      "getGameLogs",
-      [
-        {
-          "name": "selection",
-          "type": "Json!",
-          "index": 0,
-          "decorator": "Selection"
-        },
-        {
-          "name": "where",
-          "type": "GameLogInputWhere",
-          "index": 1
-        },
-        {
-          "name": "order",
-          "type": "GameLogInputOrder",
-          "index": 2
-        },
-        {
-          "name": "limit",
-          "type": "PageLimitInput",
-          "index": 3
-        }
-      ]
-    ],
-    [
-      "getTicketLogs",
-      "Member",
-      "Member",
-      "getTicketLogs",
-      [
-        {
-          "name": "selection",
-          "type": "Json!",
-          "index": 0,
-          "decorator": "Selection"
-        },
-        {
-          "name": "where",
-          "type": "TicketLogInputWhere",
-          "index": 1
-        },
-        {
-          "name": "order",
-          "type": "TicketLogInputOrder",
-          "index": 2
-        },
-        {
-          "name": "limit",
-          "type": "PageLimitInput",
-          "index": 3
-        }
-      ]
-    ]
-  ],
-  "TixianLog": [
-    [
-      "getMember",
-      "TixianLog",
-      "TixianLog",
-      "getMember",
+      "getOwner",
+      "Room",
+      "Room",
+      "getOwner",
       []
-    ]
-  ],
-  "Ticket": [
+    ],
     [
-      "getTicketLogs",
-      "Ticket",
-      "Ticket",
-      "getTicketLogs",
+      "getMembers",
+      "Room",
+      "Room",
+      "getMembers",
       [
         {
           "name": "selection",
           "type": "Json!",
           "index": 0,
-          "decorator": "Selection"
+          "decorator": [
+            "Selection"
+          ]
         },
         {
           "name": "where",
-          "type": "TicketLogInputWhere",
-          "index": 1
+          "type": "MemberInputWhere",
+          "index": 1,
+          "decorator": []
         },
         {
           "name": "order",
-          "type": "TicketLogInputOrder",
-          "index": 2
+          "type": "MemberInputOrder",
+          "index": 2,
+          "decorator": []
         },
         {
           "name": "limit",
           "type": "PageLimitInput",
-          "index": 3
+          "index": 3,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "getGameLogs",
+      "Room",
+      "Room",
+      "getGameLogs",
+      [
+        {
+          "name": "selection",
+          "type": "Json!",
+          "index": 0,
+          "decorator": [
+            "Selection"
+          ]
+        },
+        {
+          "name": "where",
+          "type": "GameLogInputWhere",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "order",
+          "type": "GameLogInputOrder",
+          "index": 2,
+          "decorator": []
+        },
+        {
+          "name": "limit",
+          "type": "PageLimitInput",
+          "index": 3,
+          "decorator": []
         }
       ]
     ]
   ],
   "query": [
     [
-      "getMember",
+      "memberGet",
       "Controller",
       "Member",
       "get",
@@ -294,12 +729,13 @@
         {
           "name": "entity",
           "type": "MemberInputWhere!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "getRoom",
+      "roomGet",
       "Controller",
       "Room",
       "get",
@@ -307,12 +743,13 @@
         {
           "name": "entity",
           "type": "RoomInputWhere!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "getRoomType",
+      "roomTypeGet",
       "Controller",
       "RoomType",
       "get",
@@ -320,12 +757,13 @@
         {
           "name": "entity",
           "type": "RoomTypeInputWhere!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "getSetting",
+      "settingGet",
       "Controller",
       "Setting",
       "get",
@@ -333,12 +771,13 @@
         {
           "name": "entity",
           "type": "SettingInputWhere!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "getTixianLog",
+      "tixianLogGet",
       "Controller",
       "TixianLog",
       "get",
@@ -346,12 +785,13 @@
         {
           "name": "entity",
           "type": "TixianLogInputWhere!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "getGameLog",
+      "gameLogGet",
       "Controller",
       "GameLog",
       "get",
@@ -359,12 +799,13 @@
         {
           "name": "entity",
           "type": "GameLogInputWhere!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "getTicket",
+      "ticketGet",
       "Controller",
       "Ticket",
       "get",
@@ -372,12 +813,13 @@
         {
           "name": "entity",
           "type": "TicketInputWhere!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "getTicketLog",
+      "ticketLogGet",
       "Controller",
       "TicketLog",
       "get",
@@ -385,12 +827,13 @@
         {
           "name": "entity",
           "type": "TicketLogInputWhere!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "findMember",
+      "memberFind",
       "Controller",
       "Member",
       "find",
@@ -398,22 +841,25 @@
         {
           "name": "entity",
           "type": "MemberInputWhere!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         },
         {
           "name": "order",
           "type": "MemberInputOrder!",
-          "index": 1
+          "index": 1,
+          "decorator": []
         },
         {
           "name": "limit",
           "type": "PageLimitInput",
-          "index": 2
+          "index": 2,
+          "decorator": []
         }
       ]
     ],
     [
-      "findRoom",
+      "roomFind",
       "Controller",
       "Room",
       "find",
@@ -421,22 +867,25 @@
         {
           "name": "entity",
           "type": "RoomInputWhere!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         },
         {
           "name": "order",
           "type": "RoomInputOrder!",
-          "index": 1
+          "index": 1,
+          "decorator": []
         },
         {
           "name": "limit",
           "type": "PageLimitInput",
-          "index": 2
+          "index": 2,
+          "decorator": []
         }
       ]
     ],
     [
-      "findRoomType",
+      "roomTypeFind",
       "Controller",
       "RoomType",
       "find",
@@ -444,22 +893,25 @@
         {
           "name": "entity",
           "type": "RoomTypeInputWhere!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         },
         {
           "name": "order",
           "type": "RoomTypeInputOrder!",
-          "index": 1
+          "index": 1,
+          "decorator": []
         },
         {
           "name": "limit",
           "type": "PageLimitInput",
-          "index": 2
+          "index": 2,
+          "decorator": []
         }
       ]
     ],
     [
-      "findSetting",
+      "settingFind",
       "Controller",
       "Setting",
       "find",
@@ -467,22 +919,25 @@
         {
           "name": "entity",
           "type": "SettingInputWhere!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         },
         {
           "name": "order",
           "type": "SettingInputOrder!",
-          "index": 1
+          "index": 1,
+          "decorator": []
         },
         {
           "name": "limit",
           "type": "PageLimitInput",
-          "index": 2
+          "index": 2,
+          "decorator": []
         }
       ]
     ],
     [
-      "findTixianLog",
+      "tixianLogFind",
       "Controller",
       "TixianLog",
       "find",
@@ -490,22 +945,25 @@
         {
           "name": "entity",
           "type": "TixianLogInputWhere!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         },
         {
           "name": "order",
           "type": "TixianLogInputOrder!",
-          "index": 1
+          "index": 1,
+          "decorator": []
         },
         {
           "name": "limit",
           "type": "PageLimitInput",
-          "index": 2
+          "index": 2,
+          "decorator": []
         }
       ]
     ],
     [
-      "findGameLog",
+      "gameLogFind",
       "Controller",
       "GameLog",
       "find",
@@ -513,22 +971,25 @@
         {
           "name": "entity",
           "type": "GameLogInputWhere!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         },
         {
           "name": "order",
           "type": "GameLogInputOrder!",
-          "index": 1
+          "index": 1,
+          "decorator": []
         },
         {
           "name": "limit",
           "type": "PageLimitInput",
-          "index": 2
+          "index": 2,
+          "decorator": []
         }
       ]
     ],
     [
-      "findTicket",
+      "ticketFind",
       "Controller",
       "Ticket",
       "find",
@@ -536,22 +997,25 @@
         {
           "name": "entity",
           "type": "TicketInputWhere!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         },
         {
           "name": "order",
           "type": "TicketInputOrder!",
-          "index": 1
+          "index": 1,
+          "decorator": []
         },
         {
           "name": "limit",
           "type": "PageLimitInput",
-          "index": 2
+          "index": 2,
+          "decorator": []
         }
       ]
     ],
     [
-      "findTicketLog",
+      "ticketLogFind",
       "Controller",
       "TicketLog",
       "find",
@@ -559,80 +1023,139 @@
         {
           "name": "entity",
           "type": "TicketLogInputWhere!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         },
         {
           "name": "order",
           "type": "TicketLogInputOrder!",
-          "index": 1
+          "index": 1,
+          "decorator": []
         },
         {
           "name": "limit",
           "type": "PageLimitInput",
-          "index": 2
+          "index": 2,
+          "decorator": []
         }
       ]
     ],
     [
-      "countMember",
+      "memberCount",
       "Controller",
       "Member",
       "count",
-      []
+      [
+        {
+          "name": "where",
+          "type": "MemberInputWhere!",
+          "index": 0,
+          "decorator": []
+        }
+      ]
     ],
     [
-      "countRoom",
+      "roomCount",
       "Controller",
       "Room",
       "count",
-      []
+      [
+        {
+          "name": "where",
+          "type": "RoomInputWhere!",
+          "index": 0,
+          "decorator": []
+        }
+      ]
     ],
     [
-      "countRoomType",
+      "roomTypeCount",
       "Controller",
       "RoomType",
       "count",
-      []
+      [
+        {
+          "name": "where",
+          "type": "RoomTypeInputWhere!",
+          "index": 0,
+          "decorator": []
+        }
+      ]
     ],
     [
-      "countSetting",
+      "settingCount",
       "Controller",
       "Setting",
       "count",
-      []
+      [
+        {
+          "name": "where",
+          "type": "SettingInputWhere!",
+          "index": 0,
+          "decorator": []
+        }
+      ]
     ],
     [
-      "countTixianLog",
+      "tixianLogCount",
       "Controller",
       "TixianLog",
       "count",
-      []
+      [
+        {
+          "name": "where",
+          "type": "TixianLogInputWhere!",
+          "index": 0,
+          "decorator": []
+        }
+      ]
     ],
     [
-      "countGameLog",
+      "gameLogCount",
       "Controller",
       "GameLog",
       "count",
-      []
+      [
+        {
+          "name": "where",
+          "type": "GameLogInputWhere!",
+          "index": 0,
+          "decorator": []
+        }
+      ]
     ],
     [
-      "countTicket",
+      "ticketCount",
       "Controller",
       "Ticket",
       "count",
-      []
+      [
+        {
+          "name": "where",
+          "type": "TicketInputWhere!",
+          "index": 0,
+          "decorator": []
+        }
+      ]
     ],
     [
-      "countTicketLog",
+      "ticketLogCount",
       "Controller",
       "TicketLog",
       "count",
-      []
+      [
+        {
+          "name": "where",
+          "type": "TicketLogInputWhere!",
+          "index": 0,
+          "decorator": []
+        }
+      ]
     ]
   ],
   "mutation": [
     [
-      "saveMember",
+      "memberSave",
       "Controller",
       "Member",
       "save",
@@ -640,12 +1163,13 @@
         {
           "name": "entity",
           "type": "MemberInput!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "saveRoom",
+      "roomSave",
       "Controller",
       "Room",
       "save",
@@ -653,12 +1177,13 @@
         {
           "name": "entity",
           "type": "RoomInput!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "saveRoomType",
+      "roomTypeSave",
       "Controller",
       "RoomType",
       "save",
@@ -666,12 +1191,13 @@
         {
           "name": "entity",
           "type": "RoomTypeInput!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "saveSetting",
+      "settingSave",
       "Controller",
       "Setting",
       "save",
@@ -679,12 +1205,13 @@
         {
           "name": "entity",
           "type": "SettingInput!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "saveTixianLog",
+      "tixianLogSave",
       "Controller",
       "TixianLog",
       "save",
@@ -692,12 +1219,13 @@
         {
           "name": "entity",
           "type": "TixianLogInput!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "saveGameLog",
+      "gameLogSave",
       "Controller",
       "GameLog",
       "save",
@@ -705,12 +1233,13 @@
         {
           "name": "entity",
           "type": "GameLogInput!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "saveTicket",
+      "ticketSave",
       "Controller",
       "Ticket",
       "save",
@@ -718,12 +1247,13 @@
         {
           "name": "entity",
           "type": "TicketInput!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "saveTicketLog",
+      "ticketLogSave",
       "Controller",
       "TicketLog",
       "save",
@@ -731,12 +1261,13 @@
         {
           "name": "entity",
           "type": "TicketLogInput!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "insertMember",
+      "memberInsert",
       "Controller",
       "Member",
       "insert",
@@ -744,12 +1275,13 @@
         {
           "name": "entity",
           "type": "MemberInput!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "insertRoom",
+      "roomInsert",
       "Controller",
       "Room",
       "insert",
@@ -757,12 +1289,13 @@
         {
           "name": "entity",
           "type": "RoomInput!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "insertRoomType",
+      "roomTypeInsert",
       "Controller",
       "RoomType",
       "insert",
@@ -770,12 +1303,13 @@
         {
           "name": "entity",
           "type": "RoomTypeInput!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "insertSetting",
+      "settingInsert",
       "Controller",
       "Setting",
       "insert",
@@ -783,12 +1317,13 @@
         {
           "name": "entity",
           "type": "SettingInput!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "insertTixianLog",
+      "tixianLogInsert",
       "Controller",
       "TixianLog",
       "insert",
@@ -796,12 +1331,13 @@
         {
           "name": "entity",
           "type": "TixianLogInput!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "insertGameLog",
+      "gameLogInsert",
       "Controller",
       "GameLog",
       "insert",
@@ -809,12 +1345,13 @@
         {
           "name": "entity",
           "type": "GameLogInput!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "insertTicket",
+      "ticketInsert",
       "Controller",
       "Ticket",
       "insert",
@@ -822,12 +1359,13 @@
         {
           "name": "entity",
           "type": "TicketInput!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "insertTicketLog",
+      "ticketLogInsert",
       "Controller",
       "TicketLog",
       "insert",
@@ -835,12 +1373,13 @@
         {
           "name": "entity",
           "type": "TicketLogInput!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "updateMember",
+      "memberUpdate",
       "Controller",
       "Member",
       "update",
@@ -848,17 +1387,19 @@
         {
           "name": "where",
           "type": "MemberPartial!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         },
         {
           "name": "entity",
           "type": "MemberInput!",
-          "index": 1
+          "index": 1,
+          "decorator": []
         }
       ]
     ],
     [
-      "updateRoom",
+      "roomUpdate",
       "Controller",
       "Room",
       "update",
@@ -866,17 +1407,19 @@
         {
           "name": "where",
           "type": "RoomPartial!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         },
         {
           "name": "entity",
           "type": "RoomInput!",
-          "index": 1
+          "index": 1,
+          "decorator": []
         }
       ]
     ],
     [
-      "updateRoomType",
+      "roomTypeUpdate",
       "Controller",
       "RoomType",
       "update",
@@ -884,17 +1427,19 @@
         {
           "name": "where",
           "type": "RoomTypePartial!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         },
         {
           "name": "entity",
           "type": "RoomTypeInput!",
-          "index": 1
+          "index": 1,
+          "decorator": []
         }
       ]
     ],
     [
-      "updateSetting",
+      "settingUpdate",
       "Controller",
       "Setting",
       "update",
@@ -902,17 +1447,19 @@
         {
           "name": "where",
           "type": "SettingPartial!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         },
         {
           "name": "entity",
           "type": "SettingInput!",
-          "index": 1
+          "index": 1,
+          "decorator": []
         }
       ]
     ],
     [
-      "updateTixianLog",
+      "tixianLogUpdate",
       "Controller",
       "TixianLog",
       "update",
@@ -920,17 +1467,19 @@
         {
           "name": "where",
           "type": "TixianLogPartial!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         },
         {
           "name": "entity",
           "type": "TixianLogInput!",
-          "index": 1
+          "index": 1,
+          "decorator": []
         }
       ]
     ],
     [
-      "updateGameLog",
+      "gameLogUpdate",
       "Controller",
       "GameLog",
       "update",
@@ -938,17 +1487,19 @@
         {
           "name": "where",
           "type": "GameLogPartial!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         },
         {
           "name": "entity",
           "type": "GameLogInput!",
-          "index": 1
+          "index": 1,
+          "decorator": []
         }
       ]
     ],
     [
-      "updateTicket",
+      "ticketUpdate",
       "Controller",
       "Ticket",
       "update",
@@ -956,17 +1507,19 @@
         {
           "name": "where",
           "type": "TicketPartial!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         },
         {
           "name": "entity",
           "type": "TicketInput!",
-          "index": 1
+          "index": 1,
+          "decorator": []
         }
       ]
     ],
     [
-      "updateTicketLog",
+      "ticketLogUpdate",
       "Controller",
       "TicketLog",
       "update",
@@ -974,17 +1527,19 @@
         {
           "name": "where",
           "type": "TicketLogPartial!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         },
         {
           "name": "entity",
           "type": "TicketLogInput!",
-          "index": 1
+          "index": 1,
+          "decorator": []
         }
       ]
     ],
     [
-      "deleteMember",
+      "memberDelete",
       "Controller",
       "Member",
       "delete",
@@ -992,12 +1547,13 @@
         {
           "name": "id",
           "type": "Int!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "deleteRoom",
+      "roomDelete",
       "Controller",
       "Room",
       "delete",
@@ -1005,12 +1561,13 @@
         {
           "name": "id",
           "type": "Int!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "deleteRoomType",
+      "roomTypeDelete",
       "Controller",
       "RoomType",
       "delete",
@@ -1018,12 +1575,13 @@
         {
           "name": "id",
           "type": "Int!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "deleteSetting",
+      "settingDelete",
       "Controller",
       "Setting",
       "delete",
@@ -1031,12 +1589,13 @@
         {
           "name": "id",
           "type": "Int!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "deleteTixianLog",
+      "tixianLogDelete",
       "Controller",
       "TixianLog",
       "delete",
@@ -1044,12 +1603,13 @@
         {
           "name": "id",
           "type": "Int!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "deleteGameLog",
+      "gameLogDelete",
       "Controller",
       "GameLog",
       "delete",
@@ -1057,12 +1617,13 @@
         {
           "name": "id",
           "type": "Int!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "deleteTicket",
+      "ticketDelete",
       "Controller",
       "Ticket",
       "delete",
@@ -1070,12 +1631,13 @@
         {
           "name": "id",
           "type": "Int!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ],
     [
-      "deleteTicketLog",
+      "ticketLogDelete",
       "Controller",
       "TicketLog",
       "delete",
@@ -1083,7 +1645,8 @@
         {
           "name": "id",
           "type": "Int!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     ]

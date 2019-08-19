@@ -88,7 +88,22 @@ export class Controller<T> extends MagnusBase<T> {
         );
     }
 
-	/**res
+	/**
+	 * 通过制定条件获取一组数据
+	 * @param entity 条件
+	 */
+    @Query()
+    async count(where: Where<T>): Promise<number> {
+        return createBuilder(
+            where,
+            this.selection,
+            {},
+            [],
+            this.entity
+        ).then(res => res.length);
+    }
+
+	/**
 	 * 删除
 	 * @param id 根据id删除
 	 */
@@ -97,14 +112,5 @@ export class Controller<T> extends MagnusBase<T> {
         const res = await this.repository.delete(id);
         if (res.affected === 1) return true;
         return false;
-    }
-
-    /**
-	 * 通过制定条件获取一组数据
-	 * @param entity 条件
-	 */
-    @Query()
-    async count(): Promise<number> {
-        return this.repository.count();
     }
 }
