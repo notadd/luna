@@ -1,27 +1,8 @@
-<nz-table #basicTable [nzData]="dataSet">
-    <thead>
-        <tr>
-            <th>编号</th>
-            <th>昵称</th>
-            <th>头像</th>
-            <th>电话</th>
-            <th>余额</th>
-            <th>金币</th>
-            <th>钻石</th>
-            <th>参与场次</th>
-            <th>操作</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let data of basicTable.data">
-            <td>{{data.id}}</td>
-            <td>{{data.title}}</td>
-            <td>{{data.count}}</td>
-            <td>
-                <a>Action 一 {{data.name}}</a>
-                <nz-divider nzType="vertical"></nz-divider>
-                <a>Delete</a>
-            </td>
-        </tr>
-    </tbody>
-</nz-table>
+<sf [schema]="schema" [layout]="'inline'" [button]="button" (formSubmit)="submit($event)"></sf>
+
+<st #st [page]="page" [data]="data|async" [columns]="columns" (change)="change($event)" [req]="{params: params}"
+    [res]="{process: dataChange}" [footer]="footer"></st>
+
+<ng-template #footer>
+    <button nz-button (click)="exportAll()">导出所有</button>
+</ng-template>

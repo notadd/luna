@@ -1,6 +1,5 @@
 import { DynamicModule, Inject, Module } from '@nestjs/common';
 import { bootstrap } from '@notadd/magnus-apollo';
-import { ConfigService } from 'nestjs-config';
 import { createConnection, DefaultNamingStrategy } from 'typeorm';
 import { Controller } from './entities/controller';
 import { GameLog, Member, Room, RoomType, Setting, Ticket, TicketLog, TixianLog } from './entities/index';
@@ -15,7 +14,6 @@ const metadata = require('./assets/magnusWeb/magnus.metadata.json');
 const server = require('./assets/magnusWeb/magnus.server.json');
 const entity = require('./assets/magnusWeb/magnus.entity.json');
 
-import * as entities from './entities'
 export * from './runner';
 
 @Module({

@@ -1,7 +1,0 @@
-query MemberGet($entity: MemberInputWhere!){
-  memberGet(entity: $entity){
-    id,
-    nickname,
-    password
-  }
-}

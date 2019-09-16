@@ -13,6 +13,7 @@
     "typescript": "^3.5.3"
   },
   "dependencies": {
+    "@antv/g2": "^3.5.8-beta.3",
     "@nestjs/common": "^6.5.3",
     "@nestjs/core": "^6.5.3",
     "@nestjs/graphql": "^6.4.2",
@@ -22,6 +23,7 @@
     "@notadd/magnus-core": "^3.3.7",
     "argon2": "^0.24.0",
     "dotenv": "^8.0.0",
+    "mocha": "^6.2.0",
     "nestjs-config": "^1.4.3",
     "pg": "^7.11.0",
     "rxjs": "^6.5.2",

@@ -1,1 +1,1146 @@
-{}
+{
+  "RoomType": [
+    {
+      "name": "id",
+      "decorators": [
+        "PrimaryGeneratedColumn"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "title",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "rooms",
+      "decorators": [
+        "OneToMany"
+      ],
+      "entity": {
+        "kind": "ArrayType",
+        "isArray": true,
+        "type": {
+          "type": "Room",
+          "isEntity": false,
+          "typeArguments": []
+        }
+      }
+    }
+  ],
+  "RoomLimit": [
+    {
+      "name": "id",
+      "decorators": [
+        "PrimaryGeneratedColumn"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "title",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "rooms",
+      "decorators": [
+        "OneToMany"
+      ],
+      "entity": {
+        "kind": "ArrayType",
+        "isArray": true,
+        "type": {
+          "type": "Room",
+          "isEntity": false,
+          "typeArguments": []
+        }
+      }
+    }
+  ],
+  "GameLog": [
+    {
+      "name": "id",
+      "decorators": [
+        "PrimaryGeneratedColumn"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "status",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "count",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "startTime",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "endTime",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "room",
+      "decorators": [
+        "ManyToOne"
+      ],
+      "entity": {
+        "type": "Room",
+        "isEntity": false,
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "roomId",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "members",
+      "decorators": [
+        "ManyToMany"
+      ],
+      "entity": {
+        "kind": "ArrayType",
+        "isArray": true,
+        "type": {
+          "type": "Member",
+          "isEntity": false,
+          "typeArguments": []
+        }
+      }
+    },
+    {
+      "name": "memberId",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "createDate",
+      "decorators": [
+        "CreateDateColumn"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    }
+  ],
+  "Room": [
+    {
+      "name": "title",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "isHidden",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Boolean",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "id",
+      "decorators": [
+        "PrimaryGeneratedColumn"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "password",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "startType",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "roomType",
+      "decorators": [
+        "ManyToOne"
+      ],
+      "entity": {
+        "type": "RoomType",
+        "isEntity": false,
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "roomLimit",
+      "decorators": [
+        "ManyToOne"
+      ],
+      "entity": {
+        "type": "RoomLimit",
+        "isEntity": false,
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "roomTypeId",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "owner",
+      "decorators": [
+        "ManyToOne",
+        "JoinColumn"
+      ],
+      "entity": {
+        "type": "Member",
+        "isEntity": false,
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "ownerId",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "members",
+      "decorators": [
+        "ManyToMany",
+        "JoinTable"
+      ],
+      "entity": {
+        "kind": "ArrayType",
+        "isArray": true,
+        "type": {
+          "type": "Member",
+          "isEntity": false,
+          "typeArguments": []
+        }
+      }
+    },
+    {
+      "name": "gameLogs",
+      "decorators": [
+        "OneToMany"
+      ],
+      "entity": {
+        "kind": "ArrayType",
+        "isArray": true,
+        "type": {
+          "type": "GameLog",
+          "isEntity": false,
+          "typeArguments": []
+        }
+      }
+    },
+    {
+      "name": "createDate",
+      "decorators": [
+        "CreateDateColumn"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    }
+  ],
+  "TixianLog": [
+    {
+      "name": "relations",
+      "decorators": [],
+      "entity": {
+        "kind": "ArrayType",
+        "isArray": true,
+        "type": {
+          "type": "String",
+          "typeArguments": []
+        }
+      }
+    },
+    {
+      "name": "id",
+      "decorators": [
+        "PrimaryGeneratedColumn"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "member",
+      "decorators": [
+        "ManyToOne"
+      ],
+      "entity": {
+        "type": "Member",
+        "isEntity": false,
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "memberId",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "getMember",
+      "decorators": [
+        "ResolveProperty"
+      ],
+      "entity": {
+        "type": "Member",
+        "isEntity": false,
+        "typeArguments": []
+      },
+      "parameters": []
+    },
+    {
+      "name": "count",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "status",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "createDate",
+      "decorators": [
+        "CreateDateColumn"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    }
+  ],
+  "Ticket": [
+    {
+      "name": "id",
+      "decorators": [
+        "PrimaryGeneratedColumn"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "title",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "fee",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "count",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "logs",
+      "decorators": [
+        "OneToMany"
+      ],
+      "entity": {
+        "kind": "ArrayType",
+        "isArray": true,
+        "type": {
+          "type": "TicketLog",
+          "isEntity": false,
+          "typeArguments": []
+        }
+      }
+    },
+    {
+      "name": "createDate",
+      "decorators": [
+        "CreateDateColumn"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "updateDate",
+      "decorators": [
+        "UpdateDateColumn"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    }
+  ],
+  "TicketLog": [
+    {
+      "name": "relations",
+      "decorators": [],
+      "entity": {
+        "kind": "ArrayType",
+        "isArray": true,
+        "type": {
+          "type": "String",
+          "typeArguments": []
+        }
+      }
+    },
+    {
+      "name": "id",
+      "decorators": [
+        "PrimaryGeneratedColumn"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "ticket",
+      "decorators": [
+        "ManyToOne"
+      ],
+      "entity": {
+        "type": "Ticket",
+        "isEntity": false,
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "ticket_Id",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "member",
+      "decorators": [
+        "ManyToOne"
+      ],
+      "entity": {
+        "type": "Member",
+        "isEntity": false,
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "member_id",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "createDate",
+      "decorators": [
+        "CreateDateColumn"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    }
+  ],
+  "Account": [
+    {
+      "name": "id",
+      "decorators": [
+        "PrimaryGeneratedColumn"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "nickname",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "steamId",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "member",
+      "decorators": [
+        "OneToOne"
+      ],
+      "entity": {
+        "type": "Member",
+        "isEntity": false,
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "level",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    }
+  ],
+  "Member": [
+    {
+      "name": "id",
+      "decorators": [
+        "PrimaryGeneratedColumn"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "nickname",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "password",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "avatar",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "mobile",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "openid",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "status",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "fee",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "fee2",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "fee3",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "rooms",
+      "decorators": [
+        "ManyToMany"
+      ],
+      "entity": {
+        "kind": "ArrayType",
+        "isArray": true,
+        "type": {
+          "type": "Room",
+          "isEntity": false,
+          "typeArguments": []
+        }
+      }
+    },
+    {
+      "name": "createRooms",
+      "decorators": [
+        "OneToMany"
+      ],
+      "entity": {
+        "kind": "ArrayType",
+        "isArray": true,
+        "type": {
+          "type": "Room",
+          "isEntity": false,
+          "typeArguments": []
+        }
+      }
+    },
+    {
+      "name": "tixianLogs",
+      "decorators": [
+        "OneToMany"
+      ],
+      "entity": {
+        "kind": "ArrayType",
+        "isArray": true,
+        "type": {
+          "type": "TixianLog",
+          "isEntity": false,
+          "typeArguments": []
+        }
+      }
+    },
+    {
+      "name": "gameLogs",
+      "decorators": [
+        "OneToMany",
+        "JoinTable"
+      ],
+      "entity": {
+        "kind": "ArrayType",
+        "isArray": true,
+        "type": {
+          "type": "GameLog",
+          "isEntity": false,
+          "typeArguments": []
+        }
+      }
+    },
+    {
+      "name": "ticketLogs",
+      "decorators": [
+        "OneToMany"
+      ],
+      "entity": {
+        "kind": "ArrayType",
+        "isArray": true,
+        "type": {
+          "type": "TicketLog",
+          "isEntity": false,
+          "typeArguments": []
+        }
+      }
+    },
+    {
+      "name": "createDate",
+      "decorators": [
+        "CreateDateColumn"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "account",
+      "decorators": [
+        "OneToOne"
+      ],
+      "entity": {
+        "type": "Account",
+        "isEntity": false,
+        "typeArguments": []
+      }
+    }
+  ],
+  "Setting": [
+    {
+      "name": "id",
+      "decorators": [
+        "PrimaryGeneratedColumn"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "key",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "value",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    }
+  ],
+  "ListResult": [
+    {
+      "name": "list",
+      "decorators": [],
+      "entity": {
+        "kind": "ArrayType",
+        "isArray": true,
+        "type": {
+          "type": "T",
+          "isEntity": false,
+          "typeArguments": []
+        }
+      }
+    },
+    {
+      "name": "count",
+      "decorators": [],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    }
+  ],
+  "ListMessages": [
+    {
+      "name": "code",
+      "decorators": [],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "message",
+      "decorators": [],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "data",
+      "decorators": [],
+      "entity": {
+        "type": "ListResult",
+        "isEntity": false,
+        "typeArguments": [
+          {
+            "type": "T",
+            "isEntity": false,
+            "typeArguments": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "pre",
+      "decorators": [],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "system",
+      "decorators": [],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "level",
+      "decorators": [],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "serviceCode",
+      "decorators": [],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "controller",
+      "decorators": [],
+      "parameters": [
+        {
+          "name": "code",
+          "index": 0,
+          "decorator": []
+        },
+        {
+          "name": "message",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "data",
+          "index": 2,
+          "decorator": []
+        }
+      ]
+    }
+  ],
+  "Limit": [
+    {
+      "name": "page",
+      "decorators": [],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "psize",
+      "decorators": [],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    }
+  ],
+  "Message": [
+    {
+      "name": "code",
+      "decorators": [],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "message",
+      "decorators": [],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "data",
+      "decorators": [],
+      "entity": {
+        "type": "T",
+        "isEntity": false,
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "pre",
+      "decorators": [],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "system",
+      "decorators": [],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "level",
+      "decorators": [],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "serviceCode",
+      "decorators": [],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "controller",
+      "decorators": [],
+      "parameters": [
+        {
+          "name": "code",
+          "index": 0,
+          "decorator": []
+        },
+        {
+          "name": "message",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "data",
+          "index": 2,
+          "decorator": []
+        }
+      ]
+    }
+  ],
+  "Messages": [
+    {
+      "name": "code",
+      "decorators": [],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "pre",
+      "decorators": [],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "system",
+      "decorators": [],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "level",
+      "decorators": [],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "serviceCode",
+      "decorators": [],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "message",
+      "decorators": [],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "data",
+      "decorators": [],
+      "entity": {
+        "kind": "ArrayType",
+        "isArray": true,
+        "type": {
+          "type": "T",
+          "isEntity": false,
+          "typeArguments": []
+        }
+      }
+    },
+    {
+      "name": "controller",
+      "decorators": [],
+      "parameters": [
+        {
+          "name": "code",
+          "index": 0,
+          "decorator": []
+        },
+        {
+          "name": "message",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "data",
+          "index": 2,
+          "decorator": []
+        }
+      ]
+    }
+  ]
+}

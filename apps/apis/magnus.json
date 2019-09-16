@@ -1,20 +1,16 @@
 {
-  "name": "apis",
-  "inputs": [
-    "lib/**/*.ts"
-  ],
-  "output": "lib/magnus",
-  "assets": "lib/assets",
-  "port": 3000,
-  "root": "/Users/ims/Desktop/guanjie/luna/apps/apis",
-  "debug": false,
-  "client": [
-    "lib/**/*.graphql"
-  ],
-  "def": "lib/assets/magnusWeb/magnus.server.graphql",
-  "runner": {
-    "name": "runner",
-    "path": "@luna/entities"
-  },
-  "types": "@luna/entities"
+	"name": "apis",
+	"inputs": [ "lib/**/*.ts" ],
+	"output": "lib/magnus",
+	"assets": "lib/assets",
+	"port": 3000,
+	"debug": false,
+	"client": [ "lib/**/*.graphql" ],
+	"def": "lib/assets/magnusWeb/magnus.server.graphql",
+	"runner": {
+		"name": "runner",
+		"path": "@luna/entities"
+	},
+	"types": "@luna/entities",
+	"version": "1.0.0"
 }

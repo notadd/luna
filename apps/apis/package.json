@@ -15,5 +15,15 @@
   ],
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "@magnus-plugins/nest-graphql-fastify": "^1.1.7",
+    "@magnus-plugins/nest-resolver": "^1.1.7",
+    "@nestjs/platform-fastify": "^6.6.7",
+    "@notadd/magnus-core": "^3.6.1",
+    "@notadd/magnus-typeorm": "^0.8.7",
+    "apollo-server-fastify": "^2.9.3",
+    "dotenv": "^8.1.0",
+    "mocha": "^6.2.0"
   }
 }
