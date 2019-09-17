@@ -17,6 +17,8 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
+    "@delon/abc": "^8.4.0",
+    "@delon/form": "^8.4.0",
     "@magnus-plugins/nest-graphql-fastify": "^1.1.7",
     "@magnus-plugins/nest-resolver": "^1.1.7",
     "@nestjs/platform-fastify": "^6.6.7",

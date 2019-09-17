@@ -1,12 +1,9 @@
-import { Entity, PrimaryGeneratedColumn, ManyToOne, Column, CreateDateColumn, getRepository } from "typeorm";
+import { Entity, UpdateDateColumn, PrimaryGeneratedColumn, ManyToOne, Column, CreateDateColumn, getRepository, JoinColumn } from "typeorm";
 import { Member } from "./member";
 import { ResolveProperty } from '@notadd/magnus-core';
 import * as transformer from './transformer'
 @Entity()
 export class TixianLog {
-
-    static relations: string[] = ['member'];
-
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -14,9 +11,14 @@ export class TixianLog {
      * 提现人
      */
     @ManyToOne(() => Member, type => type.tixianLogs)
+    @JoinColumn({
+        name: 'member_id'
+    })
     member: Member;
 
-    @Column()
+    @Column({
+        name: 'member_id'
+    })
     memberId: number;
 
     @ResolveProperty()
@@ -29,6 +31,12 @@ export class TixianLog {
      */
     @Column()
     count: number;
+
+    /**
+     * 提现金额
+     */
+    @Column()
+    fee: number;
 
     /**
      * 提现状态
@@ -45,5 +53,15 @@ export class TixianLog {
         transformer: transformer.timestamptz
     })
     createDate: string;
+
+    /**
+     * 更新时间
+     */
+    @UpdateDateColumn({
+        name: 'update_data',
+        type: 'timestamptz',
+        transformer: transformer.timestamptz
+    })
+    updateDate: string;
 
 }

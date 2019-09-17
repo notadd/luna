@@ -15,6 +15,8 @@ import { Setting } from './entities/setting';
 import { Ticket } from './entities/ticket';
 import { TicketLog } from './entities/ticketLog';
 import { TixianLog } from './entities/tixianLog';
+import { ChongZhiLog } from './entities/chongzhiLog';
+
 async function start() {
     dotenv.config();
     const environment = config();
@@ -36,7 +38,8 @@ async function start() {
             Setting,
             Ticket,
             TicketLog,
-            TixianLog
+            TixianLog,
+            ChongZhiLog
         ],
         synchronize: true,
         subscribers: []

@@ -330,18 +330,6 @@
   ],
   "TixianLog": [
     {
-      "name": "relations",
-      "decorators": [],
-      "entity": {
-        "kind": "ArrayType",
-        "isArray": true,
-        "type": {
-          "type": "String",
-          "typeArguments": []
-        }
-      }
-    },
-    {
       "name": "id",
       "decorators": [
         "PrimaryGeneratedColumn"
@@ -354,7 +342,8 @@
     {
       "name": "member",
       "decorators": [
-        "ManyToOne"
+        "ManyToOne",
+        "JoinColumn"
       ],
       "entity": {
         "type": "Member",
@@ -395,6 +384,16 @@
       }
     },
     {
+      "name": "fee",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
       "name": "status",
       "decorators": [
         "Column"
@@ -408,6 +407,90 @@
       "name": "createDate",
       "decorators": [
         "CreateDateColumn"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "updateDate",
+      "decorators": [
+        "UpdateDateColumn"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    }
+  ],
+  "ChongZhiLog": [
+    {
+      "name": "id",
+      "decorators": [
+        "PrimaryGeneratedColumn"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "fee",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "status",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "member",
+      "decorators": [
+        "ManyToOne",
+        "JoinColumn"
+      ],
+      "entity": {
+        "type": "Member",
+        "isEntity": false,
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "memberId",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "createDate",
+      "decorators": [
+        "CreateDateColumn"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "updateDate",
+      "decorators": [
+        "UpdateDateColumn"
       ],
       "entity": {
         "type": "String",
@@ -493,18 +576,6 @@
     }
   ],
   "TicketLog": [
-    {
-      "name": "relations",
-      "decorators": [],
-      "entity": {
-        "kind": "ArrayType",
-        "isArray": true,
-        "type": {
-          "type": "String",
-          "typeArguments": []
-        }
-      }
-    },
     {
       "name": "id",
       "decorators": [
@@ -762,6 +833,21 @@
         "isArray": true,
         "type": {
           "type": "TixianLog",
+          "isEntity": false,
+          "typeArguments": []
+        }
+      }
+    },
+    {
+      "name": "chongZhiLogs",
+      "decorators": [
+        "OneToMany"
+      ],
+      "entity": {
+        "kind": "ArrayType",
+        "isArray": true,
+        "type": {
+          "type": "ChongZhiLog",
           "isEntity": false,
           "typeArguments": []
         }

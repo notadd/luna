@@ -78,7 +78,6 @@ export interface Room {
 	createDate?: string;
 }
 export interface TixianLog {
-	relations?: string[];
 	id?: number;
 	/*提现人*/
 	member?: Member;
@@ -86,10 +85,30 @@ export interface TixianLog {
 	getMember(__selection?: string): Member;
 	/*提现数量*/
 	count?: number;
+	/*提现金额*/
+	fee?: number;
 	/*提现状态*/
 	status?: number;
 	/*提现时间*/
 	createDate?: string;
+	/*更新时间*/
+	updateDate?: string;
+}
+export interface ChongZhiLog {
+	/*编号*/
+	id?: number;
+	/*费用*/
+	fee?: number;
+	/*状态*/
+	status?: number;
+	/*用户*/
+	member?: Member;
+	/*用户id*/
+	memberId?: number;
+	/*创建日期*/
+	createDate?: string;
+	/*更新日期*/
+	updateDate?: string;
 }
 export interface Ticket {
 	id?: number;
@@ -105,7 +124,6 @@ export interface Ticket {
 	updateDate?: string;
 }
 export interface TicketLog {
-	relations?: string[];
 	id?: number;
 	ticket?: Ticket;
 	ticket_Id?: number;
@@ -146,6 +164,7 @@ export interface Member {
 	createRooms?: Room[];
 	/*提现记录*/
 	tixianLogs?: TixianLog[];
+	chongZhiLogs?: ChongZhiLog[];
 	/*游戏记录*/
 	gameLogs?: GameLog[];
 	/*用户领取的劵*/
@@ -679,6 +698,7 @@ export interface TixianLogWhere {
 /* 等于*/	id?: number;
 /* 等于*/	memberId?: number;
 /*提现数量 等于*/	count?: number;
+/*提现金额 等于*/	fee?: number;
 /*提现状态 等于*/	status?: number;
 /*提现时间 小于*/	createDate_Lt?: Date;
 /*提现时间 小于等于*/	createDate_Lte?: Date;
@@ -686,6 +706,12 @@ export interface TixianLogWhere {
 /*提现时间 大于等于*/	createDate_Gte?: Date;
 /*提现时间 指定范围[min,max]*/	createDate_Between?: Date[];
 /*提现时间 等于*/	createDate?: string;
+/*更新时间 小于*/	updateDate_Lt?: Date;
+/*更新时间 小于等于*/	updateDate_Lte?: Date;
+/*更新时间 大于*/	updateDate_Gt?: Date;
+/*更新时间 大于等于*/	updateDate_Gte?: Date;
+/*更新时间 指定范围[min,max]*/	updateDate_Between?: Date[];
+/*更新时间 等于*/	updateDate?: string;
 /**/	AND?: TixianLogWhere[];
 /**/	OR?: TixianLogWhere[];
 }
@@ -693,8 +719,71 @@ export interface TixianLogOrder {
 /* ASC 升序 DESC降序*/	id?: string;
 /* ASC 升序 DESC降序*/	memberId?: string;
 /*提现数量 ASC 升序 DESC降序*/	count?: string;
+/*提现金额 ASC 升序 DESC降序*/	fee?: string;
 /*提现状态 ASC 升序 DESC降序*/	status?: string;
 /*提现时间 ASC 升序 DESC降序*/	createDate?: string;
+/*更新时间 ASC 升序 DESC降序*/	updateDate?: string;
+}
+export interface ChongZhiLogListResult {
+	list?: ChongZhiLog[];
+	count?: number;
+}
+export interface ChongZhiLogListMessages {
+	/*#### 1位:
+> H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员
+#### 2位:
+> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面
+#### 3-5位:
+> 子系统编码
+#### 6-8位
+> 业务编码*/
+	code?: string;
+	/*用户友好提示*/
+	message?: string;
+	/*返回数据*/
+	data?: ChongZhiLogListResult;
+	/*H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员*/
+	pre?: string;
+	/*子系统编码 基础信息管理 001*/
+	system?: string;
+	/*> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面*/
+	level?: string;
+	/*业务编码 2000表示正常*/
+	serviceCode?: string;
+}
+export interface ChongZhiLogWhere {
+/*编号 在制定内，如[1,2,3,...]*/	id_In?: number[];
+/*编号 小于*/	id_Lt?: number;
+/*编号 小于等于*/	id_Lte?: number;
+/*编号 大于*/	id_Gt?: number;
+/*编号 大于等于*/	id_Gte?: number;
+/*编号 指定范围[min,max]*/	id_Between?: number[];
+/*编号 等于*/	id?: number;
+/*费用 等于*/	fee?: number;
+/*状态 等于*/	status?: number;
+/*用户id 等于*/	memberId?: number;
+/*创建日期 小于*/	createDate_Lt?: Date;
+/*创建日期 小于等于*/	createDate_Lte?: Date;
+/*创建日期 大于*/	createDate_Gt?: Date;
+/*创建日期 大于等于*/	createDate_Gte?: Date;
+/*创建日期 指定范围[min,max]*/	createDate_Between?: Date[];
+/*创建日期 等于*/	createDate?: string;
+/*更新日期 小于*/	updateDate_Lt?: Date;
+/*更新日期 小于等于*/	updateDate_Lte?: Date;
+/*更新日期 大于*/	updateDate_Gt?: Date;
+/*更新日期 大于等于*/	updateDate_Gte?: Date;
+/*更新日期 指定范围[min,max]*/	updateDate_Between?: Date[];
+/*更新日期 等于*/	updateDate?: string;
+/**/	AND?: ChongZhiLogWhere[];
+/**/	OR?: ChongZhiLogWhere[];
+}
+export interface ChongZhiLogOrder {
+/*编号 ASC 升序 DESC降序*/	id?: string;
+/*费用 ASC 升序 DESC降序*/	fee?: string;
+/*状态 ASC 升序 DESC降序*/	status?: string;
+/*用户id ASC 升序 DESC降序*/	memberId?: string;
+/*创建日期 ASC 升序 DESC降序*/	createDate?: string;
+/*更新日期 ASC 升序 DESC降序*/	updateDate?: string;
 }
 /*header refreshToken*/
 export interface GameLogMessage {
@@ -936,6 +1025,30 @@ export interface TixianLogMessage {
 	/*业务编码 2000表示正常*/
 	serviceCode?: string;
 }
+/*header refreshToken*/
+export interface ChongZhiLogMessage {
+	/*#### 1位:
+> H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员
+#### 2位:
+> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面
+#### 3-5位:
+> 子系统编码
+#### 6-9位
+> 业务编码*/
+	code?: string;
+	/*用户友好提示*/
+	message?: string;
+	/*返回数据*/
+	data?: ChongZhiLog;
+	/*H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员*/
+	pre?: string;
+	/*子系统编码 基础信息管理 001*/
+	system?: string;
+	/*> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面*/
+	level?: string;
+	/*业务编码 2000表示正常*/
+	serviceCode?: string;
+}
 export interface GameLogMessages {
 	/*#### 1位:
 > H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员
@@ -1166,6 +1279,29 @@ export interface TixianLogMessages {
 	/*返回数据*/
 	data?: TixianLog[];
 }
+export interface ChongZhiLogMessages {
+	/*#### 1位:
+> H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员
+#### 2位:
+> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面
+#### 3-5位:
+> 子系统编码 基础信息管理 001
+#### ６-9
+> 业务编码 2000表示正常*/
+	code?: string;
+	/*H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员*/
+	pre?: string;
+	/*子系统编码 基础信息管理 001*/
+	system?: string;
+	/*> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面*/
+	level?: string;
+	/*业务编码 2000表示正常*/
+	serviceCode?: string;
+	/*用户友好提示*/
+	message?: string;
+	/*返回数据*/
+	data?: ChongZhiLog[];
+}
 export interface GameLogSimple {
 /**/	id?: number;
 /*输赢*/	status?: number;
@@ -1230,7 +1366,14 @@ export interface TixianLogSimple {
 /**/	id?: number;
 /**/	memberId?: number;
 /*提现数量*/	count?: number;
+/*提现金额*/	fee?: number;
 /*提现状态*/	status?: number;
+}
+export interface ChongZhiLogSimple {
+/*编号*/	id?: number;
+/*费用*/	fee?: number;
+/*状态*/	status?: number;
+/*用户id*/	memberId?: number;
 }
 export interface RoomTypeInput {
 	/*id*/
@@ -1245,17 +1388,36 @@ export interface RoomLimitInput {
 	rooms?: RoomInput[];
 }
 export interface TixianLogInput {
-	relations?: string[];
 	id?: number;
 	/*提现人*/
 	member?: MemberInput;
 	memberId?: number;
 	/*提现数量*/
 	count?: number;
+	/*提现金额*/
+	fee?: number;
 	/*提现状态*/
 	status?: number;
 	/*提现时间*/
 	createDate?: string;
+	/*更新时间*/
+	updateDate?: string;
+}
+export interface ChongZhiLogInput {
+	/*编号*/
+	id?: number;
+	/*费用*/
+	fee?: number;
+	/*状态*/
+	status?: number;
+	/*用户*/
+	member?: MemberInput;
+	/*用户id*/
+	memberId?: number;
+	/*创建日期*/
+	createDate?: string;
+	/*更新日期*/
+	updateDate?: string;
 }
 export interface TicketInput {
 	id?: number;
@@ -1271,7 +1433,6 @@ export interface TicketInput {
 	updateDate?: string;
 }
 export interface TicketLogInput {
-	relations?: string[];
 	id?: number;
 	ticket?: TicketInput;
 	ticket_Id?: number;
@@ -1312,6 +1473,7 @@ export interface MemberInput {
 	createRooms?: RoomInput[];
 	/*提现记录*/
 	tixianLogs?: TixianLogInput[];
+	chongZhiLogs?: ChongZhiLogInput[];
 	/*游戏记录*/
 	gameLogs?: GameLogInput[];
 	/*用户领取的劵*/
@@ -1374,6 +1536,7 @@ export interface SettingInput {
 	value?: string;
 }
 export interface Query {
+	pageSetting<T>(url: string, __selection?: string): Promise<T & object>;
 	/*获取列表
 默认分页{page: 1, psize: 20}*/
 	gameLogList<T>(where?: GameLogWhere, order?: GameLogOrder, limit?: LimitInput, __selection?: string): Promise<T & GameLogListMessages>;
@@ -1404,6 +1567,9 @@ export interface Query {
 	/*获取列表
 默认分页{page: 1, psize: 20}*/
 	tixianLogList<T>(where?: TixianLogWhere, order?: TixianLogOrder, limit?: LimitInput, __selection?: string): Promise<T & TixianLogListMessages>;
+	/*获取列表
+默认分页{page: 1, psize: 20}*/
+	chongZhiLogList<T>(where?: ChongZhiLogWhere, order?: ChongZhiLogOrder, limit?: LimitInput, __selection?: string): Promise<T & ChongZhiLogListMessages>;
 	/*获取单条*/
 	gameLogDetail<T>(where?: GameLogWhere, __selection?: string): Promise<T & GameLogMessage>;
 	/*获取单条*/
@@ -1424,6 +1590,8 @@ export interface Query {
 	ticketLogDetail<T>(where?: TicketLogWhere, __selection?: string): Promise<T & TicketLogMessage>;
 	/*获取单条*/
 	tixianLogDetail<T>(where?: TixianLogWhere, __selection?: string): Promise<T & TixianLogMessage>;
+	/*获取单条*/
+	chongZhiLogDetail<T>(where?: ChongZhiLogWhere, __selection?: string): Promise<T & ChongZhiLogMessage>;
 	/*获取所有
 没有分页*/
 	gameLogAll<T>(where?: GameLogWhere, order?: GameLogOrder, __selection?: string): Promise<T & GameLogMessages>;
@@ -1454,6 +1622,9 @@ export interface Query {
 	/*获取所有
 没有分页*/
 	tixianLogAll<T>(where?: TixianLogWhere, order?: TixianLogOrder, __selection?: string): Promise<T & TixianLogMessages>;
+	/*获取所有
+没有分页*/
+	chongZhiLogAll<T>(where?: ChongZhiLogWhere, order?: ChongZhiLogOrder, __selection?: string): Promise<T & ChongZhiLogMessages>;
 }
 export interface Mutation {
 	/*删除*/
@@ -1476,6 +1647,8 @@ export interface Mutation {
 	ticketLogDeleteId<T>(id: ID, __selection?: string): Promise<T & TicketLogMessage>;
 	/*删除*/
 	tixianLogDeleteId<T>(id: ID, __selection?: string): Promise<T & TixianLogMessage>;
+	/*删除*/
+	chongZhiLogDeleteId<T>(id: ID, __selection?: string): Promise<T & ChongZhiLogMessage>;
 	gameLogDelete<T>(where: GameLogWhere, __selection?: string): Promise<T & GameLogMessage>;
 	accountDelete<T>(where: AccountWhere, __selection?: string): Promise<T & AccountMessage>;
 	memberDelete<T>(where: MemberWhere, __selection?: string): Promise<T & MemberMessage>;
@@ -1487,6 +1660,7 @@ export interface Mutation {
 	ticketDelete<T>(where: TicketWhere, __selection?: string): Promise<T & TicketMessage>;
 	ticketLogDelete<T>(where: TicketLogWhere, __selection?: string): Promise<T & TicketLogMessage>;
 	tixianLogDelete<T>(where: TixianLogWhere, __selection?: string): Promise<T & TixianLogMessage>;
+	chongZhiLogDelete<T>(where: ChongZhiLogWhere, __selection?: string): Promise<T & ChongZhiLogMessage>;
 	/*批量删除*/
 	gameLogDeletes<T>(ids: ID[], __selection?: string): Promise<T & GameLogMessages>;
 	/*批量删除*/
@@ -1507,6 +1681,8 @@ export interface Mutation {
 	ticketLogDeletes<T>(ids: ID[], __selection?: string): Promise<T & TicketLogMessages>;
 	/*批量删除*/
 	tixianLogDeletes<T>(ids: ID[], __selection?: string): Promise<T & TixianLogMessages>;
+	/*批量删除*/
+	chongZhiLogDeletes<T>(ids: ID[], __selection?: string): Promise<T & ChongZhiLogMessages>;
 	gameLogUpdate<T>(where: GameLogWhere, entity: GameLogSimple, __selection?: string): Promise<T & GameLogMessage>;
 	accountUpdate<T>(where: AccountWhere, entity: AccountSimple, __selection?: string): Promise<T & AccountMessage>;
 	memberUpdate<T>(where: MemberWhere, entity: MemberSimple, __selection?: string): Promise<T & MemberMessage>;
@@ -1518,6 +1694,7 @@ export interface Mutation {
 	ticketUpdate<T>(where: TicketWhere, entity: TicketSimple, __selection?: string): Promise<T & TicketMessage>;
 	ticketLogUpdate<T>(where: TicketLogWhere, entity: TicketLogSimple, __selection?: string): Promise<T & TicketLogMessage>;
 	tixianLogUpdate<T>(where: TixianLogWhere, entity: TixianLogSimple, __selection?: string): Promise<T & TixianLogMessage>;
+	chongZhiLogUpdate<T>(where: ChongZhiLogWhere, entity: ChongZhiLogSimple, __selection?: string): Promise<T & ChongZhiLogMessage>;
 	/*更新或新增
 修改状态等操作,应使用update*/
 	gameLogEdit<T>(entity: GameLogInput, __selection?: string): Promise<T & GameLogMessage>;
@@ -1548,6 +1725,9 @@ export interface Mutation {
 	/*更新或新增
 修改状态等操作,应使用update*/
 	tixianLogEdit<T>(entity: TixianLogInput, __selection?: string): Promise<T & TixianLogMessage>;
+	/*更新或新增
+修改状态等操作,应使用update*/
+	chongZhiLogEdit<T>(entity: ChongZhiLogInput, __selection?: string): Promise<T & ChongZhiLogMessage>;
 	/*批量编辑*/
 	gameLogEdits<T>(entity: GameLogInput[], __selection?: string): Promise<T & GameLogMessages>;
 	/*批量编辑*/
@@ -1568,6 +1748,8 @@ export interface Mutation {
 	ticketLogEdits<T>(entity: TicketLogInput[], __selection?: string): Promise<T & TicketLogMessages>;
 	/*批量编辑*/
 	tixianLogEdits<T>(entity: TixianLogInput[], __selection?: string): Promise<T & TixianLogMessages>;
+	/*批量编辑*/
+	chongZhiLogEdits<T>(entity: ChongZhiLogInput[], __selection?: string): Promise<T & ChongZhiLogMessages>;
 	/*添加单条数据，无自动关联关系*/
 	gameLogAdd<T>(entity: GameLogSimple, __selection?: string): Promise<T & GameLogMessage>;
 	/*添加单条数据，无自动关联关系*/
@@ -1588,6 +1770,8 @@ export interface Mutation {
 	ticketLogAdd<T>(entity: TicketLogSimple, __selection?: string): Promise<T & TicketLogMessage>;
 	/*添加单条数据，无自动关联关系*/
 	tixianLogAdd<T>(entity: TixianLogSimple, __selection?: string): Promise<T & TixianLogMessage>;
+	/*添加单条数据，无自动关联关系*/
+	chongZhiLogAdd<T>(entity: ChongZhiLogSimple, __selection?: string): Promise<T & ChongZhiLogMessage>;
 	/*批量添加*/
 	gameLogAdds<T>(entity: GameLogSimple[], __selection?: string): Promise<T & GameLogMessages>;
 	/*批量添加*/
@@ -1608,4 +1792,6 @@ export interface Mutation {
 	ticketLogAdds<T>(entity: TicketLogSimple[], __selection?: string): Promise<T & TicketLogMessages>;
 	/*批量添加*/
 	tixianLogAdds<T>(entity: TixianLogSimple[], __selection?: string): Promise<T & TixianLogMessages>;
+	/*批量添加*/
+	chongZhiLogAdds<T>(entity: ChongZhiLogSimple[], __selection?: string): Promise<T & ChongZhiLogMessages>;
 }

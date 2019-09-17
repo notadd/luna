@@ -1,5 +1,32 @@
+<avatar-list size="mini" maxLength="3" [excessItemsStyle]="{ color: '#f56a00', backgroundColor: '#fde3cf' }">
+    <avatar-list-item tips="Jake" src="https://gw.alipayobjects.com/zos/rmsportal/zOsKZmFRdUtvpqCImOVY.png">
+    </avatar-list-item>
+    <avatar-list-item tips="Andy" src="https://gw.alipayobjects.com/zos/rmsportal/sfjbOqnsXXJgNCjCzDBL.png">
+    </avatar-list-item>
+    <avatar-list-item tips="Niko" src="https://gw.alipayobjects.com/zos/rmsportal/kZzEzemZyKLKFsojXItE.png">
+    </avatar-list-item>
+    <avatar-list-item tips="Cipchk" text="Cipchk"></avatar-list-item>
+    <avatar-list-item tips="heart-o" icon="heart-o"></avatar-list-item>
+</avatar-list>
+
 欢迎页
+
+<g2-card [title]="'移动指标'" [bordered]="true" [total]="'¥ 126,560.00'" footer="日访问量 12,423" [avatar]="avatar"
+    [action]="action">
+    <ng-template #avatar><img style="width:56px; height: 56px" src="./assets/img/logo-color.svg" /></ng-template>
+    <ng-template #action>
+        <i nz-tooltip nzTooltipTitle="指标说明" nz-icon nzType="info-circle"></i>
+    </ng-template>
+</g2-card>
+
+<number-info subTitle="本周访问" total="12,321" subTotal="17.1" status="up"></number-info>
 
 当日、昨日、本周、上周新增会员
 
+<g2-mini-area line color="#cceafe" height="45" [data]="visitData"></g2-mini-area>
+
 当日、昨日、本周、上周平台受益
+
+<g2-water-wave title="补贴资金剩余" [percent]="34" [height]="161"></g2-water-wave>
+
+<g2-timeline [data]="chartData" [titleMap]="{y1: '客流量', y2: '支付笔数'}" [height]="200"></g2-timeline>

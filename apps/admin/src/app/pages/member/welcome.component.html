@@ -1,8 +1,39 @@
-<sf [schema]="schema" [layout]="'inline'" [button]="button" (formSubmit)="submit($event)"></sf>
-
-<st #st [page]="page" [data]="data|async" [columns]="columns" (change)="change($event)" [req]="{params: params}"
-    [res]="{process: dataChange}" [footer]="footer"></st>
-
-<ng-template #footer>
-    <button nz-button (click)="exportAll()">导出所有</button>
-</ng-template>
+<div *ngIf="widgets">
+    <!-- 搜索条件 -->
+    <sf *ngIf="widgets.search" [schema]="widgets.search.schema" [layout]="'inline'" [button]="widgets.search.button"
+        (formSubmit)="search($event)">
+    </sf>
+    <!-- 用户列表 -->
+    <st *ngIf="widgets.list" #st [page]="widgets.list.page" [data]="data" [columns]="widgets.list.columns" (change)="change($event)"
+        [req]="{params: params}" [res]="{process: dataChange}" [footer]="footer"></st>
+    <!-- 用户详情 -->
+    <nz-drawer *ngIf="widgets.detail" [nzClosable]="widgets.detail.nzClosable" [nzWidth]="640" [nzVisible]="widgets.detail.nzVisible"
+        nzPlacement="right" nzTitle="用户详情">
+        <sv-container col="1">
+            <sv label="ID">1</sv>
+            <sv label="Name">asdf</sv>
+            <sv label="Age">25</sv>
+            <sv label="Reject" type="danger" col="1"> OMG <a class="ml-sm">Fixed</a> </sv>
+            <sv label="Long Optional Long Optional" optional="(RMB)">Optional</sv>
+            <sv label="Optional" optionalHelp="Tips">Optional Help</sv>
+            <sv label="Default"></sv>
+            <sv [label]="label">
+                <ng-template #label>
+                    <a nz-tooltip="test">long</a>
+                </ng-template>
+                Custom label
+            </sv>
+        </sv-container>
+    </nz-drawer>
+    <!-- 用户编辑添加 -->
+    <nz-modal *ngIf="widgets.edit" [nzVisible]="widgets.edit.nzVisible" [nzTitle]="'添加用户'" (nzOnCancel)="hideAddModal($event)"
+        (nzOnOk)="addUser()">
+        <sf [schema]="widgets.edit.schema" [layout]="'horizontal'" [button]="widgets.edit.button"></sf>
+    </nz-modal>
+    <ng-template #footer>
+        <button nz-button nzType="primary" (click)="showAddModal()">添加</button>
+        <button nz-button (click)="exportAll()">导出所有</button>
+        <button nz-button (click)="exportSelect()">导出选择</button>
+    </ng-template>
+    <ng-template #editorFooter></ng-template>
+</div>

@@ -6,6 +6,7 @@ const server = require('./assets/apis/magnus.server.json');
 const entity = require('./assets/apis/magnus.entity.json');
 import { EntityController } from './runner/controller';
 import { TreeController } from './runner/tree';
+import { PageSetting } from './inc/pageSetting';
 @Module({
     imports: [
         GraphqlModule.forRoot({
@@ -17,7 +18,8 @@ import { TreeController } from './runner/tree';
     ],
     providers: [
         EntityController,
-        TreeController
+        TreeController,
+        PageSetting
     ]
 })
 export class AppModule {

@@ -12,7 +12,7 @@ import { Setting } from '../entities/setting';
 import { Ticket } from '../entities/ticket';
 import { TicketLog } from '../entities/ticketLog';
 import { TixianLog } from '../entities/tixianLog';
-
+import { ChongZhiLog } from '../entities/chongzhiLog';
 @Magnus({
     entities: [
         GameLog,
@@ -24,7 +24,8 @@ import { TixianLog } from '../entities/tixianLog';
         Setting,
         Ticket,
         TicketLog,
-        TixianLog
+        TixianLog,
+        ChongZhiLog
     ]
 })
 export class EntityController<T> extends MagnusBase<T> {

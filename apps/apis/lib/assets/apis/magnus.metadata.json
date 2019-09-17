@@ -27,6 +27,32 @@
   ],
   "query": [
     [
+      "pageSetting",
+      "PageSetting",
+      "",
+      "pageSetting",
+      [
+        {
+          "name": "url",
+          "type": "String!",
+          "index": 0,
+          "decorator": []
+        },
+        {
+          "name": "set",
+          "type": "SelectionSet!",
+          "index": 1,
+          "decorator": [
+            "GetSelectionSet"
+          ]
+        }
+      ],
+      {
+        "type": "Json",
+        "typeArguments": []
+      }
+    ],
+    [
       "gameLogList",
       "EntityController",
       "GameLog",
@@ -482,6 +508,52 @@
             "isEntity": true,
             "typeArguments": [],
             "currentEntity": "TixianLog"
+          }
+        ]
+      }
+    ],
+    [
+      "chongZhiLogList",
+      "EntityController",
+      "ChongZhiLog",
+      "list",
+      [
+        {
+          "name": "where",
+          "type": "ChongZhiLogWhere",
+          "index": 0,
+          "decorator": []
+        },
+        {
+          "name": "order",
+          "type": "ChongZhiLogOrder",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "limit",
+          "type": "LimitInput",
+          "index": 2,
+          "decorator": []
+        },
+        {
+          "name": "set",
+          "type": "SelectionSet",
+          "index": 3,
+          "decorator": [
+            "GetSelectionSet"
+          ]
+        }
+      ],
+      {
+        "type": "ListMessages",
+        "isEntity": false,
+        "typeArguments": [
+          {
+            "type": "T",
+            "isEntity": true,
+            "typeArguments": [],
+            "currentEntity": "ChongZhiLog"
           }
         ]
       }
@@ -987,6 +1059,56 @@
       }
     ],
     [
+      "chongZhiLogDetail",
+      "EntityController",
+      "ChongZhiLog",
+      "detail",
+      [
+        {
+          "name": "where",
+          "type": "ChongZhiLogWhere",
+          "index": 0,
+          "decorator": []
+        },
+        {
+          "name": "selection",
+          "type": "Json",
+          "index": 1,
+          "decorator": [
+            "Selection"
+          ]
+        },
+        {
+          "name": "relations",
+          "type": "Json",
+          "index": 2,
+          "decorator": [
+            "Relation"
+          ]
+        },
+        {
+          "name": "set",
+          "type": "Json",
+          "index": 3,
+          "decorator": [
+            "GetSelectionSet"
+          ]
+        }
+      ],
+      {
+        "type": "Message",
+        "isEntity": false,
+        "typeArguments": [
+          {
+            "type": "T",
+            "isEntity": true,
+            "typeArguments": [],
+            "currentEntity": "ChongZhiLog"
+          }
+        ]
+      }
+    ],
+    [
       "gameLogAll",
       "EntityController",
       "GameLog",
@@ -1382,6 +1504,46 @@
             "isEntity": true,
             "typeArguments": [],
             "currentEntity": "TixianLog"
+          }
+        ]
+      }
+    ],
+    [
+      "chongZhiLogAll",
+      "EntityController",
+      "ChongZhiLog",
+      "all",
+      [
+        {
+          "name": "where",
+          "type": "ChongZhiLogWhere",
+          "index": 0,
+          "decorator": []
+        },
+        {
+          "name": "order",
+          "type": "ChongZhiLogOrder",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "set",
+          "type": "SelectionSet",
+          "index": 2,
+          "decorator": [
+            "GetSelectionSet"
+          ]
+        }
+      ],
+      {
+        "type": "Messages",
+        "isEntity": false,
+        "typeArguments": [
+          {
+            "type": "T",
+            "isEntity": true,
+            "typeArguments": [],
+            "currentEntity": "ChongZhiLog"
           }
         ]
       }
@@ -1809,6 +1971,48 @@
       }
     ],
     [
+      "chongZhiLogDeleteId",
+      "EntityController",
+      "ChongZhiLog",
+      "deleteId",
+      [
+        {
+          "name": "id",
+          "type": "ID!",
+          "index": 0,
+          "decorator": []
+        },
+        {
+          "name": "relations",
+          "type": "Json",
+          "index": 1,
+          "decorator": [
+            "Relation"
+          ]
+        },
+        {
+          "name": "selection",
+          "type": "Json",
+          "index": 2,
+          "decorator": [
+            "Selection"
+          ]
+        }
+      ],
+      {
+        "type": "Message",
+        "isEntity": false,
+        "typeArguments": [
+          {
+            "type": "T",
+            "isEntity": true,
+            "typeArguments": [],
+            "currentEntity": "ChongZhiLog"
+          }
+        ]
+      }
+    ],
+    [
       "gameLogDelete",
       "EntityController",
       "GameLog",
@@ -2229,6 +2433,48 @@
       }
     ],
     [
+      "chongZhiLogDelete",
+      "EntityController",
+      "ChongZhiLog",
+      "delete",
+      [
+        {
+          "name": "where",
+          "type": "ChongZhiLogWhere!",
+          "index": 0,
+          "decorator": []
+        },
+        {
+          "name": "relations",
+          "type": "Json",
+          "index": 1,
+          "decorator": [
+            "Relation"
+          ]
+        },
+        {
+          "name": "selection",
+          "type": "Json",
+          "index": 2,
+          "decorator": [
+            "Selection"
+          ]
+        }
+      ],
+      {
+        "type": "Message",
+        "isEntity": false,
+        "typeArguments": [
+          {
+            "type": "T",
+            "isEntity": true,
+            "typeArguments": [],
+            "currentEntity": "ChongZhiLog"
+          }
+        ]
+      }
+    ],
+    [
       "gameLogDeletes",
       "EntityController",
       "GameLog",
@@ -2644,6 +2890,48 @@
             "isEntity": true,
             "typeArguments": [],
             "currentEntity": "TixianLog"
+          }
+        ]
+      }
+    ],
+    [
+      "chongZhiLogDeletes",
+      "EntityController",
+      "ChongZhiLog",
+      "deletes",
+      [
+        {
+          "name": "ids",
+          "type": "[ID]!",
+          "index": 0,
+          "decorator": []
+        },
+        {
+          "name": "relations",
+          "type": "Json",
+          "index": 1,
+          "decorator": [
+            "Relation"
+          ]
+        },
+        {
+          "name": "selection",
+          "type": "Json",
+          "index": 2,
+          "decorator": [
+            "Selection"
+          ]
+        }
+      ],
+      {
+        "type": "Messages",
+        "isEntity": false,
+        "typeArguments": [
+          {
+            "type": "T",
+            "isEntity": true,
+            "typeArguments": [],
+            "currentEntity": "ChongZhiLog"
           }
         ]
       }
@@ -3129,6 +3417,54 @@
       }
     ],
     [
+      "chongZhiLogUpdate",
+      "EntityController",
+      "ChongZhiLog",
+      "update",
+      [
+        {
+          "name": "where",
+          "type": "ChongZhiLogWhere!",
+          "index": 0,
+          "decorator": []
+        },
+        {
+          "name": "entity",
+          "type": "ChongZhiLogSimple!",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "selection",
+          "type": "Json!",
+          "index": 2,
+          "decorator": [
+            "Selection"
+          ]
+        },
+        {
+          "name": "relations",
+          "type": "Json!",
+          "index": 3,
+          "decorator": [
+            "Relation"
+          ]
+        }
+      ],
+      {
+        "type": "Message",
+        "isEntity": false,
+        "typeArguments": [
+          {
+            "type": "T",
+            "isEntity": true,
+            "typeArguments": [],
+            "currentEntity": "ChongZhiLog"
+          }
+        ]
+      }
+    ],
+    [
       "gameLogEdit",
       "EntityController",
       "GameLog",
@@ -3544,6 +3880,48 @@
             "isEntity": true,
             "typeArguments": [],
             "currentEntity": "TixianLog"
+          }
+        ]
+      }
+    ],
+    [
+      "chongZhiLogEdit",
+      "EntityController",
+      "ChongZhiLog",
+      "edit",
+      [
+        {
+          "name": "entity",
+          "type": "ChongZhiLogInput!",
+          "index": 0,
+          "decorator": []
+        },
+        {
+          "name": "selection",
+          "type": "Json",
+          "index": 1,
+          "decorator": [
+            "Selection"
+          ]
+        },
+        {
+          "name": "relations",
+          "type": "Json",
+          "index": 2,
+          "decorator": [
+            "Relation"
+          ]
+        }
+      ],
+      {
+        "type": "Message",
+        "isEntity": false,
+        "typeArguments": [
+          {
+            "type": "T",
+            "isEntity": true,
+            "typeArguments": [],
+            "currentEntity": "ChongZhiLog"
           }
         ]
       }
@@ -3969,6 +4347,48 @@
       }
     ],
     [
+      "chongZhiLogEdits",
+      "EntityController",
+      "ChongZhiLog",
+      "edits",
+      [
+        {
+          "name": "entity",
+          "type": "[ChongZhiLogInput]!",
+          "index": 0,
+          "decorator": []
+        },
+        {
+          "name": "selection",
+          "type": "Json",
+          "index": 1,
+          "decorator": [
+            "Selection"
+          ]
+        },
+        {
+          "name": "relations",
+          "type": "Json",
+          "index": 2,
+          "decorator": [
+            "Relation"
+          ]
+        }
+      ],
+      {
+        "type": "Messages",
+        "isEntity": false,
+        "typeArguments": [
+          {
+            "type": "T",
+            "isEntity": true,
+            "typeArguments": [],
+            "currentEntity": "ChongZhiLog"
+          }
+        ]
+      }
+    ],
+    [
       "gameLogAdd",
       "EntityController",
       "GameLog",
@@ -4389,6 +4809,48 @@
       }
     ],
     [
+      "chongZhiLogAdd",
+      "EntityController",
+      "ChongZhiLog",
+      "add",
+      [
+        {
+          "name": "entity",
+          "type": "ChongZhiLogSimple!",
+          "index": 0,
+          "decorator": []
+        },
+        {
+          "name": "selection",
+          "type": "Json",
+          "index": 1,
+          "decorator": [
+            "Selection"
+          ]
+        },
+        {
+          "name": "relations",
+          "type": "Json",
+          "index": 2,
+          "decorator": [
+            "Relation"
+          ]
+        }
+      ],
+      {
+        "type": "Message",
+        "isEntity": false,
+        "typeArguments": [
+          {
+            "type": "T",
+            "isEntity": true,
+            "typeArguments": [],
+            "currentEntity": "ChongZhiLog"
+          }
+        ]
+      }
+    ],
+    [
       "gameLogAdds",
       "EntityController",
       "GameLog",
@@ -4804,6 +5266,48 @@
             "isEntity": true,
             "typeArguments": [],
             "currentEntity": "TixianLog"
+          }
+        ]
+      }
+    ],
+    [
+      "chongZhiLogAdds",
+      "EntityController",
+      "ChongZhiLog",
+      "adds",
+      [
+        {
+          "name": "entity",
+          "type": "[ChongZhiLogSimple]!",
+          "index": 0,
+          "decorator": []
+        },
+        {
+          "name": "selection",
+          "type": "Json",
+          "index": 1,
+          "decorator": [
+            "Selection"
+          ]
+        },
+        {
+          "name": "relations",
+          "type": "Json",
+          "index": 2,
+          "decorator": [
+            "Relation"
+          ]
+        }
+      ],
+      {
+        "type": "Messages",
+        "isEntity": false,
+        "typeArguments": [
+          {
+            "type": "T",
+            "isEntity": true,
+            "typeArguments": [],
+            "currentEntity": "ChongZhiLog"
           }
         ]
       }

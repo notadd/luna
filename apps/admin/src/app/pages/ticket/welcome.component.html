@@ -1,70 +1,39 @@
-<!-- <nz-row [nzGutter]="16">
-    <nz-col [nzSpan]="12">
-        <nz-statistic [nzValue]="count|async | number" [nzTitle]="'总计'"></nz-statistic>
-    </nz-col>
-</nz-row> -->
-
-<form nz-form [formGroup]="searchForm" class="ant-advanced-search-form">
-    <div nz-row [nzGutter]="24">
-        <div nz-col [nzSpan]="8">
-            <nz-form-item nzFlex>
-                <nz-form-label nzFor="title">标题</nz-form-label>
-                <nz-form-control>
-                    <input nz-input placeholder="请输入标题关键字" formControlName="title">
-                </nz-form-control>
-            </nz-form-item>
-        </div>
-        <div nz-col [nzSpan]="8">
-            <nz-form-item nzFlex>
-                <nz-form-label nzFor="title">时间</nz-form-label>
-                <nz-form-control>
-                    <nz-range-picker nzFormat="yyyy/MM/dd"></nz-range-picker>
-                </nz-form-control>
-            </nz-form-item>
-        </div>
-    </div>
-    <div nz-row>
-        <div nz-col [nzSpan]="24" class="search-area">
-            <button nz-button [nzType]="'primary'" (click)="search()">搜索</button>
-            <button nz-button (click)="resetForm()">重置</button>
-        </div>
-    </div>
-</form>
-
-<nz-table class="nzTable" #basicTable [nzFrontPagination]="nzFrontPagination" [nzBordered]="nzBordered"
-    [nzSize]="nzSize" [nzHideOnSinglePage]="nzHideOnSinglePage" [nzShowSizeChanger]="nzShowSizeChanger"
-    [nzShowQuickJumper]="nzShowQuickJumper" [nzPageSizeOptions]="nzPageSizeOptions" [nzLoadingDelay]="nzLoadingDelay"
-    [nzLoading]="nzLoading" [nzTitle]="nzTitle" [nzData]="list|async" [nzTotal]="count|async" [nzPageSize]=[nzPageSize]
-    [nzPageIndex]=[nzPageIndex] (nzPageIndexChange)="nzPageIndexChange($event)"
-    (nzPageSizeChange)="nzPageSizeChange($event)">
-    <thead>
-        <tr>
-            <th nzWidth="50px" nzShowCheckbox nzShowRowSelection [nzSelections]="listOfSelection"
-                [nzIndeterminate]="isIndeterminate" (nzCheckedChange)="checkAll($event)">
-            </th>
-            <th nzWidth="100px" nzShowSort nzSort="nzSortId" (nzSortChange)="nzSortChangeId($event)">编号</th>
-            <th nzWidth="250px">标题</th>
-            <th nzWidth="150px" nzShowSort nzSort="nzSortFee" (nzSortChange)="nzSortChangeFee($event)">金币</th>
-            <th nzWidth="100px">总数</th>
-            <th nzWidth="220px">创建时间</th>
-            <th nzWidth="220px">更新时间</th>
-            <th>操作</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let data of basicTable.data">
-            <td nzShowCheckbox [(nzChecked)]="mapOfCheckedId[data.id]" (nzCheckedChange)="refreshStatus()"></td>
-            <td>{{data.id}}</td>
-            <td>{{data.title}}</td>
-            <td>{{data.fee}}</td>
-            <td>{{data.count}}</td>
-            <td>{{data.createDate |date: 'yyyy-MM-dd HH:mm:ss'}}</td>
-            <td>{{data.updateDate |date: 'yyyy-MM-dd HH:mm:ss'}}</td>
-            <td>
-                <a>编辑</a>
-                <nz-divider nzType="vertical"></nz-divider>
-                <a>删除</a>
-            </td>
-        </tr>
-    </tbody>
-</nz-table>
+<div *ngIf="widgets">
+    <!-- 搜索条件 -->
+    <sf *ngIf="widgets.search" [schema]="widgets.search.schema" [layout]="'inline'" [button]="widgets.search.button"
+        (formSubmit)="search($event)">
+    </sf>
+    <!-- 用户列表 -->
+    <st *ngIf="widgets.list" #st [page]="widgets.list.page" [data]="data" [columns]="widgets.list.columns"
+        (change)="change($event)" [req]="{params: params}" [res]="{process: dataChange}" [footer]="footer"></st>
+    <!-- 用户详情 -->
+    <nz-drawer *ngIf="widgets.detail" [nzClosable]="widgets.detail.nzClosable" [nzWidth]="640"
+        [nzVisible]="widgets.detail.nzVisible" nzPlacement="right" nzTitle="用户详情">
+        <sv-container col="1">
+            <sv label="ID">1</sv>
+            <sv label="Name">asdf</sv>
+            <sv label="Age">25</sv>
+            <sv label="Reject" type="danger" col="1"> OMG <a class="ml-sm">Fixed</a> </sv>
+            <sv label="Long Optional Long Optional" optional="(RMB)">Optional</sv>
+            <sv label="Optional" optionalHelp="Tips">Optional Help</sv>
+            <sv label="Default"></sv>
+            <sv [label]="label">
+                <ng-template #label>
+                    <a nz-tooltip="test">long</a>
+                </ng-template>
+                Custom label
+            </sv>
+        </sv-container>
+    </nz-drawer>
+    <!-- 用户编辑添加 -->
+    <nz-modal *ngIf="widgets.edit" [nzVisible]="widgets.edit.nzVisible" [nzTitle]="'添加用户'"
+        (nzOnCancel)="hideAddModal($event)" (nzOnOk)="addUser()">
+        <sf [schema]="widgets.edit.schema" [layout]="'horizontal'" [button]="widgets.edit.button"></sf>
+    </nz-modal>
+    <ng-template #footer>
+        <button nz-button nzType="primary" (click)="showAddModal()">添加</button>
+        <button nz-button (click)="exportAll()">导出所有</button>
+        <button nz-button (click)="exportSelect()">导出选择</button>
+    </ng-template>
+    <ng-template #editorFooter></ng-template>
+</div>

@@ -5,6 +5,7 @@ import { GameLog } from './gameLog';
 import { TicketLog } from './ticketLog';
 import { Account } from './account';
 import * as transformer from './transformer'
+import { ChongZhiLog } from './chongzhiLog';
 
 @Entity()
 export class Member {
@@ -82,6 +83,9 @@ export class Member {
      */
     @OneToMany(() => TixianLog, type => type.member)
     tixianLogs: TixianLog[];
+
+    @OneToMany(() => ChongZhiLog, type => type.member)
+    chongZhiLogs: ChongZhiLog[];
 
     /**
      * 游戏记录

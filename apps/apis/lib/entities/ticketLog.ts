@@ -6,8 +6,6 @@ import * as transformer from './transformer'
 @Entity()
 export class TicketLog {
 
-    static relations: string[] = ['ticket','member'];
-
     @PrimaryGeneratedColumn()
     id: number;
 

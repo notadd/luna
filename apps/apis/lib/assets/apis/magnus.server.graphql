@@ -101,7 +101,6 @@ type Room {
 }
 
 type TixianLog {
-  relations: [String]
   id: Int
   "提现人"
   member: Member
@@ -109,10 +108,31 @@ type TixianLog {
   getMember: Member
   "提现数量"
   count: Int
+  "提现金额"
+  fee: Int
   "提现状态"
   status: Int
   "提现时间"
   createDate: String
+  "更新时间"
+  updateDate: String
+}
+
+type ChongZhiLog {
+  "编号"
+  id: Int
+  "费用"
+  fee: Int
+  "状态"
+  status: Int
+  "用户"
+  member: Member
+  "用户id"
+  memberId: Int
+  "创建日期"
+  createDate: String
+  "更新日期"
+  updateDate: String
 }
 
 type Ticket {
@@ -130,7 +150,6 @@ type Ticket {
 }
 
 type TicketLog {
-  relations: [String]
   id: Int
   ticket: Ticket
   ticket_Id: Int
@@ -173,6 +192,7 @@ type Member {
   createRooms: [Room]
   "提现记录"
   tixianLogs: [TixianLog]
+  chongZhiLogs: [ChongZhiLog]
   "游戏记录"
   gameLogs: [GameLog]
   "用户领取的劵"
@@ -883,6 +903,8 @@ input TixianLogWhere {
   memberId: Int
   "提现数量 等于"
   count: Int
+  "提现金额 等于"
+  fee: Int
   "提现状态 等于"
   status: Int
   "提现时间 小于"
@@ -897,6 +919,18 @@ input TixianLogWhere {
   createDate_Between: [Date]
   "提现时间 等于"
   createDate: String
+  "更新时间 小于"
+  updateDate_Lt: Date
+  "更新时间 小于等于"
+  updateDate_Lte: Date
+  "更新时间 大于"
+  updateDate_Gt: Date
+  "更新时间 大于等于"
+  updateDate_Gte: Date
+  "更新时间 指定范围[min,max]"
+  updateDate_Between: [Date]
+  "更新时间 等于"
+  updateDate: String
   ""
   AND: [TixianLogWhere]
   ""
@@ -910,10 +944,102 @@ input TixianLogOrder {
   memberId: String
   "提现数量 ASC 升序 DESC降序"
   count: String
+  "提现金额 ASC 升序 DESC降序"
+  fee: String
   "提现状态 ASC 升序 DESC降序"
   status: String
   "提现时间 ASC 升序 DESC降序"
   createDate: String
+  "更新时间 ASC 升序 DESC降序"
+  updateDate: String
+}
+
+type ChongZhiLogListResult {
+  list: [ChongZhiLog]
+  count: Int
+}
+
+type ChongZhiLogListMessages {
+  "#### 1位:\n> H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员\n#### 2位:\n> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面\n#### 3-5位:\n> 子系统编码\n#### 6-8位\n> 业务编码"
+  code: String
+  "用户友好提示"
+  message: String
+  "返回数据"
+  data: ChongZhiLogListResult
+  "H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员"
+  pre: String
+  "子系统编码 基础信息管理 001"
+  system: String
+  "> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面"
+  level: String
+  "业务编码 2000表示正常"
+  serviceCode: String
+}
+
+input ChongZhiLogWhere {
+  "编号 在制定内，如[1,2,3,...]"
+  id_In: [Int]
+  "编号 小于"
+  id_Lt: Int
+  "编号 小于等于"
+  id_Lte: Int
+  "编号 大于"
+  id_Gt: Int
+  "编号 大于等于"
+  id_Gte: Int
+  "编号 指定范围[min,max]"
+  id_Between: [Int]
+  "编号 等于"
+  id: Int
+  "费用 等于"
+  fee: Int
+  "状态 等于"
+  status: Int
+  "用户id 等于"
+  memberId: Int
+  "创建日期 小于"
+  createDate_Lt: Date
+  "创建日期 小于等于"
+  createDate_Lte: Date
+  "创建日期 大于"
+  createDate_Gt: Date
+  "创建日期 大于等于"
+  createDate_Gte: Date
+  "创建日期 指定范围[min,max]"
+  createDate_Between: [Date]
+  "创建日期 等于"
+  createDate: String
+  "更新日期 小于"
+  updateDate_Lt: Date
+  "更新日期 小于等于"
+  updateDate_Lte: Date
+  "更新日期 大于"
+  updateDate_Gt: Date
+  "更新日期 大于等于"
+  updateDate_Gte: Date
+  "更新日期 指定范围[min,max]"
+  updateDate_Between: [Date]
+  "更新日期 等于"
+  updateDate: String
+  ""
+  AND: [ChongZhiLogWhere]
+  ""
+  OR: [ChongZhiLogWhere]
+}
+
+input ChongZhiLogOrder {
+  "编号 ASC 升序 DESC降序"
+  id: String
+  "费用 ASC 升序 DESC降序"
+  fee: String
+  "状态 ASC 升序 DESC降序"
+  status: String
+  "用户id ASC 升序 DESC降序"
+  memberId: String
+  "创建日期 ASC 升序 DESC降序"
+  createDate: String
+  "更新日期 ASC 升序 DESC降序"
+  updateDate: String
 }
 
 "header refreshToken"
@@ -1096,6 +1222,24 @@ type TixianLogMessage {
   serviceCode: String
 }
 
+"header refreshToken"
+type ChongZhiLogMessage {
+  "#### 1位:\n> H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员\n#### 2位:\n> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面\n#### 3-5位:\n> 子系统编码\n#### 6-9位\n> 业务编码"
+  code: String
+  "用户友好提示"
+  message: String
+  "返回数据"
+  data: ChongZhiLog
+  "H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员"
+  pre: String
+  "子系统编码 基础信息管理 001"
+  system: String
+  "> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面"
+  level: String
+  "业务编码 2000表示正常"
+  serviceCode: String
+}
+
 type GameLogMessages {
   "#### 1位:\n> H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员\n#### 2位:\n> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面\n#### 3-5位:\n> 子系统编码 基础信息管理 001\n#### ６-9\n> 业务编码 2000表示正常"
   code: String
@@ -1266,6 +1410,23 @@ type TixianLogMessages {
   data: [TixianLog]
 }
 
+type ChongZhiLogMessages {
+  "#### 1位:\n> H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员\n#### 2位:\n> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面\n#### 3-5位:\n> 子系统编码 基础信息管理 001\n#### ６-9\n> 业务编码 2000表示正常"
+  code: String
+  "H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员"
+  pre: String
+  "子系统编码 基础信息管理 001"
+  system: String
+  "> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面"
+  level: String
+  "业务编码 2000表示正常"
+  serviceCode: String
+  "用户友好提示"
+  message: String
+  "返回数据"
+  data: [ChongZhiLog]
+}
+
 input GameLogSimple {
   ""
   id: Int
@@ -1384,8 +1545,21 @@ input TixianLogSimple {
   memberId: Int
   "提现数量"
   count: Int
+  "提现金额"
+  fee: Int
   "提现状态"
   status: Int
+}
+
+input ChongZhiLogSimple {
+  "编号"
+  id: Int
+  "费用"
+  fee: Int
+  "状态"
+  status: Int
+  "用户id"
+  memberId: Int
 }
 
 input RoomTypeInput {
@@ -1404,17 +1578,37 @@ input RoomLimitInput {
 }
 
 input TixianLogInput {
-  relations: [String]
   id: Int
   "提现人"
   member: MemberInput
   memberId: Int
   "提现数量"
   count: Int
+  "提现金额"
+  fee: Int
   "提现状态"
   status: Int
   "提现时间"
   createDate: String
+  "更新时间"
+  updateDate: String
+}
+
+input ChongZhiLogInput {
+  "编号"
+  id: Int
+  "费用"
+  fee: Int
+  "状态"
+  status: Int
+  "用户"
+  member: MemberInput
+  "用户id"
+  memberId: Int
+  "创建日期"
+  createDate: String
+  "更新日期"
+  updateDate: String
 }
 
 input TicketInput {
@@ -1432,7 +1626,6 @@ input TicketInput {
 }
 
 input TicketLogInput {
-  relations: [String]
   id: Int
   ticket: TicketInput
   ticket_Id: Int
@@ -1475,6 +1668,7 @@ input MemberInput {
   createRooms: [RoomInput]
   "提现记录"
   tixianLogs: [TixianLogInput]
+  chongZhiLogs: [ChongZhiLogInput]
   "游戏记录"
   gameLogs: [GameLogInput]
   "用户领取的劵"
@@ -1541,6 +1735,7 @@ input SettingInput {
 }
 
 type Query {
+  pageSetting(url: String!): Json
   "获取列表\n默认分页{page: 1, psize: 20}"
   gameLogList(where: GameLogWhere, order: GameLogOrder, limit: LimitInput): GameLogListMessages
   "获取列表\n默认分页{page: 1, psize: 20}"
@@ -1561,6 +1756,8 @@ type Query {
   ticketLogList(where: TicketLogWhere, order: TicketLogOrder, limit: LimitInput): TicketLogListMessages
   "获取列表\n默认分页{page: 1, psize: 20}"
   tixianLogList(where: TixianLogWhere, order: TixianLogOrder, limit: LimitInput): TixianLogListMessages
+  "获取列表\n默认分页{page: 1, psize: 20}"
+  chongZhiLogList(where: ChongZhiLogWhere, order: ChongZhiLogOrder, limit: LimitInput): ChongZhiLogListMessages
   "获取单条"
   gameLogDetail(where: GameLogWhere): GameLogMessage
   "获取单条"
@@ -1581,6 +1778,8 @@ type Query {
   ticketLogDetail(where: TicketLogWhere): TicketLogMessage
   "获取单条"
   tixianLogDetail(where: TixianLogWhere): TixianLogMessage
+  "获取单条"
+  chongZhiLogDetail(where: ChongZhiLogWhere): ChongZhiLogMessage
   "获取所有\n没有分页"
   gameLogAll(where: GameLogWhere, order: GameLogOrder): GameLogMessages
   "获取所有\n没有分页"
@@ -1601,6 +1800,8 @@ type Query {
   ticketLogAll(where: TicketLogWhere, order: TicketLogOrder): TicketLogMessages
   "获取所有\n没有分页"
   tixianLogAll(where: TixianLogWhere, order: TixianLogOrder): TixianLogMessages
+  "获取所有\n没有分页"
+  chongZhiLogAll(where: ChongZhiLogWhere, order: ChongZhiLogOrder): ChongZhiLogMessages
 }
 
 type Mutation {
@@ -1624,6 +1825,8 @@ type Mutation {
   ticketLogDeleteId(id: ID!): TicketLogMessage
   "删除"
   tixianLogDeleteId(id: ID!): TixianLogMessage
+  "删除"
+  chongZhiLogDeleteId(id: ID!): ChongZhiLogMessage
   gameLogDelete(where: GameLogWhere!): GameLogMessage
   accountDelete(where: AccountWhere!): AccountMessage
   memberDelete(where: MemberWhere!): MemberMessage
@@ -1635,6 +1838,7 @@ type Mutation {
   ticketDelete(where: TicketWhere!): TicketMessage
   ticketLogDelete(where: TicketLogWhere!): TicketLogMessage
   tixianLogDelete(where: TixianLogWhere!): TixianLogMessage
+  chongZhiLogDelete(where: ChongZhiLogWhere!): ChongZhiLogMessage
   "批量删除"
   gameLogDeletes(ids: [ID]!): GameLogMessages
   "批量删除"
@@ -1655,6 +1859,8 @@ type Mutation {
   ticketLogDeletes(ids: [ID]!): TicketLogMessages
   "批量删除"
   tixianLogDeletes(ids: [ID]!): TixianLogMessages
+  "批量删除"
+  chongZhiLogDeletes(ids: [ID]!): ChongZhiLogMessages
   gameLogUpdate(where: GameLogWhere!, entity: GameLogSimple!): GameLogMessage
   accountUpdate(where: AccountWhere!, entity: AccountSimple!): AccountMessage
   memberUpdate(where: MemberWhere!, entity: MemberSimple!): MemberMessage
@@ -1666,6 +1872,7 @@ type Mutation {
   ticketUpdate(where: TicketWhere!, entity: TicketSimple!): TicketMessage
   ticketLogUpdate(where: TicketLogWhere!, entity: TicketLogSimple!): TicketLogMessage
   tixianLogUpdate(where: TixianLogWhere!, entity: TixianLogSimple!): TixianLogMessage
+  chongZhiLogUpdate(where: ChongZhiLogWhere!, entity: ChongZhiLogSimple!): ChongZhiLogMessage
   "更新或新增\n修改状态等操作,应使用update"
   gameLogEdit(entity: GameLogInput!): GameLogMessage
   "更新或新增\n修改状态等操作,应使用update"
@@ -1686,6 +1893,8 @@ type Mutation {
   ticketLogEdit(entity: TicketLogInput!): TicketLogMessage
   "更新或新增\n修改状态等操作,应使用update"
   tixianLogEdit(entity: TixianLogInput!): TixianLogMessage
+  "更新或新增\n修改状态等操作,应使用update"
+  chongZhiLogEdit(entity: ChongZhiLogInput!): ChongZhiLogMessage
   "批量编辑"
   gameLogEdits(entity: [GameLogInput]!): GameLogMessages
   "批量编辑"
@@ -1706,6 +1915,8 @@ type Mutation {
   ticketLogEdits(entity: [TicketLogInput]!): TicketLogMessages
   "批量编辑"
   tixianLogEdits(entity: [TixianLogInput]!): TixianLogMessages
+  "批量编辑"
+  chongZhiLogEdits(entity: [ChongZhiLogInput]!): ChongZhiLogMessages
   "添加单条数据，无自动关联关系"
   gameLogAdd(entity: GameLogSimple!): GameLogMessage
   "添加单条数据，无自动关联关系"
@@ -1726,6 +1937,8 @@ type Mutation {
   ticketLogAdd(entity: TicketLogSimple!): TicketLogMessage
   "添加单条数据，无自动关联关系"
   tixianLogAdd(entity: TixianLogSimple!): TixianLogMessage
+  "添加单条数据，无自动关联关系"
+  chongZhiLogAdd(entity: ChongZhiLogSimple!): ChongZhiLogMessage
   "批量添加"
   gameLogAdds(entity: [GameLogSimple]!): GameLogMessages
   "批量添加"
@@ -1746,4 +1959,6 @@ type Mutation {
   ticketLogAdds(entity: [TicketLogSimple]!): TicketLogMessages
   "批量添加"
   tixianLogAdds(entity: [TixianLogSimple]!): TixianLogMessages
+  "批量添加"
+  chongZhiLogAdds(entity: [ChongZhiLogSimple]!): ChongZhiLogMessages
 }
