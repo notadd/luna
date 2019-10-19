@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+    <title>房间信息</title>
+    <link href="/Assets/aui-v2.1/css/aui.css" rel="stylesheet" />
+    <link href="/Assets/styles/base.css" rel="stylesheet" />
+    <script src="/Assets/aui-v2.1/script/api.js"></script>
+    <script src="/Assets/script/jquery-1.12.4.min.js"></script>
+    <script src="/Assets/aui-v2.1/script/api.js"></script>
+    <script src="/Assets/aui-v2.1/script/aui-dialog.js"></script>
+    <script src="/Assets/aui-v2.1/script/aui-toast.js"></script>
+    <script src="/Assets/aui-v2.1/script/aui-popup.js"></script>
+    <style>
+        #aui-content {
+            width: 96%;
+            margin: 0 auto;
+        }
+
+        .infoItem, #loctionList {
+            border-radius: 0.2rem;
+            color: #FFF;
+            margin-bottom: 1rem;
+            background-color: transparent;
+        }
+
+        .uHeader, .uHeader img {
+            width: 2.4rem;
+            height: 2.4rem;
+            border-radius: 1.2rem;
+            margin: 0 auto;
+        }
+
+        #timeSpanDiv {
+            height: 5rem;
+            line-height: 5rem;
+            font-size: 3rem;
+        }
+
+        .btnRoom {
+            width: 90%;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="aui-bar aui-bar-nav nobc">
+        <a class="aui-pull-left aui-btn">
+            <span class="aui-iconfont aui-icon-left"></span>
+        </a>
+        <div class="aui-title"><b>游戏开始</b></div>
+    </header>
+    <div id="aui-content" class="aui-content aui-margin-t-10">
+        <div id="userInfo" class="aui-row aui-padded-t-5 aui-padded-b-5 infoItem opacityBg">
+            <div class="aui-row">
+                <div class="aui-col-xs-10 aui-padded-l-10 aui-padded-t-5 aui-text-left"><div class="aui-grid-label"><b>小小玩家</b></div></div>
+            </div>
+            <div class="aui-row aui-padded-10 aui-padded-b-5 aui-padded-t-5">
+                <div class="aui-col-xs-4 aui-padded-0 aui-text-left"><div class="aui-grid-label">黄金券：1</div></div>
+                <div class="aui-col-xs-4 aui-padded-0"><div class="aui-grid-label">白银券：3</div></div>
+                <div class="aui-col-xs-4 aui-padded-0 aui-text-right"><div class="aui-grid-label">青铜券：8</div></div>
+            </div>
+        </div>
+        <div id="headInfo" class="aui-row aui-margin-t-10 infoItem opacityBg">
+            <section class="aui-grid aui-font-size-10 nobc">
+                <div class="aui-row  aui-padded-10 aui-padded-t-0 aui-padded-b-5">
+                    <div class="aui-col-xs-4 aui-text-left aui-padded-0">
+                        <div class="aui-grid-label">房间：000001</div>
+                    </div>
+                    <div class="aui-col-xs-4 aui-text-left aui-padded-0">
+                        <div class="aui-grid-label">人数：2/8</div>
+                    </div>
+                    <div class="aui-col-xs-4 aui-text-right aui-padded-0">
+                        <div class="aui-grid-label">密码：********</div>
+                    </div>
+                </div>
+                <div class="aui-row  aui-padded-10 aui-padded-t-0 aui-padded-b-5">
+                    <div class="aui-col-xs-4 aui-text-left aui-padded-0">
+                        <div class="aui-grid-label">段位：主教6-</div>
+                    </div>
+                    <div class="aui-col-xs-4 aui-text-left aui-padded-0">
+                        <div class="aui-grid-label">场次：黄金场</div>
+                    </div>
+                    <div class="aui-col-xs-4 aui-padded-0">
+                        <div class="aui-grid-label"> </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <section class="aui-grid aui-font-size-10 aui-margin-t-10 opacityBg" id="loctionList">
+            <div class="aui-row">
+                <div class="aui-col-xs-3 aui-text-center aui-padded-5 hasPeople">
+                    <div class="aui-grid-label opacityBg uHeader">
+                        <img src="../Assets/images/h1.jpg" />
+                    </div>
+                    <div class="aui-grid-label">小玩家</div>
+                    <div class="aui-grid-label">骑士6</div>
+                </div>
+                <div class="aui-col-xs-3 aui-text-center aui-padded-5 hasPeople">
+                    <div class="aui-grid-label opacityBg uHeader">
+                        <img src="../Assets/images/userH1.png" />
+                    </div>
+                    <div class="aui-grid-label">老玩家</div>
+                    <div class="aui-grid-label">骑士9</div>
+                </div>
+                <div class="aui-col-xs-3 aui-text-center aui-padded-5">
+                    <div class="aui-grid-label opacityBg uHeader">&nbsp;</div>
+                    <div class="aui-grid-label">&nbsp;</div>
+                    <div class="aui-grid-label">&nbsp;</div>
+                </div>
+                <div class="aui-col-xs-3 aui-text-center aui-padded-5">
+                    <div class="aui-grid-label opacityBg uHeader">&nbsp;</div>
+                    <div class="aui-grid-label">&nbsp;</div>
+                    <div class="aui-grid-label">&nbsp;</div>
+                </div>
+            </div>
+            <div class="aui-row aui-margin-t-10">
+                <div class="aui-col-xs-3 aui-text-center aui-padded-5">
+                    <div class="aui-grid-label opacityBg uHeader">&nbsp;</div>
+                    <div class="aui-grid-label">&nbsp;</div>
+                    <div class="aui-grid-label">&nbsp;</div>
+                </div>
+                <div class="aui-col-xs-3 aui-text-center aui-padded-5">
+                    <div class="aui-grid-label opacityBg uHeader">&nbsp;</div>
+                    <div class="aui-grid-label">&nbsp;</div>
+                    <div class="aui-grid-label">&nbsp;</div>
+                </div>
+                <div class="aui-col-xs-3 aui-text-center aui-padded-5">
+                    <div class="aui-grid-label opacityBg uHeader">&nbsp;</div>
+                    <div class="aui-grid-label">&nbsp;</div>
+                    <div class="aui-grid-label">&nbsp;</div>
+                </div>
+                <div class="aui-col-xs-3 aui-text-center aui-padded-5">
+                    <div class="aui-grid-label opacityBg uHeader">&nbsp;</div>
+                    <div class="aui-grid-label">&nbsp;</div>
+                    <div class="aui-grid-label">&nbsp;</div>
+                </div>
+            </div>
+        </section>
+        <div id="timeSpanDiv" class="aui-row aui-text-center aui-text-warning">
+            <span id="timeSpan">1</span>S
+        </div>
+        <div class="aui-row btnRoom btnJoin" accesskey="RoomInfo.html">
+            <img src="/Assets/images/btnGetJoin.png" />
+        </div>
+        <div class="aui-row btnRoom" accesskey="/Index.html">
+            <img src="/Assets/images/btnCreateOK.png" />
+        </div>
+    </div>
+
+    <div class="aui-popup aui-popup-bottom" id="joinBottom">
+        <div class="aui-popup-arrow"></div>
+        <div class="aui-popup-content">
+            <ul class="aui-list aui-list-noborder">
+                <li class="aui-list-item">
+                    <div class="aui-list-item-label-icon">
+                        <i class="aui-iconfont aui-icon-my aui-text-warning"></i>
+                    </div>
+                    <div class="aui-list-item-inner aui-list-item-middle">
+                        扫码邀请
+                    </div>
+                </li>
+                <li class="aui-list-item">
+                    <div class="aui-list-item-label-icon">
+                        <i class="aui-iconfont aui-icon-wechat aui-text-info"></i>
+                    </div>
+                    <div class="aui-list-item-inner">
+                        分享至微信
+                    </div>
+                </li>
+                <li class="aui-list-item">
+                    <div class="aui-list-item-label-icon">
+                        <i class="aui-iconfont aui-icon-qq aui-text-danger"></i>
+                    </div>
+                    <div class="aui-list-item-inner">
+                        分享至QQ
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var toast = new auiToast({});
+        var dialog = new auiDialog({});
+        var popup = new auiPopup({});
+        //倒计时
+        setInterval(function () {
+            $("#timeSpan").text(($("#timeSpan").text() * 1 + 1));
+        }, 1000);
+        //按钮点击
+        $(".btnRoom").click(function () {
+            if ($(this).attr("accesskey")) {
+                window.location.href = $(this).attr("accesskey");
+            }
+        });
+        //邀请
+        $(".btnJoin").click(function () {
+            popup.show(document.getElementById("joinBottom"));
+        });
+        //坐下
+        $("#loctionList .aui-col-xs-3").click(function () {
+            if (!$(this).hasClass("hasPeople")) {
+                dialog.alert({
+                    title: "提示",
+                    msg: '确定参加比赛(消耗黄金参赛券1张)？',
+                    buttons: ['取消', '确定']
+                }, function (ret) {
+                    if (ret) {
+                        if (ret.buttonIndex == 2) {
+                            toast.success({
+                                title: "报名成功",
+                                duration: 2000
+                            });
+                        }
+                    }
+                })
+            }
+        });
+    </script>
+</body>
+</html>

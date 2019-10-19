@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+    <title>比赛</title>
+    <link href="/Assets/aui-v2.1/css/aui.css" rel="stylesheet" />
+    <link href="/Assets/styles/base.css" rel="stylesheet" />
+    <script src="/Assets/aui-v2.1/script/api.js"></script>
+    <script src="/Assets/script/jquery-1.12.4.min.js"></script>
+    <script src="/Assets/aui-v2.1/script/api.js"></script>
+    <style>
+        #aui-content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        #divButton {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 60%;
+            height: 20rem;
+            margin-left: -30%;
+            margin-top: -50%;
+        }
+
+        .selectItem {
+            width: 100%;
+            height: 8rem;
+            text-align: center;
+            padding-top: 0.2rem;
+        }
+
+        #joinItem {
+            background-image: url('/Assets/images/btnJoinBgi.png');
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+        }
+
+        #createItem {
+            background-image: url('/Assets/images/btnCreateBgi.png');
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+        }
+
+        #footerBar {
+            background-color: #ECEDEA;
+            color: #B1BEBD;
+            padding: 0.2rem;
+        }
+
+            #footerBar img {
+                margin: 0 auto;
+                margin-top: 0.2rem;
+                width: 1.2rem;
+            }
+
+            #footerBar .aui-active {
+                color: #111;
+            }
+    </style>
+</head>
+<body>
+    <header class="aui-bar aui-bar-nav nobc">
+        <div class="aui-title"><b></b></div>
+        <a class="aui-pull-right aui-btn" accesskey="RoomHelp.html">
+            <span class="aui-iconfont aui-icon-question" style="font-size:1.4rem;"></span>
+        </a>
+    </header>
+    <div id="aui-content" class="aui-content aui-text-center">
+        <div class="aui-row" id="divButton">
+            <div id="joinItem" class="selectItem" accesskey="RoomInfo.html">
+                &nbsp;
+            </div>
+            <div id="createItem" class="selectItem" style="margin-top:2rem;" accesskey="CreateRoom.html">
+                &nbsp;
+            </div>
+        </div>
+    </div>
+    <footer class="aui-bar aui-bar-tab" id="footerBar">
+        <div class="aui-bar-tab-item" accesskey="/Index.html">
+            <img src="/Assets/images/home.png" />
+            <div class="aui-bar-tab-label">首页</div>
+        </div>
+        <div class="aui-bar-tab-item aui-active" accesskey="/Room/CreateOrJoin.html">
+            <img src="/Assets/images/game_1.png" />
+            <div class="aui-bar-tab-label">比赛</div>
+        </div>
+        <div class="aui-bar-tab-item" accesskey="/UserInfo/MyInfo.html">
+            <div class="aui-dot"></div>
+            <img src="/Assets/images/my.png" />
+            <div class="aui-bar-tab-label">我的</div>
+        </div>
+    </footer>
+    <script type="text/javascript">
+        //$("#aui-content").css("top", $("header").css("height"));
+        //点击菜单
+        $(".selectItem, .aui-bar-tab-item, .aui-btn").click(function () {
+            if ($(this).attr("accesskey")) {
+                window.location.href = $(this).attr("accesskey");
+            }
+        });
+    </script>
+</body>
+</html>

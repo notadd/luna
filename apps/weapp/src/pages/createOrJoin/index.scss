@@ -1,0 +1,70 @@
+.createOrJoin {
+  display: flex;
+  width: 750px;
+  height: 1624px;
+  .bg {
+    width: 750px;
+    height: 1624px;
+    background: rgba(25, 25, 25, 1);
+    opacity: 1;
+    position: absolute;
+    z-index: -1;
+  }
+  .content {
+    .quickJoin,
+    .createRoom {
+      width: 206px;
+      height: 206px;
+      background: rgba(149, 6, 6, 1);
+      box-shadow: 0px 8px 8px rgba(255, 255, 255, 0.16);
+      border-radius: 50%;
+      opacity: 1;
+      margin-left: 272px;
+      margin-right: 272px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .text {
+        width: 112px;
+        height: 50px;
+        font-size: 25px;
+        font-family: PingFang SC;
+        font-weight: 400;
+        line-height: 50px;
+        color: rgba(255, 255, 255, 1);
+        opacity: 1;
+        text-align: center;
+      }
+    }
+    .quickJoin {
+      margin-top: 430px;
+      .icon {
+        width: 89px;
+        height: 65px;
+        background-image: url("./icon/youxi.png");
+        background-size: cover;
+      }
+    }
+    .createRoom {
+      margin-top: 178px;
+      .icon {
+        width: 70px;
+        height: 72px;
+        background-image: url("./icon/zhuye.png");
+        background-size: cover;
+      }
+    }
+
+    .logo {
+      margin-top: 370px;
+      margin-left: 188px;
+      margin-right: 188px;
+      width: 375px;
+      height: 94px;
+      background-image: url("./icon/logo.png");
+      opacity: 1;
+    }
+  }
+}

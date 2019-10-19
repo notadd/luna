@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+    <title>金币兑换</title>
+    <link href="/Assets/aui-v2.1/css/aui.css" rel="stylesheet" />
+    <link href="/Assets/styles/base.css" rel="stylesheet" />
+    <link href="/Assets/styles/userPublic.css" rel="stylesheet" />
+    <script src="/Assets/script/jquery-1.12.4.min.js"></script>
+    <script src="/Assets/aui-v2.1/script/api.js"></script>
+    <script src="/Assets/aui-v2.1/script/aui-dialog.js"></script>
+    <script src="/Assets/script/request.js"></script>
+    <script src="/Assets/script/template.js"></script>
+    <style>
+        #aui-content {
+            width: 90%;
+            margin: 0 auto;
+        }
+        #changeInfo {
+            background-image: url('/Assets/images/reBgi.png');
+            background-repeat: repeat;
+            background-color: transparent;
+            border-radius: 0.3rem;
+            margin-top: 2rem;
+        }
+        #changeInfo div{
+            color:#fff;
+        }
+        .aui-btn {
+            background-color: #a50606;
+            color:#FFF;
+        }
+    </style>
+</head>
+<body>
+    <header class="aui-bar aui-bar-nav nobc">
+        <a class="aui-pull-left aui-btn" accesskey="MyInfo.html">
+            <span class="aui-iconfont aui-icon-left"></span>
+        </a>
+        <div class="aui-title"><b>金币兑换</b></div>
+    </header>
+    <div id="userInfoDiv" class="aui-row pBlue" accesskey="BindSteamID.html">
+        <div class="aui-col-xs-3">
+            <div id="userHeader" class="aui-padded-0" accesskey="UserLogin.html">
+                <img src="../Assets/images/userH1.png" />
+            </div>
+        </div>
+        <div class="aui-col-xs-7">
+            <div class="aui-grid-label aui-margin-t-15 aui-font-size-16"><b>小小玩家</b></div>
+            <div class="aui-grid-label">steamID：511455689</div>
+        </div>
+        <div class="aui-col-xs-2">
+            <div id="userLv" class="aui-flex-right"><i class="aui-iconfont aui-icon-star aui-text-warning"></i> 骑士6</div>
+        </div>
+    </div>
+    <div id="myGold" class="aui-row aui-border aui-padded-15" accesskey="GoldExchange.html">
+        <div class="aui-row">
+            <div class="aui-col-xs-2 aui-text-right">
+                <img src="/Assets/images/gold.png" />
+            </div>
+            <div class="aui-col-xs-4 aui-border-r aui-text-left">
+                &nbsp;我的金币(个)
+            </div>
+            <div class="aui-col-xs-2 aui-text-right">
+                <img src="/Assets/images/ticket.png" />
+            </div>
+            <div class="aui-col-xs-4 aui-text-left">
+                &nbsp;参赛券(张)
+            </div>
+        </div>
+        <div class="aui-row">
+            <div class="aui-col-xs-6 aui-text-center">
+                <div class="aui-grid-label aui-font-size-18">
+                    <b>10800</b>
+                </div>
+            </div>
+            <div class="aui-col-xs-6 aui-text-center">
+                <div class="aui-grid-label aui-font-size-18" ">
+                    <b>16</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="aui-content" class="aui-content">
+        <ul id="changeInfo" class="aui-list aui-list-in">
+            <!-- template -->
+        </ul>
+        <div class="aui-btn aui-btn-block aui-margin-t-15" accesskey="MyInfo.html">返回</div>
+    </div>
+    <script>
+
+        var request = new apiRequest({});
+        var cTemplate = new customTemplate({});
+        
+        $(document).ready(function() {
+            cTemplate.GoldExchangeList()
+        })
+
+        function _GoldExchangeList(data) {
+            alert(data) 
+        }
+
+        //点击兑换
+        $(".aui-list-item").click(function () {
+            var dialog = new auiDialog();
+            dialog.alert({
+                title: "请输入兑换数量",
+                msg: '黄金券    金币：100/1080',
+                input: true,
+                inputType: 'number',
+                text:'请输入兑换数量',
+                buttons: ['取消', '确定']
+            }, function (ret) {
+
+                $("#tips-1").text("成功兑换" + ret.text + "张!").removeClass("aui-hide").fadeOut(5000);
+            })
+        });
+        //点击按钮
+        $(".aui-btn").click(function () {
+            if ($(this).attr("accesskey")) {
+                window.location.href = $(this).attr("accesskey");
+            }
+        });
+    </script>
+</body>
+</html>

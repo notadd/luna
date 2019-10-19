@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>我的基本信息</title>
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+    <link href="/Assets/aui-v2.1/css/aui.css" rel="stylesheet" />
+    <link href="/Assets/styles/base.css" rel="stylesheet" />
+    <link href="/Assets/styles/userPublic.css" rel="stylesheet" />
+    <script src="/Assets/script/jquery-1.12.4.min.js"></script>
+    <script src="/Assets/script/request.js"></script>
+    <script src="/Assets/script/template.js"></script>
+    <style>
+        #recordList {
+            width: 90%;
+            margin: 1rem auto;
+            border-radius: 0.3rem;
+            color: #FFF;
+        }
+
+            #recordList #recordHeader {
+                background-color: #a50606;
+                border-top-left-radius: 0.3rem;
+                border-top-right-radius: 0.3rem;
+                color: #FFF;
+            }
+
+            #recordList div {
+                background-color: transparent;
+                color: #FFF;
+            }
+
+        #footerBar {
+            background-color: #ECEDEA;
+            color: #B1BEBD;
+            padding: 0.2rem;
+        }
+
+            #footerBar img {
+                margin: 0 auto;
+                margin-top: 0.2rem;
+                width: 1.2rem;
+            }
+
+            #footerBar .aui-active {
+                color: #111;
+            }
+    </style>
+</head>
+<body>
+    <div id="userInfoDiv" class="aui-row aui-margin-t-15 nobc">
+        <div class="aui-col-xs-3">
+            <div id="userHeader" class="aui-padded-0" accesskey="UserLogin.html">
+                <img src="../Assets/images/userH1.png" />
+            </div>
+        </div>
+        <div class="aui-col-xs-7" id="bindSteam" accesskey="BindSteamID.html">
+            <div class="aui-grid-label aui-margin-t-15 aui-font-size-16"><b>小小玩家</b></div>
+            <div class="aui-grid-label">steamID：511455689</div>
+        </div>
+        <div class="aui-col-xs-2">
+            <div id="userLv" class="aui-flex-right"><i class="aui-iconfont aui-icon-star aui-text-warning"></i> 骑士6</div>
+        </div>
+    </div>
+    <div id="myGold" class="aui-row aui-border aui-padded-15" accesskey="GoldExchange.html">
+        <div class="aui-row">
+            <div class="aui-col-xs-2 aui-text-right">
+                <img src="/Assets/images/gold.png" />
+            </div>
+            <div class="aui-col-xs-4 aui-border-r aui-text-left">
+                &nbsp;我的金币(个)
+            </div>
+            <div class="aui-col-xs-2 aui-text-right">
+                <img src="/Assets/images/ticket.png" />
+            </div>
+            <div class="aui-col-xs-4 aui-text-left">
+                &nbsp;参赛券(张)
+            </div>
+        </div>
+        <div class="aui-row">
+            <div class="aui-col-xs-6 aui-text-center">
+                <div class="aui-grid-label aui-font-size-18">
+                    <b>10800</b>
+                </div>
+            </div>
+            <div class="aui-col-xs-6 aui-text-center">
+                <div class="aui-grid-label aui-font-size-18" ">
+                    <b>16</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="aui-content" class="aui-content aui-margin-t-15 nobc">
+        <ul id="recordList" class="aui-list aui-list-in aui-font-size-14 opacityBg">
+            <li class="aui-list-header" id="recordHeader">
+                <div class="aui-list-item-title aui-font-size-14">
+                    <b>战绩</b>
+                </div>
+                <div class="aui-list-item-right" id="moreRecord" accesskey="GameRecord.html">
+                    更多&gt;
+                </div>
+            </li>
+            <li class="aui-list-item aui-padded-0 aui-padded-t-10 aui-text-center aui-border-b">
+                <div class="aui-col-xs-2"><div class="aui-grid-label">名次</div></div>
+                <div class="aui-col-xs-4"><div class="aui-grid-label">收益</div></div>
+                <div class="aui-col-xs-3"><div class="aui-grid-label">场地</div></div>
+                <div class="aui-col-xs-3"><div class="aui-grid-label">段位</div></div>
+            </li>
+            <!-- template -->
+        </ul>
+    </div>
+    <footer class="aui-bar aui-bar-tab" id="footerBar">
+        <div class="aui-bar-tab-item" accesskey="/Index.html">
+            <img src="/Assets/images/home.png" />
+            <div class="aui-bar-tab-label">首页</div>
+        </div>
+        <div class="aui-bar-tab-item" accesskey="/Room/CreateOrJoin.html">
+            <img src="/Assets/images/game.png" />
+            <div class="aui-bar-tab-label">比赛</div>
+        </div>
+        <div class="aui-bar-tab-item aui-active" accesskey="/UserInfo/MyInfo.html">
+            <div class="aui-dot"></div>
+            <img src="/Assets/images/my_1.png" />
+            <div class="aui-bar-tab-label">我的</div>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        
+        var request = new apiRequest({});
+        var cTemplate = new customTemplate({});
+        
+        $(document).ready(function() {
+            cTemplate.myInfoRecordList()
+        })
+
+        function _myInfoRecordList(data) {
+            alert(data) 
+        }
+
+        //点击底部菜单
+        $("#footerBar .aui-bar-tab-item, #userHeader, #myGold, #moreRecord, #bindSteam").click(function () {
+            if ($(this).attr("accesskey")) {
+                window.location.href = $(this).attr("accesskey");
+            }
+        });
+    </script>
+</body>
+</html>

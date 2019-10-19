@@ -1,0 +1,92 @@
+﻿body {
+    background-image: url('/Assets/images/publicBgi.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-color: #111;
+    font-size: 14px;
+    font-family: 宋体;
+    color: #FFF;
+}
+/*自定义样式*/
+.opacityBg {
+    background-image: url('/Assets/images/reBgi.png');
+    background-repeat: repeat;
+    background-color: transparent;
+}
+
+.nobc {
+    background-color: transparent;
+}
+
+.cRed {
+    color: #a50606;
+}
+
+.bRed {
+    background-color: #a50606;
+    color: #FFF;
+}
+
+.cBlue {
+    color: #03a9f4;
+}
+
+.cBlue2 {
+    color: #314c8a;
+}
+
+.pcGray {
+    color: #AEADAD;
+}
+
+.pGray {
+    background-color: #EBEBEB;
+    color: #3F3E3D;
+}
+
+.allWight {
+    width: 100%;
+}
+
+.liOther {
+    width: 6.4rem;
+    opacity: 0.8;
+}
+
+.aiOther {
+    width: 4rem;
+    opacity: 0.8;
+}
+
+.labelItem {
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 0.9rem;
+    margin: 0 auto;
+    background-color: #CBCBCB;
+    line-height: 1.8rem;
+    font-size: 1rem;
+}
+
+.checkedItem {
+    background-color: #a50606;
+    color: #FFF;
+}
+
+
+
+.netItem {
+    width: 0.6rem;
+    padding-top: 0.2rem;
+}
+
+#userLv {
+    color: #153C8F;
+    background-color: #FFF;
+    height: 1.4rem;
+    line-height: 1.4rem;
+    font-size: 0.5rem;
+    text-align: center;
+    border-top-left-radius: 0.7rem;
+    border-bottom-left-radius: 0.7rem;
+}

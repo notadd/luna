@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>创建房间</title>
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+    <link href="/Assets/aui-v2.1/css/aui.css" rel="stylesheet" />
+    <link href="/Assets/styles/base.css" rel="stylesheet" />
+    <script src="/Assets/script/jquery-1.12.4.min.js"></script>
+    <style>
+        #aui-content {
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 4.8rem;
+        }
+
+        #roomInfo {
+            border-radius: 0.2rem;
+            font-weight: 700;
+        }
+
+        #txtRoomName {
+            color: #FFF;
+        }
+
+        #roomInfo .aui-list-item-label, #roomInfo .aui-list-item-input, #roomInfo input {
+            color: #FFF;
+            border: none;
+        }
+        #btnCreate {
+            margin:0 auto;
+            text-align:center;
+            margin-top:2rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="aui-bar aui-bar-nav nobc">
+        <a class="aui-pull-left aui-btn">
+            <span class="aui-iconfont aui-icon-left"></span>
+        </a>
+        <div class="aui-title"><b>创建房间</b></div>
+    </header>
+    <div id="aui-content" class="aui-content aui-text-center">
+        <ul id="roomInfo" class="aui-list aui-form-list aui-margin-t-10 aui-padded-t-10 aui-padded-b-10 aui-font-size-14 opacityBg">
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-label">
+                        房间名称：
+                    </div>
+                    <div class="aui-list-item-input">
+                        <input type="text" id="txtRoomName" placeholder="001">
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-label">
+                        段位限制：
+                    </div>
+                    <div class="aui-list-item-input aui-text-left">
+                        <label><input class="aui-radio aaa" type="radio" name="lv" checked> 主教6-</label>
+                        <label><input class="aui-radio" type="radio" name="lv"> 主教6+</label>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-label">
+                        场地选择：
+                    </div>
+                    <div class="aui-list-item-input aui-text-left">
+                        <label><input class="aui-radio" type="radio" name="area" checked> 黄&nbsp;&nbsp;金</label>
+                        <label><input class="aui-radio" type="radio" name="area"> 白&nbsp;&nbsp;银</label>
+                        <label><input class="aui-radio" type="radio" name="area"> 青&nbsp;&nbsp;铜</label>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-label">
+                        隐藏房间：
+                    </div>
+                    <div class="aui-list-item-input aui-text-left">
+                        <input type="checkbox" class="aui-switch" id="publicRoom" checked>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item" id="liPwd">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-label">
+                        房间密码：
+                    </div>
+                    <div class="aui-list-item-input aui-text-left">
+                        <input type="text" id="txtRoomPassword" maxlength="8" placeholder="25548754" value="">
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-label">
+                        开始方式：
+                    </div>
+                    <div class="aui-list-item-input aui-text-left">
+                        <label><input class="aui-radio" type="radio" name="start" checked> 人满自动开始</label>
+                        <label><input class="aui-radio" type="radio" name="start"> 手动开始</label>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div id="btnCreate" class="aui-row" accesskey="RoomInfo.html">
+            <img src="/Assets/images/btnCreateOK.png" />
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            //点击菜单
+            $(".aui-bar-tab-item, #btnCreate").click(function () {
+                if ($(this).attr("accesskey")) {
+                    window.location.href = $(this).attr("accesskey");
+                }
+            });
+            $("#publicRoom").click(function () {
+                if ($("#publicRoom").is(":checked")) {
+                    $("#liPwd").show();
+                }
+                else {
+                    $("#liPwd").hide();
+                    $("#txtRoomPassword").val("");
+                }
+            });
+            $(".aui-radio, .aui-switch").click(setRadioColor = function () {
+                $(".aui-radio, .aui-switch").css("background-color", "#929292");
+                $(".aui-radio:checked, .aui-switch:checked").css("background-color", "#a50606");
+            });
+            setRadioColor();
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+    <title>游戏帮助</title>
+    <link href="/Assets/aui-v2.1/css/aui.css" rel="stylesheet" />
+    <link href="/Assets/styles/base.css" rel="stylesheet" />
+    <script src="/Assets/aui-v2.1/script/api.js"></script>
+    <script src="/Assets/script/jquery-1.12.4.min.js"></script>
+    <style>
+        .helpItem {
+            width: 90%;
+            margin: 0.5rem auto;
+            line-height: 1.5rem;
+            border-radius: 0.2rem;
+        }
+        .helpItem p{
+            color: #fff;
+            padding:0.2rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="aui-bar aui-bar-nav nobc">
+        <a class="aui-pull-left aui-btn" accesskey="CreateOrJoin.html">
+            <span class="aui-iconfont aui-icon-left"></span>
+        </a>
+        <div class="aui-title"><b>游戏帮助</b></div>
+    </header>
+    <div id="aui-content" class="aui-content aui-text-center">
+        <div class="aui-row aui-margin-t-15 aui-padded-5 aui-text-left helpItem opacityBg">
+            <p>1.每次比赛都需要消耗参赛券，参赛券可用金币兑换。</p>
+            <p>2.比赛获胜的第一名可获得4倍对应参赛券价值的金币奖励；第二名可获得2倍对应参赛券价值的金币奖励；第三名可获得同1倍对应参赛券价值的金币奖励。</p>
+            <p>3.参赛券分为黄金、白银、青铜三种，进入对应的赛场需要消耗对应的参赛券。</p>
+        </div>
+        <div class="aui-row aui-margin-t-15 aui-padded-5 aui-text-left helpItem opacityBg">
+            <p>4.比赛房间分为主教6-和主教6+两种段位，需要满足对应条件方可参赛。</p>
+            <p>5.玩家可自行创建房间，不过应拥有至少1张参赛券。</p>
+            <p>6.当房间数已超过上限时无法创建新的房间，最大房间数为8个。</p>
+            <p>7.搜索对应的房间号或房间密码可寻找对应房间。</p>
+        </div>
+    </div>
+    <footer class="aui-bar aui-bar-tab" id="footer">
+        <div class="aui-btn aui-btn-block" accesskey="CreateOrJoin.html">返回</div>
+    </footer>
+    <script type="text/javascript">
+        $("#aui-content").css("top", $("header").css("height"));
+        $(".aui-btn").click(function () {
+            if ($(this).attr("accesskey")) {
+                window.location.href = $(this).attr("accesskey");
+            }
+        });
+    </script>
+</body>
+</html>
