@@ -1,0 +1,15 @@
+.nobc {
+  background-color: transparent;
+}
+.main-bg {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: -1;
+  &-image {
+    height: 120%;
+    min-width: 100%;
+  }
+}

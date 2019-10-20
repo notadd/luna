@@ -5,7 +5,7 @@
   .bg {
     width: 750px;
     height: 1624px;
-    background: rgba(25, 25, 25, 1);
+    // background: rgba(25, 25, 25, 1);
     opacity: 1;
     position: absolute;
     z-index: -1;
@@ -21,7 +21,6 @@
       opacity: 1;
       margin-left: 272px;
       margin-right: 272px;
-
       display: flex;
       flex-direction: column;
       justify-content: center;

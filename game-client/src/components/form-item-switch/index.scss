@@ -1,0 +1,33 @@
+.form-item {
+  margin: 10px 20px;
+  .form-item-container {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    .form-item-label {
+      padding: 0 30px;
+      color: #fff;
+      font-size: 30px;
+      font-weight: 700;
+    }
+    .form-item-input {
+      flex: 1;
+      height: 45px;
+      color: #fff;
+      font-size: 30px;
+      line-height: 45px;
+    }
+    .form-radio-group {
+      display: flex;
+      flex-direction: row;
+    }
+    .form-radio-item {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+    }
+  }
+}
