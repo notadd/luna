@@ -19,6 +19,10 @@ class App extends Component {
       'pages/room/create/index',
       'pages/home/index',
       'pages/game/index',
+      'pages/home/bind/index',
+      'pages/home/forget/index',
+      'pages/home/login/index',
+      'pages/home/register/index'
     ],
     window: {
       backgroundTextStyle: 'dark',
