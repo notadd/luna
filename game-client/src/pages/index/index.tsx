@@ -5,7 +5,7 @@ import { observer, inject } from '@tarojs/mobx'
 import HeaderSearch from '../../components/header-search';
 import RoomSearch from '../../components/room-search';
 import RoomList from '../../components/room-list';
-
+import env from '../../env';
 import './index.scss'
 
 type PageStateProps = {
@@ -32,6 +32,22 @@ class Index extends Component {
 
   componentWillReact () {
     console.log('componentWillReact')
+  }
+
+  async login(){
+    const login = await Taro.login();
+    console.log({
+        login
+    });
+    const result = await Taro.request({
+        url: env.url,
+        data: {
+            code: login.code
+        }
+    });
+    console.log({
+        result
+    })
   }
 
   componentDidMount () { }

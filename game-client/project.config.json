@@ -2,9 +2,9 @@
   "miniprogramRoot": "./dist",
   "projectname": "game-client",
   "description": "",
-  "appid": "touristappid",
+  "appid": "wx370cc7f9da83bbeb",
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": false,
     "postcss": false,
     "minified": false
