@@ -642,10 +642,10 @@ input RoomTypeOrder {
 type Setting {
   "id"
   id: Int
-  "key"
+  "key weixin-account"
   key: String
   "value"
-  value: String
+  value: Json
 }
 
 type SettingListResult {
@@ -685,14 +685,12 @@ input SettingWhere {
   id_Between: [Int]
   "id 等于"
   id: Int
-  "key 包含,左{title: \"a%\"} 右边{title: \"%a\"} 包含{title: \"%a%\"}"
+  "key weixin-account 包含,左{title: \"a%\"} 右边{title: \"%a\"} 包含{title: \"%a%\"}"
   key_Like: String
-  "key 等于"
+  "key weixin-account 等于"
   key: String
-  "value 包含,左{title: \"a%\"} 右边{title: \"%a\"} 包含{title: \"%a%\"}"
-  value_Like: String
   "value 等于"
-  value: String
+  value: Json
   ""
   AND: [SettingWhere]
   ""
@@ -1512,10 +1510,10 @@ input RoomTypeSimple {
 input SettingSimple {
   "id"
   id: Int
-  "key"
+  "key weixin-account"
   key: String
   "value"
-  value: String
+  value: Json
 }
 
 input TicketSimple {
@@ -1728,10 +1726,10 @@ input GameLogInput {
 input SettingInput {
   "id"
   id: Int
-  "key"
+  "key weixin-account"
   key: String
   "value"
-  value: String
+  value: Json
 }
 
 type Query {

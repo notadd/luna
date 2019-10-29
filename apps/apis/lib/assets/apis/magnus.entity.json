@@ -933,7 +933,7 @@
         "Column"
       ],
       "entity": {
-        "type": "String",
+        "type": "Json",
         "typeArguments": []
       }
     }

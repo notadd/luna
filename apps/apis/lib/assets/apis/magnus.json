@@ -5644,7 +5644,7 @@
           "kind": "FieldDefinition",
           "description": {
             "kind": "StringValue",
-            "value": "key"
+            "value": "key weixin-account"
           },
           "name": {
             "kind": "Name",
@@ -5673,7 +5673,7 @@
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "String"
+              "value": "Json"
             }
           },
           "directives": []
@@ -6019,7 +6019,7 @@
           "kind": "InputValueDefinition",
           "description": {
             "kind": "StringValue",
-            "value": "key 包含,左{title: \"a%\"} 右边{title: \"%a\"} 包含{title: \"%a%\"}"
+            "value": "key weixin-account 包含,左{title: \"a%\"} 右边{title: \"%a\"} 包含{title: \"%a%\"}"
           },
           "name": {
             "kind": "Name",
@@ -6038,30 +6038,11 @@
           "kind": "InputValueDefinition",
           "description": {
             "kind": "StringValue",
-            "value": "key 等于"
+            "value": "key weixin-account 等于"
           },
           "name": {
             "kind": "Name",
             "value": "key"
-          },
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          },
-          "directives": []
-        },
-        {
-          "kind": "InputValueDefinition",
-          "description": {
-            "kind": "StringValue",
-            "value": "value 包含,左{title: \"a%\"} 右边{title: \"%a\"} 包含{title: \"%a%\"}"
-          },
-          "name": {
-            "kind": "Name",
-            "value": "value_Like"
           },
           "type": {
             "kind": "NamedType",
@@ -6086,7 +6067,7 @@
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "String"
+              "value": "Json"
             }
           },
           "directives": []
@@ -13158,7 +13139,7 @@
           "kind": "InputValueDefinition",
           "description": {
             "kind": "StringValue",
-            "value": "key"
+            "value": "key weixin-account"
           },
           "name": {
             "kind": "Name",
@@ -13187,7 +13168,7 @@
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "String"
+              "value": "Json"
             }
           },
           "directives": []
@@ -15117,7 +15098,7 @@
           "kind": "FieldDefinition",
           "description": {
             "kind": "StringValue",
-            "value": "key"
+            "value": "key weixin-account"
           },
           "name": {
             "kind": "Name",
@@ -15146,7 +15127,7 @@
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "String"
+              "value": "Json"
             }
           },
           "directives": []

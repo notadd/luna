@@ -1,24 +1,23 @@
 import {
-        Double,
-        Float,
-        Int32,
-        Uint32,
-        Sint32,
-        Fixed32,
-        Sfixed32,
-        Int64,
-        Uint64,
-        Sint64,
-        Fixed64,
-        Sfixed64,
-        Bool,
-        String,
-        Bytes,
-        Empty,
-        ID
-    } from '@notadd/magnus-core';
-    import { Observable } from 'rxjs';
-    
+    Double,
+    Float,
+    Int32,
+    Uint32,
+    Sint32,
+    Fixed32,
+    Sfixed32,
+    Int64,
+    Uint64,
+    Sint64,
+    Fixed64,
+    Sfixed64,
+    Bool,
+    String,
+    Bytes,
+    Empty
+} from '@notadd/magnus-core';
+import { Observable } from 'rxjs';
+
 export interface RoomType {
 	/*id*/
 	id?: number;
@@ -498,10 +497,10 @@ export interface RoomTypeOrder {
 export interface Setting {
 	/*id*/
 	id?: number;
-	/*key*/
+	/*key weixin-account*/
 	key?: string;
 	/*value*/
-	value?: string;
+	value?: object;
 }
 export interface SettingListResult {
 	list?: Setting[];
@@ -538,10 +537,9 @@ export interface SettingWhere {
 /*id 大于等于*/	id_Gte?: number;
 /*id 指定范围[min,max]*/	id_Between?: number[];
 /*id 等于*/	id?: number;
-/*key 包含,左{title: "a%"} 右边{title: "%a"} 包含{title: "%a%"}*/	key_Like?: string;
-/*key 等于*/	key?: string;
-/*value 包含,左{title: "a%"} 右边{title: "%a"} 包含{title: "%a%"}*/	value_Like?: string;
-/*value 等于*/	value?: string;
+/*key weixin-account 包含,左{title: "a%"} 右边{title: "%a"} 包含{title: "%a%"}*/	key_Like?: string;
+/*key weixin-account 等于*/	key?: string;
+/*value 等于*/	value?: object;
 /**/	AND?: SettingWhere[];
 /**/	OR?: SettingWhere[];
 }
@@ -1348,8 +1346,8 @@ export interface RoomTypeSimple {
 }
 export interface SettingSimple {
 /*id*/	id?: number;
-/*key*/	key?: string;
-/*value*/	value?: string;
+/*key weixin-account*/	key?: string;
+/*value*/	value?: object;
 }
 export interface TicketSimple {
 /**/	id?: number;
@@ -1530,10 +1528,10 @@ export interface GameLogInput {
 export interface SettingInput {
 	/*id*/
 	id?: number;
-	/*key*/
+	/*key weixin-account*/
 	key?: string;
 	/*value*/
-	value?: string;
+	value?: object;
 }
 export interface Query {
 	pageSetting<T>(url: string, __selection?: string): Promise<T & object>;
