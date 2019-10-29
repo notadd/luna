@@ -1,4 +1,4 @@
-import { Controller, Get } from "@nestjs/common";
+import { Controller, Get, Post, Body, Param, Query } from "@nestjs/common";
 import { Message } from "../../message";
 import { AccountService } from "./accountService";
 interface LoginResult {
@@ -7,14 +7,14 @@ interface LoginResult {
   unionid?: string;
 }
 
-@Controller('account')
+@Controller()
 export class LoginController {
   constructor(public accountService: AccountService) {}
 
   @Get('login')
-  async accountLogin(): Promise<Message<LoginResult>> {
+  async accountLogin(@Query('code') code: string): Promise<Message<LoginResult>> {
     try {
-      const res = await this.accountService.accountLogin();
+      const res = await this.accountService.accountLogin(code);
       if (res.errcode) {
         return new Message<LoginResult>(`${res.errcode}`, `登录失败,${res.errmsg}`);
       }
