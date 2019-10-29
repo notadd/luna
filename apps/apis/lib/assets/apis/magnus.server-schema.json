@@ -4717,22 +4717,62 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "id_In",
-            "description": "id 在制定内，如[1,2,3,...]",
+            "name": "createDate_Lt",
+            "description": " 小于",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Date",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "createDate_Lte",
+            "description": " 小于等于",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Date",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "createDate_Gt",
+            "description": " 大于",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Date",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "createDate_Gte",
+            "description": " 大于等于",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Date",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "createDate_Between",
+            "description": " 指定范围[min,max]",
             "type": {
               "kind": "LIST",
               "name": null,
               "ofType": {
                 "kind": "SCALAR",
-                "name": "Int",
+                "name": "Date",
                 "ofType": null
               }
             },
             "defaultValue": null
           },
           {
-            "name": "id_Lt",
-            "description": "id 小于",
+            "name": "createDate",
+            "description": " 等于",
             "type": {
               "kind": "SCALAR",
               "name": "Int",
@@ -4741,55 +4781,65 @@
             "defaultValue": null
           },
           {
-            "name": "id_Lte",
-            "description": "id 小于等于",
+            "name": "updateDate_Lt",
+            "description": " 小于",
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "Date",
               "ofType": null
             },
             "defaultValue": null
           },
           {
-            "name": "id_Gt",
-            "description": "id 大于",
+            "name": "updateDate_Lte",
+            "description": " 小于等于",
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "Date",
               "ofType": null
             },
             "defaultValue": null
           },
           {
-            "name": "id_Gte",
-            "description": "id 大于等于",
+            "name": "updateDate_Gt",
+            "description": " 大于",
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "Date",
               "ofType": null
             },
             "defaultValue": null
           },
           {
-            "name": "id_Between",
-            "description": "id 指定范围[min,max]",
+            "name": "updateDate_Gte",
+            "description": " 大于等于",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Date",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "updateDate_Between",
+            "description": " 指定范围[min,max]",
             "type": {
               "kind": "LIST",
               "name": null,
               "ofType": {
                 "kind": "SCALAR",
-                "name": "Int",
+                "name": "Date",
                 "ofType": null
               }
             },
             "defaultValue": null
           },
           {
-            "name": "id",
-            "description": "id 等于",
+            "name": "updateDate",
+            "description": " 等于",
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -4864,8 +4914,18 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "id",
-            "description": "id ASC 升序 DESC降序",
+            "name": "createDate",
+            "description": " ASC 升序 DESC降序",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "updateDate",
+            "description": " ASC 升序 DESC降序",
             "type": {
               "kind": "SCALAR",
               "name": "String",
@@ -5018,12 +5078,24 @@
         "description": null,
         "fields": [
           {
-            "name": "id",
-            "description": "id",
+            "name": "createDate",
+            "description": null,
             "args": [],
             "type": {
               "kind": "SCALAR",
               "name": "Int",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "updateDate",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "isDeprecated": false,
@@ -12115,16 +12187,6 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "id",
-            "description": "id",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Int",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "key",
             "description": "key weixin-account",
             "type": {
@@ -13318,11 +13380,21 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "id",
-            "description": "id",
+            "name": "createDate",
+            "description": null,
             "type": {
               "kind": "SCALAR",
               "name": "Int",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "updateDate",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null

@@ -640,8 +640,8 @@ input RoomTypeOrder {
 }
 
 type Setting {
-  "id"
-  id: Int
+  createDate: Int
+  updateDate: String
   "key weixin-account"
   key: String
   "value"
@@ -671,20 +671,30 @@ type SettingListMessages {
 }
 
 input SettingWhere {
-  "id 在制定内，如[1,2,3,...]"
-  id_In: [Int]
-  "id 小于"
-  id_Lt: Int
-  "id 小于等于"
-  id_Lte: Int
-  "id 大于"
-  id_Gt: Int
-  "id 大于等于"
-  id_Gte: Int
-  "id 指定范围[min,max]"
-  id_Between: [Int]
-  "id 等于"
-  id: Int
+  " 小于"
+  createDate_Lt: Date
+  " 小于等于"
+  createDate_Lte: Date
+  " 大于"
+  createDate_Gt: Date
+  " 大于等于"
+  createDate_Gte: Date
+  " 指定范围[min,max]"
+  createDate_Between: [Date]
+  " 等于"
+  createDate: Int
+  " 小于"
+  updateDate_Lt: Date
+  " 小于等于"
+  updateDate_Lte: Date
+  " 大于"
+  updateDate_Gt: Date
+  " 大于等于"
+  updateDate_Gte: Date
+  " 指定范围[min,max]"
+  updateDate_Between: [Date]
+  " 等于"
+  updateDate: String
   "key weixin-account 包含,左{title: \"a%\"} 右边{title: \"%a\"} 包含{title: \"%a%\"}"
   key_Like: String
   "key weixin-account 等于"
@@ -698,8 +708,10 @@ input SettingWhere {
 }
 
 input SettingOrder {
-  "id ASC 升序 DESC降序"
-  id: String
+  " ASC 升序 DESC降序"
+  createDate: String
+  " ASC 升序 DESC降序"
+  updateDate: String
 }
 
 type TicketListResult {
@@ -1508,8 +1520,6 @@ input RoomTypeSimple {
 }
 
 input SettingSimple {
-  "id"
-  id: Int
   "key weixin-account"
   key: String
   "value"
@@ -1724,8 +1734,8 @@ input GameLogInput {
 }
 
 input SettingInput {
-  "id"
-  id: Int
+  createDate: Int
+  updateDate: String
   "key weixin-account"
   key: String
   "value"

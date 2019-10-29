@@ -908,9 +908,9 @@
   ],
   "Setting": [
     {
-      "name": "id",
+      "name": "createDate",
       "decorators": [
-        "PrimaryGeneratedColumn"
+        "CreateDateColumn"
       ],
       "entity": {
         "type": "Int",
@@ -918,9 +918,19 @@
       }
     },
     {
+      "name": "updateDate",
+      "decorators": [
+        "UpdateDateColumn"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
       "name": "key",
       "decorators": [
-        "Column"
+        "PrimaryColumn"
       ],
       "entity": {
         "type": "String",

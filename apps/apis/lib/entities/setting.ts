@@ -1,17 +1,18 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, CreateDateColumn, PrimaryColumn, Column, UpdateDateColumn } from "typeorm";
 
 @Entity()
 export class Setting {
-    /**
-     * id
-     */
-    @PrimaryGeneratedColumn()
-    id: number;
+
+    @CreateDateColumn()
+    createDate: number;
+
+    @UpdateDateColumn()
+    updateDate: string;
 
     /**
      * key weixin-account
      */
-    @Column()
+    @PrimaryColumn()
     key: string;
 
     /**
