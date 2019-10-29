@@ -3,7 +3,7 @@ import { Provider } from '@tarojs/mobx'
 import Index from './pages/index'
 
 import counterStore from './store/counter'
-
+import env from './env';
 import './app.scss'
 
 const store = {
@@ -51,7 +51,9 @@ class App extends Component {
     }
   }
 
-  componentDidMount () {}
+  async componentDidMount () {
+    // await this.login();
+  }
 
   componentDidShow () {}
 
