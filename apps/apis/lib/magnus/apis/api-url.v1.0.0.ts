@@ -1,4 +1,4 @@
 export const apiConfig = {
-      apiUrl: 'http://192.168.1.4:3000/graphql',
-      name: 'apis'
-    };
+  apiUrl: `http://${process.env.undefined}:${process.env.3000}/graphql`,
+  name: 'apis'
+};

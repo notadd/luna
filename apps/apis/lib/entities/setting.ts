@@ -28,5 +28,5 @@ export class Setting {
             }
         }
     })
-    value: string;
+    value: any;
 }
