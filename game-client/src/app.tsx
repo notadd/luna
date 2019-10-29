@@ -1,6 +1,5 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import { Provider } from '@tarojs/mobx'
-import { View, Image } from '@tarojs/components';
 import Index from './pages/index'
 
 import counterStore from './store/counter'
@@ -65,7 +64,6 @@ class App extends Component {
   render () {
     return (
       <Provider store={store}>
-        
         <Index />
       </Provider>
     )
