@@ -10,6 +10,9 @@ export class Account {
     id: number;
 
     @Column()
+    openid: string;
+
+    @Column()
     nickName: string;
 
     @Column()
@@ -28,6 +31,9 @@ export class Account {
 
     @Column()
     city: string;
+
+    @Column()
+    language: string;
 
     @Column()
     steamId: string;

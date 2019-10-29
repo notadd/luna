@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Param, Query } from "@nestjs/common";
 import { Message } from "../../message";
-import { AccountService } from "./accountService";
+import { AccountService } from "../domain/accountService";
 interface LoginResult {
   openid?: string;
   session_key?: string;
@@ -8,7 +8,7 @@ interface LoginResult {
 }
 
 @Controller()
-export class LoginController {
+export class AccountLogin {
   constructor(public accountService: AccountService) {}
 
   @Get('login')
@@ -18,6 +18,7 @@ export class LoginController {
       if (res.errcode) {
         return new Message<LoginResult>(`B200${res.errcode}`, `登录失败,${res.errmsg}`);
       }
+      await this.accountService.saveAccount(res.openid);
       return new Message<LoginResult>(`B00012000`, "登录成功", res);
     } catch (e) {
       return new Message<LoginResult>(`B20012001`, `登录失败,${e.message}`);

@@ -7,7 +7,7 @@ const entity = require('./assets/apis/magnus.entity.json');
 import { EntityController } from './runner/controller';
 import { TreeController } from './runner/tree';
 import { PageSetting } from './inc/pageSetting';
-import { AccountModule } from './inc/account/accountModule';
+import { ApiModule } from './weapp/api';
 @Module({
     imports: [
         GraphqlModule.forRoot({
@@ -16,7 +16,7 @@ import { AccountModule } from './inc/account/accountModule';
             decorators: {},
             entities: entity
         }),
-        AccountModule
+        ApiModule
     ],
     providers: [
         EntityController,
