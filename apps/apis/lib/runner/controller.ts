@@ -81,7 +81,11 @@ export class EntityController<T> extends MagnusBase<T> {
         const item = await getRepository<T>(this.tablename).findOne({
             ..._where
         });
-        return new Message(`B00012000`, `操作成功`, item!);
+        if (item) {
+            return new Message(`B00012000`, `操作成功`, item!);
+        } else {
+            return new Message(`B10012000`, `数据不存在或已删除`);
+        }
     }
 
 	/**

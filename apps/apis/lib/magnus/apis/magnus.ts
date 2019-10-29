@@ -495,8 +495,8 @@ export interface RoomTypeOrder {
 /*id ASC 升序 DESC降序*/	id?: string;
 }
 export interface Setting {
-	/*id*/
-	id?: number;
+	createDate?: number;
+	updateDate?: string;
 	/*key weixin-account*/
 	key?: string;
 	/*value*/
@@ -530,13 +530,18 @@ export interface SettingListMessages {
 	serviceCode?: string;
 }
 export interface SettingWhere {
-/*id 在制定内，如[1,2,3,...]*/	id_In?: number[];
-/*id 小于*/	id_Lt?: number;
-/*id 小于等于*/	id_Lte?: number;
-/*id 大于*/	id_Gt?: number;
-/*id 大于等于*/	id_Gte?: number;
-/*id 指定范围[min,max]*/	id_Between?: number[];
-/*id 等于*/	id?: number;
+/* 小于*/	createDate_Lt?: Date;
+/* 小于等于*/	createDate_Lte?: Date;
+/* 大于*/	createDate_Gt?: Date;
+/* 大于等于*/	createDate_Gte?: Date;
+/* 指定范围[min,max]*/	createDate_Between?: Date[];
+/* 等于*/	createDate?: number;
+/* 小于*/	updateDate_Lt?: Date;
+/* 小于等于*/	updateDate_Lte?: Date;
+/* 大于*/	updateDate_Gt?: Date;
+/* 大于等于*/	updateDate_Gte?: Date;
+/* 指定范围[min,max]*/	updateDate_Between?: Date[];
+/* 等于*/	updateDate?: string;
 /*key weixin-account 包含,左{title: "a%"} 右边{title: "%a"} 包含{title: "%a%"}*/	key_Like?: string;
 /*key weixin-account 等于*/	key?: string;
 /*value 等于*/	value?: object;
@@ -544,7 +549,8 @@ export interface SettingWhere {
 /**/	OR?: SettingWhere[];
 }
 export interface SettingOrder {
-/*id ASC 升序 DESC降序*/	id?: string;
+/* ASC 升序 DESC降序*/	createDate?: string;
+/* ASC 升序 DESC降序*/	updateDate?: string;
 }
 export interface TicketListResult {
 	list?: Ticket[];
@@ -1345,7 +1351,6 @@ export interface RoomTypeSimple {
 /*类型名*/	title?: string;
 }
 export interface SettingSimple {
-/*id*/	id?: number;
 /*key weixin-account*/	key?: string;
 /*value*/	value?: object;
 }
@@ -1526,8 +1531,8 @@ export interface GameLogInput {
 	createDate?: string;
 }
 export interface SettingInput {
-	/*id*/
-	id?: number;
+	createDate?: number;
+	updateDate?: string;
 	/*key weixin-account*/
 	key?: string;
 	/*value*/

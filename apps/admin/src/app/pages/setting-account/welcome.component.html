@@ -1,4 +1,4 @@
 <div class="setting-form">
-    <sf [schema]="schema" [layout]="'horizontal'" [button]="button" (formSubmit)="editAccount($event)">
+    <sf *ngIf="!loading" [schema]="schema" [layout]="'horizontal'" [button]="button" (formSubmit)="editAccount($event)">
     </sf>
 </div>

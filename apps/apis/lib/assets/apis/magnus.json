@@ -5623,19 +5623,30 @@
       "fields": [
         {
           "kind": "FieldDefinition",
-          "description": {
-            "kind": "StringValue",
-            "value": "id"
-          },
           "name": {
             "kind": "Name",
-            "value": "id"
+            "value": "createDate"
           },
           "type": {
             "kind": "NamedType",
             "name": {
               "kind": "Name",
               "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "updateDate"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
             }
           },
           "directives": []
@@ -5880,11 +5891,87 @@
           "kind": "InputValueDefinition",
           "description": {
             "kind": "StringValue",
-            "value": "id 在制定内，如[1,2,3,...]"
+            "value": " 小于"
           },
           "name": {
             "kind": "Name",
-            "value": "id_In"
+            "value": "createDate_Lt"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Date"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "InputValueDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": " 小于等于"
+          },
+          "name": {
+            "kind": "Name",
+            "value": "createDate_Lte"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Date"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "InputValueDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": " 大于"
+          },
+          "name": {
+            "kind": "Name",
+            "value": "createDate_Gt"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Date"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "InputValueDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": " 大于等于"
+          },
+          "name": {
+            "kind": "Name",
+            "value": "createDate_Gte"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Date"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "InputValueDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": " 指定范围[min,max]"
+          },
+          "name": {
+            "kind": "Name",
+            "value": "createDate_Between"
           },
           "type": {
             "kind": "ListType",
@@ -5892,7 +5979,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "Int"
+                "value": "Date"
               }
             }
           },
@@ -5902,11 +5989,11 @@
           "kind": "InputValueDefinition",
           "description": {
             "kind": "StringValue",
-            "value": "id 小于"
+            "value": " 等于"
           },
           "name": {
             "kind": "Name",
-            "value": "id_Lt"
+            "value": "createDate"
           },
           "type": {
             "kind": "NamedType",
@@ -5921,17 +6008,17 @@
           "kind": "InputValueDefinition",
           "description": {
             "kind": "StringValue",
-            "value": "id 小于等于"
+            "value": " 小于"
           },
           "name": {
             "kind": "Name",
-            "value": "id_Lte"
+            "value": "updateDate_Lt"
           },
           "type": {
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "Int"
+              "value": "Date"
             }
           },
           "directives": []
@@ -5940,17 +6027,17 @@
           "kind": "InputValueDefinition",
           "description": {
             "kind": "StringValue",
-            "value": "id 大于"
+            "value": " 小于等于"
           },
           "name": {
             "kind": "Name",
-            "value": "id_Gt"
+            "value": "updateDate_Lte"
           },
           "type": {
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "Int"
+              "value": "Date"
             }
           },
           "directives": []
@@ -5959,17 +6046,17 @@
           "kind": "InputValueDefinition",
           "description": {
             "kind": "StringValue",
-            "value": "id 大于等于"
+            "value": " 大于"
           },
           "name": {
             "kind": "Name",
-            "value": "id_Gte"
+            "value": "updateDate_Gt"
           },
           "type": {
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "Int"
+              "value": "Date"
             }
           },
           "directives": []
@@ -5978,11 +6065,30 @@
           "kind": "InputValueDefinition",
           "description": {
             "kind": "StringValue",
-            "value": "id 指定范围[min,max]"
+            "value": " 大于等于"
           },
           "name": {
             "kind": "Name",
-            "value": "id_Between"
+            "value": "updateDate_Gte"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Date"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "InputValueDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": " 指定范围[min,max]"
+          },
+          "name": {
+            "kind": "Name",
+            "value": "updateDate_Between"
           },
           "type": {
             "kind": "ListType",
@@ -5990,7 +6096,7 @@
               "kind": "NamedType",
               "name": {
                 "kind": "Name",
-                "value": "Int"
+                "value": "Date"
               }
             }
           },
@@ -6000,17 +6106,17 @@
           "kind": "InputValueDefinition",
           "description": {
             "kind": "StringValue",
-            "value": "id 等于"
+            "value": " 等于"
           },
           "name": {
             "kind": "Name",
-            "value": "id"
+            "value": "updateDate"
           },
           "type": {
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "Int"
+              "value": "String"
             }
           },
           "directives": []
@@ -6130,11 +6236,30 @@
           "kind": "InputValueDefinition",
           "description": {
             "kind": "StringValue",
-            "value": "id ASC 升序 DESC降序"
+            "value": " ASC 升序 DESC降序"
           },
           "name": {
             "kind": "Name",
-            "value": "id"
+            "value": "createDate"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "InputValueDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": " ASC 升序 DESC降序"
+          },
+          "name": {
+            "kind": "Name",
+            "value": "updateDate"
           },
           "type": {
             "kind": "NamedType",
@@ -13120,25 +13245,6 @@
           "kind": "InputValueDefinition",
           "description": {
             "kind": "StringValue",
-            "value": "id"
-          },
-          "name": {
-            "kind": "Name",
-            "value": "id"
-          },
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "Int"
-            }
-          },
-          "directives": []
-        },
-        {
-          "kind": "InputValueDefinition",
-          "description": {
-            "kind": "StringValue",
             "value": "key weixin-account"
           },
           "name": {
@@ -15077,19 +15183,30 @@
       "fields": [
         {
           "kind": "FieldDefinition",
-          "description": {
-            "kind": "StringValue",
-            "value": "id"
-          },
           "name": {
             "kind": "Name",
-            "value": "id"
+            "value": "createDate"
           },
           "type": {
             "kind": "NamedType",
             "name": {
               "kind": "Name",
               "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "updateDate"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
             }
           },
           "directives": []
