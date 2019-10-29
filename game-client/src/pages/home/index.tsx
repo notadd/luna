@@ -1,6 +1,6 @@
 import { ComponentType } from 'react'
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Text, Image } from '@tarojs/components'
+import { View, Text, Image, Icon } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
 
 import './index.scss'
@@ -41,11 +41,24 @@ class Index extends Component {
 
   render () {
     return (
-      <View className='index'>
+      <View className='home-page'>
           <View className="main-bg">
             <Image className="main-bg-image" src="../../assets/images/bg.png"></Image>
           </View>
-          <Text>home</Text>
+          <View className="header">
+              <View className="header-avatar">
+                  <Image className="avatar" src="../../assets/images/avatar.jpg"></Image>
+              </View>
+              <View className="header-info">
+                <View className="username">小小玩家</View>
+                <View className="steamId">steamID：511455689</View>
+              </View>
+              <View className="header-level">
+                  <View className="level">
+                      骑士6
+                  </View>
+              </View>
+          </View>
       </View>
     )
   }
