@@ -1,10 +1,18 @@
 import { NgModule } from '@angular/core';
 import { WelcomeRoutingModule } from './welcome-routing.module';
 import { WelcomeComponent } from './welcome.component';
-import { NzFormModule, NzIconModule, NzInputModule, NzButtonModule } from 'ng-zorro-antd';
-
+import { CommonModule } from '@angular/common';
+import { NzTableModule, NzDividerModule, NzButtonModule, NzDrawerModule, NzModalModule } from 'ng-zorro-antd';
+import { STModule, SVModule } from '@delon/abc';
+import { DelonFormModule } from '@delon/form';
 @NgModule({
-    imports: [WelcomeRoutingModule, NzButtonModule, NzFormModule, NzIconModule, NzFormModule, NzInputModule],
+    imports: [
+        WelcomeRoutingModule, CommonModule,
+        NzTableModule, NzDividerModule,
+        STModule, NzButtonModule,
+        DelonFormModule, NzDrawerModule,
+        SVModule, NzModalModule
+    ],
     declarations: [WelcomeComponent],
     exports: [WelcomeComponent]
 })

@@ -9,7 +9,7 @@ export class Setting {
     id: number;
 
     /**
-     * key
+     * key weixin-account
      */
     @Column()
     key: string;
@@ -17,6 +17,16 @@ export class Setting {
     /**
      * value
      */
-    @Column()
+    @Column({
+        type: "text",
+        transformer: {
+            from: (val: string) => {
+                return JSON.parse(val)
+            },
+            to: (val: any) => {
+                return JSON.stringify(val)
+            }
+        }
+    })
     value: string;
 }

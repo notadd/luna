@@ -1,35 +1,4 @@
-<form nz-form>
-    <nz-form-item>
-        <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="title">appid</nz-form-label>
-        <nz-form-control [nzSm]="16" [nzXs]="24">
-            <input nz-input name="appid" type="text" id="appid">
-        </nz-form-control>
-    </nz-form-item>
-
-    <nz-form-item>
-        <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="secret">secret</nz-form-label>
-        <nz-form-control [nzSm]="16" [nzXs]="24">
-            <input nz-input name="secret" type="text" id="secret">
-        </nz-form-control>
-    </nz-form-item>
-
-    <nz-form-item>
-        <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="tixianTpl">提现模板编号</nz-form-label>
-        <nz-form-control [nzSm]="16" [nzXs]="24">
-            <input nz-input name="tixianTpl" type="text" id="tixianTpl">
-        </nz-form-control>
-    </nz-form-item>
-
-    <nz-form-item>
-        <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="chongzhiTpl">充值模板编号</nz-form-label>
-        <nz-form-control [nzSm]="16" [nzXs]="24">
-            <input nz-input name="chongzhiTpl" type="text" id="chongzhiTpl">
-        </nz-form-control>
-    </nz-form-item>
-
-    <nz-form-item>
-        <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 16, offset: 8 }">
-            <button nz-button nzType="primary">Submit</button>
-        </nz-form-control>
-    </nz-form-item>
-</form>
+<div class="setting-form">
+    <sf [schema]="schema" [layout]="'horizontal'" [button]="button" (formSubmit)="editAccount($event)">
+    </sf>
+</div>
