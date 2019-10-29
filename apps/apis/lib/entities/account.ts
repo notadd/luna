@@ -10,7 +10,24 @@ export class Account {
     id: number;
 
     @Column()
-    nickname: string;
+    nickName: string;
+
+    @Column()
+    avatarUrl: string;
+
+    /** 0未知 1男性 2女性 */
+    @Column()
+    gender: number;
+
+    @Column()
+    country: string;
+
+    /** 省份 */
+    @Column()
+    province: string;
+
+    @Column()
+    city: string;
 
     @Column()
     steamId: string;
