@@ -16,7 +16,7 @@ export class LoginController {
     try {
       const res = await this.accountService.accountLogin(code);
       if (res.errcode) {
-        return new Message<LoginResult>(`${res.errcode}`, `登录失败,${res.errmsg}`);
+        return new Message<LoginResult>(`B200${res.errcode}`, `登录失败,${res.errmsg}`);
       }
       return new Message<LoginResult>(`B00012000`, "登录成功", res);
     } catch (e) {
