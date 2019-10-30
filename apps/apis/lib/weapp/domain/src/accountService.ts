@@ -1,7 +1,7 @@
 import { getRepository } from "@notadd/magnus-typeorm";
 import axios from "axios";
-import { Account } from "../../entities/account";
-import { Setting } from "../../entities/setting";
+import { Account } from "../../../entities/account";
+import { Setting } from "../../../entities/setting";
 export class AccountService {
   constructor() {}
 

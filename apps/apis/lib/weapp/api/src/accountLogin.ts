@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Param, Query } from "@nestjs/common";
-import { Message } from "../../message";
-import { AccountService } from "../domain/accountService";
+import { Message } from "../../../message";
+import { AccountService } from "../../domain/src/accountService";
 interface LoginResult {
   openid?: string;
   session_key?: string;

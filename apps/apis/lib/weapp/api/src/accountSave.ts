@@ -1,6 +1,6 @@
 import { Magnus, Mutation } from "@notadd/magnus-core";
-import { MessageNoData } from "../../message";
-import { AccountService } from "../domain/accountService";
+import { MessageNoData } from "../../../message";
+import { AccountService } from "../../domain/src/accountService";
 interface AccountInput {
   openid: string;
   nickName: string;
