@@ -13,10 +13,10 @@ interface AccountInput {
 }
 
 @Magnus()
-export class AccountSave {
+export class AccountUpdate {
   constructor(public accountService: AccountService) {}
   @Mutation()
-  async updateAccount(entity: AccountInput): Promise<MessageNoData> {
+  async accountUpdate(entity: AccountInput): Promise<MessageNoData> {
     try {
       await this.accountService.updateAccount(entity);
       return new MessageNoData("B00012000", "更新成功");

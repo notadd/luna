@@ -1,10 +1,10 @@
 import { Module } from "@nestjs/common";
 import { AccountLogin } from "./accountLogin";
 import { DomainModule } from "../domain";
-import { AccountSave } from "./accountSave";
+import { AccountUpdate } from "./accountUpdate";
 @Module({
   imports: [DomainModule],
   controllers: [AccountLogin],
-  providers: [AccountSave]
+  providers: [AccountUpdate]
 })
 export class ApiModule {}
