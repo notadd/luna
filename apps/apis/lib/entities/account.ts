@@ -9,38 +9,58 @@ export class Account {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({
+        unique: true,
+    })
     openid: string;
 
-    @Column()
+    @Column({
+        nullable: true,
+    })
     nickName: string;
 
-    @Column()
+    @Column({
+        nullable: true,
+    })
     avatarUrl: string;
 
     /** 0未知 1男性 2女性 */
-    @Column()
+    @Column({
+        nullable: true,
+    })
     gender: number;
 
-    @Column()
+    @Column({
+        nullable: true,
+    })
     country: string;
 
     /** 省份 */
-    @Column()
+    @Column({
+        nullable: true,
+    })
     province: string;
 
-    @Column()
+    @Column({
+        nullable: true,
+    })
     city: string;
 
-    @Column()
+    @Column({
+        nullable: true,
+    })
     language: string;
 
-    @Column()
+    @Column({
+        nullable: true,
+    })
     steamId: string;
 
     @OneToOne(() => Member, type => type.account)
     member: Member;
 
-    @Column()
+    @Column({
+        nullable: true,
+    })
     level: string;
 }
