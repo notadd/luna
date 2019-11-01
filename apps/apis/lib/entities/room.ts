@@ -1,10 +1,10 @@
-import { RoomType } from "./roomType";
-import { Entity, Column, ManyToOne, OneToMany, ManyToMany, JoinTable, PrimaryGeneratedColumn, CreateDateColumn, getRepository } from "typeorm";
-import { Member } from "./member";
-import { GameLog } from './gameLog';
 import { JoinColumn } from "@notadd/magnus-typeorm";
+import { Column, CreateDateColumn, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { GameLog } from './gameLog';
+import { Member } from "./member";
 import { RoomLimit } from "./roomLimit";
-import * as transformer from './transformer'
+import { RoomType } from "./roomType";
+import * as transformer from './transformer';
 
 @Entity()
 export class Room {
@@ -44,6 +44,9 @@ export class Room {
     @ManyToOne(() => RoomType, type => type.rooms)
     roomType: RoomType;
 
+    @Column()
+    roomTypeId: number;
+
     /**
      * 段位限制
      */
@@ -51,7 +54,7 @@ export class Room {
     roomLimit: RoomLimit;
 
     @Column()
-    roomTypeId: number;
+    roomLimitId: number;
 
     /**
      * 房主
