@@ -1,28 +1,33 @@
 import { Injectable } from '@nestjs/common';
-import { Room } from '../../../entities/room';
-import { Db } from '../../core/repository/db';
 import { RoomFindInput } from '../type';
+import { WebAppError } from '../../webapp.error';
+import { RoomViewDb } from '../../basic/lib/roomViewDb';
 
 @Injectable()
 export class RoomService {
-	constructor(public db: Db) { }
+	constructor(public roomViewDb: RoomViewDb) { }
 
 	/**
 	 * 查找房间
 	 * @param where 查找房间的条件
 	 */
-	async roomFind(where: RoomFindInput): Promise<any> {
-		const roomRepo = this.db.getConnection().getRepository(Room);
-		return await roomRepo.find({
-			where: {isHidden: false, ...where},
-			relations: ['roomLimit', 'roomType', 'members']
-		});
+	async roomFind(where: RoomFindInput): Promise<any[]> {
+		try {
+			let whereStr = `WHERE "isHidden" = false`;
+			const keys = Object.keys(where);
+			keys.forEach(key => {
+				whereStr += ` AND "${key}" = '${where[key]}'`
+			})
+			return await this.roomViewDb.find(whereStr)
+		} catch (e) {
+			throw new WebAppError(`01`,e.message);
+		}
 	}
 
 	/**
 	 * 房间添加用户
 	 */
-	async roomAddMember(){
-
+	async roomAddMember(openid: string): Promise<any>{
+		
 	}
 }

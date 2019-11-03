@@ -3,6 +3,7 @@ import { AuthImpl } from './lib';
 import { Auth } from '../core/lib';
 import { Db } from '../core/repository/db';
 import { DbImpl } from './repository/dbImpl';
+import { RoomViewDb } from './lib/roomViewDb';
 @Module({
   providers: [
     {
@@ -12,7 +13,8 @@ import { DbImpl } from './repository/dbImpl';
     {
       provide: Db,
       useClass: DbImpl
-    }
+    },
+    RoomViewDb
   ],
   exports: [
     {
@@ -22,7 +24,8 @@ import { DbImpl } from './repository/dbImpl';
     {
       provide: Db,
       useClass: DbImpl
-    }
+    },
+    RoomViewDb
   ]
 })
 export class WebAppBasicModule {}

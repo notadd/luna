@@ -16,26 +16,61 @@ export class Member {
     /**
      * 昵称
      */
-    @Column()
+    @Column({
+        nullable: true,
+    })
     nickname: string;
 
     /**
      * 密码
      */
-    @Column()
+    @Column({
+        nullable: true,
+    })
     password: string;
 
     /**
      * 头像
      */
-    @Column()
-    avatar: string;
+    @Column({
+        nullable: true,
+    })
+    avatarUrl: string;
 
     /**
      * 电话
      */
-    @Column()
+    @Column({
+        nullable: true,
+    })
     mobile: string;
+
+    /** 0未知 1男性 2女性 */
+    @Column({
+        nullable: true,
+    })
+    gender: number;
+
+    @Column({
+        nullable: true,
+    })
+    country: string;
+
+    /** 省份 */
+    @Column({
+        nullable: true,
+    })
+    province: string;
+
+    @Column({
+        nullable: true,
+    })
+    city: string;
+
+    @Column({
+        nullable: true,
+    })
+    language: string;
 
     /**
      * 微信id
