@@ -1,14 +1,39 @@
 {
-  "mutation": [
+  "query": [
     [
-      "memberUpdate",
-      "MemberUpdate",
-      "",
-      "memberUpdate",
+      "memberTicketLogFind",
+      "MemberTicketFind",
+      "TicketLog",
+      "memberTicketLogFind",
       [
         {
-          "name": "entity",
-          "type": "MemberInput!",
+          "name": "openid",
+          "type": "String!",
+          "index": 0,
+          "decorator": []
+        }
+      ],
+      {
+        "type": "Messages",
+        "isEntity": false,
+        "typeArguments": [
+          {
+            "type": "TicketLog",
+            "isEntity": false,
+            "typeArguments": []
+          }
+        ]
+      }
+    ],
+    [
+      "memberTicketUsed",
+      "MemberTicketCheck",
+      "",
+      "memberTicketUsed",
+      [
+        {
+          "name": "where",
+          "type": "MemberTicketCheckInput!",
           "index": 0,
           "decorator": []
         }
@@ -18,9 +43,7 @@
         "isEntity": false,
         "typeArguments": []
       }
-    ]
-  ],
-  "query": [
+    ],
     [
       "roomsFind",
       "RoomsFind",
@@ -40,6 +63,71 @@
         "typeArguments": [
           {
             "type": "RoomsFindResult",
+            "isEntity": false,
+            "typeArguments": []
+          }
+        ]
+      }
+    ]
+  ],
+  "mutation": [
+    [
+      "memberUpdate",
+      "MemberUpdate",
+      "",
+      "memberUpdate",
+      [
+        {
+          "name": "entity",
+          "type": "MemberInput!",
+          "index": 0,
+          "decorator": []
+        }
+      ],
+      {
+        "type": "MessageNoData",
+        "isEntity": false,
+        "typeArguments": []
+      }
+    ],
+    [
+      "RoomAddMember",
+      "RoomAddMember",
+      "",
+      "RoomAddMember",
+      [
+        {
+          "name": "where",
+          "type": "RoomAddMemberInput!",
+          "index": 0,
+          "decorator": []
+        }
+      ],
+      {
+        "type": "MessageNoData",
+        "isEntity": false,
+        "typeArguments": []
+      }
+    ],
+    [
+      "roomCreate",
+      "RoomCreate",
+      "Room",
+      "roomCreate",
+      [
+        {
+          "name": "entity",
+          "type": "RoomCreateInput!",
+          "index": 0,
+          "decorator": []
+        }
+      ],
+      {
+        "type": "Message",
+        "isEntity": false,
+        "typeArguments": [
+          {
+            "type": "Room",
             "isEntity": false,
             "typeArguments": []
           }

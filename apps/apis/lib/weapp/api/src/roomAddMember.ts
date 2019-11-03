@@ -1,4 +1,6 @@
-import { Magnus } from "@notadd/magnus-core";
+import { Magnus, Mutation } from "@notadd/magnus-core";
+import { RoomService } from "../../domain/src/roomService";
+import { MessageNoData } from "../../../message";
 
 interface RoomAddMemberInput {
     /** 房间编号 */
@@ -9,13 +11,19 @@ interface RoomAddMemberInput {
 
 @Magnus()
 export class RoomAddMember {
-    constructor(){}
+    constructor(public roomService: RoomService){}
 
     /**
      * 用户加入房间,并且扣除对应的券
      * @param where 
      */
-    async RoomAddMember(where: RoomAddMemberInput): Promise<any> {
-        return {};
+    @Mutation()
+    async RoomAddMember(where: RoomAddMemberInput): Promise<MessageNoData> {
+        try {
+            await this.roomService.roomAddMember(where.openId,where.roomId);
+            return new MessageNoData(`B20010500`, `添加成功`);
+        } catch (e) {
+            return new MessageNoData(`B200105${e.code}`, e.message);
+        }
     }
 }

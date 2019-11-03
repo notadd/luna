@@ -46,10 +46,37 @@ type RoomType {
   rooms: [Room]
 }
 
+type TicketLog {
+  id: Int
+  ticket: Ticket
+  ticket_Id: Int
+  member: Member
+  member_id: Int
+  createDate: String
+}
+
+type Ticket {
+  id: Int
+  "名称"
+  title: String
+  "金币"
+  fee: Int
+  "总数"
+  count: Int
+  "领取记录"
+  logs: [TicketLog]
+  roomLimit: RoomLimit
+  roomLimitId: Int
+  createDate: String
+  updateDate: String
+}
+
 "段位限制"
 type RoomLimit {
   id: Int
   title: String
+  ticket: Ticket
+  ticketId: Int
   rooms: [Room]
 }
 
@@ -135,29 +162,6 @@ type ChongZhiLog {
   updateDate: String
 }
 
-type Ticket {
-  id: Int
-  "名称"
-  title: String
-  "金币"
-  fee: Int
-  "总数"
-  count: Int
-  "领取记录"
-  logs: [TicketLog]
-  createDate: String
-  updateDate: String
-}
-
-type TicketLog {
-  id: Int
-  ticket: Ticket
-  ticket_Id: Int
-  member: Member
-  member_id: Int
-  createDate: String
-}
-
 type Account {
   id: Int
   steamId: String
@@ -208,6 +212,23 @@ type Member {
   account: Account
 }
 
+type TicketLogMessages {
+  "#### 1位:\n> H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员\n#### 2位:\n> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面\n#### 3-5位:\n> 子系统编码 基础信息管理 001\n#### ６-9\n> 业务编码 2000表示正常"
+  code: String
+  "H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员"
+  pre: String
+  "子系统编码 基础信息管理 001"
+  system: String
+  "> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面"
+  level: String
+  "业务编码 2000表示正常"
+  serviceCode: String
+  "用户友好提示"
+  message: String
+  "返回数据"
+  data: [TicketLog]
+}
+
 type MessageNoData {
   "#### 1位:\n> H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员\n#### 2位:\n> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面\n#### 3-5位:\n> 子系统编码\n#### 6-9位\n> 业务编码"
   code: String
@@ -223,6 +244,11 @@ type MessageNoData {
   serviceCode: String
 }
 
+input MemberTicketCheckInput {
+  openId: String!
+  limitId: Int!
+}
+
 input MemberInput {
   openid: String!
   nickName: String!
@@ -232,6 +258,43 @@ input MemberInput {
   province: String!
   city: String!
   language: String!
+}
+
+input RoomAddMemberInput {
+  "房间编号"
+  roomId: Int!
+  "用户标识"
+  openId: String!
+}
+
+"header refreshToken"
+type RoomMessage {
+  "#### 1位:\n> H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员\n#### 2位:\n> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面\n#### 3-5位:\n> 子系统编码\n#### 6-9位\n> 业务编码"
+  code: String
+  "用户友好提示"
+  message: String
+  "返回数据"
+  data: Room
+  "H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员"
+  pre: String
+  "子系统编码 基础信息管理 001"
+  system: String
+  "> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面"
+  level: String
+  "业务编码 2000表示正常"
+  serviceCode: String
+}
+
+input RoomCreateInput {
+  title: String!
+  password: String!
+  "场地黄金白银青铜"
+  roomTypeId: Int!
+  "段位"
+  roomLimitId: Int!
+  isHidden: Boolean!
+  openId: String!
+  startType: String!
 }
 
 type RoomsFindResult {
@@ -270,6 +333,16 @@ input RoomsFindInput {
 }
 
 type Query {
+  "查询用户的所有类型的参赛券"
+  memberTicketLogFind(
+    "用户唯一编号"
+    openid: String!
+  ): TicketLogMessages
+  "扣除该用户对应房间类型的券"
+  memberTicketUsed(
+    ""
+    where: MemberTicketCheckInput!
+  ): MessageNoData
   "查找可进入的房间"
   roomsFind(
     "查找房间的条件"
@@ -279,4 +352,14 @@ type Query {
 
 type Mutation {
   memberUpdate(entity: MemberInput!): MessageNoData
+  "用户加入房间,并且扣除对应的券"
+  RoomAddMember(
+    ""
+    where: RoomAddMemberInput!
+  ): MessageNoData
+  "创建房间 TODO 当前没有限制房间数量"
+  roomCreate(
+    ""
+    entity: RoomCreateInput!
+  ): RoomMessage
 }

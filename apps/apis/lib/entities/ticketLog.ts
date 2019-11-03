@@ -2,6 +2,7 @@ import { Entity, PrimaryGeneratedColumn, OneToMany, ManyToOne, Column, CreateDat
 import { Member } from "./member";
 import { Ticket } from "./ticket";
 import * as transformer from './transformer'
+import { JoinColumn } from "@notadd/magnus-typeorm";
 
 @Entity()
 export class TicketLog {
@@ -10,15 +11,25 @@ export class TicketLog {
     id: number;
 
     @ManyToOne(() => Ticket, type => type.logs)
+    @JoinColumn({
+        name: 'ticket_id'
+    })
     ticket: Ticket;
 
-    @Column()
+    @Column({
+        name: 'ticket_id'
+    })
     ticket_Id: number;
 
     @ManyToOne(() => Member, type => type.ticketLogs)
+    @JoinColumn({
+        name: 'member_id'
+    })
     member: Member;
 
-    @Column()
+    @Column({
+        name: 'member_id'
+    })
     member_id: number;
 
     @CreateDateColumn({

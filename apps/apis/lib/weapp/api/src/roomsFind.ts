@@ -32,9 +32,9 @@ export class RoomsFind {
     async roomsFind(where: RoomsFindInput): Promise<Messages<RoomsFindResult>>{
         try {
             const rooms = await this.roomService.roomFind(where);
-            return new Messages<RoomsFindResult>(`B00010500`,`查询成功`,rooms)
+            return new Messages<RoomsFindResult>(`B00010700`,`查询成功`,rooms)
         } catch (e) {
-            return new Messages<RoomsFindResult>(`B000105${e.code}`,`查询失败,${e.message}`,[])
+            return new Messages<RoomsFindResult>(`B200107${e.code}`,`查询失败,${e.message}`,[])
         }
     }
 }

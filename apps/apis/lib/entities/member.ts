@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, ManyToMany, OneToMany, JoinTable, OneToOne } from '@notadd/magnus-typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, ManyToMany, OneToMany, JoinTable, OneToOne, JoinColumn } from '@notadd/magnus-typeorm';
 import { Room } from './room';
 import { TixianLog } from './tixianLog';
 import { GameLog } from './gameLog';
@@ -81,7 +81,9 @@ export class Member {
     /**
      * 状态 0禁用 1正常
      */
-    @Column()
+    @Column({
+        default: 0
+    })
     status: number;
 
     /**
@@ -134,7 +136,7 @@ export class Member {
     /**
      * 用户领取的劵
      */
-    @OneToMany(() => TicketLog, type => type.id)
+    @OneToMany(() => TicketLog, type => type.member)
     ticketLogs: TicketLog[];
 
     /**

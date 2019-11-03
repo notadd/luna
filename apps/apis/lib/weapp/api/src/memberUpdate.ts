@@ -20,9 +20,9 @@ export class MemberUpdate {
 	async memberUpdate(entity: MemberInput): Promise<MessageNoData> {
 		try {
 			await this.memberService.updateMember(entity);
-			return new MessageNoData('B00012000', '更新成功');
+			return new MessageNoData('B00010400', '更新成功');
 		} catch (e) {
-			return new MessageNoData(`B000120${e.code}`, `更新失败,${e.message}`);
+			return new MessageNoData(`B200104${e.code}`, `更新失败,${e.message}`);
 		}
 	}
 }
