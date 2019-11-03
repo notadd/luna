@@ -24,8 +24,8 @@ export class AnalysisImpl extends Analysis {
                 end_date
             }
         }).then(res => res.data)
-    }    
-    
+    }
+
     async getMonthlyRetain(access_token: string, begin_date: string, end_date: string): Promise<GetVisitTrendResult> {
         return await axios({
             method: 'POST',
@@ -102,7 +102,7 @@ export class AnalysisImpl extends Analysis {
             }
         }).then(res => res.data)
     }
-    
+
     async getVisitPage(access_token: string, begin_date: string, end_date: string): Promise<GetVisitPageResult> {
         return await axios({
             method: 'POST',
@@ -114,5 +114,5 @@ export class AnalysisImpl extends Analysis {
         }).then(res => res.data)
     }
 
-    
+
 }

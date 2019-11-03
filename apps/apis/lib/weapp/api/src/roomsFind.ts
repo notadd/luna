@@ -22,14 +22,14 @@ interface RoomsFindResult {
 
 @Magnus()
 export class RoomsFind {
-    constructor(public roomService: RoomService){}
+    constructor(public roomService: RoomService) { }
 
     /**
      * 查找可进入的房间
      * @param where 查找房间的条件
      */
     @Query()
-    async roomsFind(where: RoomsFindInput): Promise<Messages<RoomsFindResult>>{
+    async roomsFind(where: RoomsFindInput): Promise<Messages<RoomsFindResult>> {
         try {
             const rooms = await this.roomService.roomFind(where);
             return new Messages<RoomsFindResult>(`B00010700`,`查询成功`,rooms)

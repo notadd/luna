@@ -5,7 +5,7 @@ export async function install() {
     try {
         if (!existsSync(join(__dirname,'init.loc'))) {
             await getConnection().query(
-                `create view room_with_join_count as select r.*, l.title as "roomLimitTitle",
+                `create or replace view room_with_join_count as select r.*, l.title as "roomLimitTitle",
                 t.title as "roomTypeTitle",count(m.*) as join_count
                 from room as r 
                 left join room_member as m on r."id" = m."roomId" 

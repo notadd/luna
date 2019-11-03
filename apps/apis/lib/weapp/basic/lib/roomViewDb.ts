@@ -3,7 +3,7 @@ import { Db } from "../../core/repository/db";
 
 @Injectable()
 export class RoomViewDb {
-    constructor(public db: Db){}
+    constructor(public db: Db) { }
 
     async find(where: string): Promise<any[]> {
         return this.db.getConnection().query(`

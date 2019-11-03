@@ -19,4 +19,4 @@ import { RoomAddMember } from './src/roomAddMember';
     RoomAddMember
   ]
 })
-export class WebAppApiModule {}
+export class WebAppApiModule { }

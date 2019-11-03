@@ -2,19 +2,19 @@ import { Magnus, Mutation } from '@notadd/magnus-core';
 import { MessageNoData } from '../../../message';
 import { MemberService } from '../../domain/src/memberService';
 interface MemberInput {
-	openid: string;
-	nickName: string;
-	avatarUrl: string;
-	gender: number;
-	country: string;
-	province: string;
-	city: string;
-	language: string;
+    openid: string;
+    nickName: string;
+    avatarUrl: string;
+    gender: number;
+    country: string;
+    province: string;
+    city: string;
+    language: string;
 }
 
 @Magnus()
 export class MemberUpdate {
-	constructor(public memberService: MemberService) { }
+    constructor(public memberService: MemberService) { }
 
 	@Mutation()
 	async memberUpdate(entity: MemberInput): Promise<MessageNoData> {
