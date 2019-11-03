@@ -9,7 +9,7 @@ interface RoomAddMemberInput {
 
 @Magnus()
 export class RoomAddMember {
-    constructor(){}
+    constructor() { }
 
     /**
      * 用户加入房间,并且扣除对应的券
