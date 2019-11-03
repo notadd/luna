@@ -21,10 +21,10 @@ export class TixianLog {
     })
     memberId: number;
 
-    @ResolveProperty()
-    async getMember(): Promise<Member | undefined> {
-        return await getRepository(Member).findOne(this.memberId);
-    }
+    // @ResolveProperty()
+    // async getMember(): Promise<Member | undefined> {
+    //     return await getRepository(Member).findOne(this.memberId);
+    // }
 
     /**
      * 提现数量

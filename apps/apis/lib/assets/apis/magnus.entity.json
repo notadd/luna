@@ -244,6 +244,16 @@
       }
     },
     {
+      "name": "roomTypeId",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
       "name": "roomLimit",
       "decorators": [
         "ManyToOne"
@@ -255,7 +265,7 @@
       }
     },
     {
-      "name": "roomTypeId",
+      "name": "roomLimitId",
       "decorators": [
         "Column"
       ],
@@ -360,18 +370,6 @@
         "type": "Int",
         "typeArguments": []
       }
-    },
-    {
-      "name": "getMember",
-      "decorators": [
-        "ResolveProperty"
-      ],
-      "entity": {
-        "type": "Member",
-        "isEntity": false,
-        "typeArguments": []
-      },
-      "parameters": []
     },
     {
       "name": "count",
@@ -651,16 +649,6 @@
       }
     },
     {
-      "name": "nickname",
-      "decorators": [
-        "Column"
-      ],
-      "entity": {
-        "type": "String",
-        "typeArguments": []
-      }
-    },
-    {
       "name": "steamId",
       "decorators": [
         "Column"
@@ -724,7 +712,7 @@
       }
     },
     {
-      "name": "avatar",
+      "name": "avatarUrl",
       "decorators": [
         "Column"
       ],
@@ -735,6 +723,56 @@
     },
     {
       "name": "mobile",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "gender",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "country",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "province",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "city",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "language",
       "decorators": [
         "Column"
       ],
@@ -948,30 +986,7 @@
       }
     }
   ],
-  "ListResult": [
-    {
-      "name": "list",
-      "decorators": [],
-      "entity": {
-        "kind": "ArrayType",
-        "isArray": true,
-        "type": {
-          "type": "T",
-          "isEntity": false,
-          "typeArguments": []
-        }
-      }
-    },
-    {
-      "name": "count",
-      "decorators": [],
-      "entity": {
-        "type": "Int",
-        "typeArguments": []
-      }
-    }
-  ],
-  "ListMessages": [
+  "MessageNoData": [
     {
       "name": "code",
       "decorators": [],
@@ -985,119 +1000,6 @@
       "decorators": [],
       "entity": {
         "type": "String",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "data",
-      "decorators": [],
-      "entity": {
-        "type": "ListResult",
-        "isEntity": false,
-        "typeArguments": [
-          {
-            "type": "T",
-            "isEntity": false,
-            "typeArguments": []
-          }
-        ]
-      }
-    },
-    {
-      "name": "pre",
-      "decorators": [],
-      "entity": {
-        "type": "String",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "system",
-      "decorators": [],
-      "entity": {
-        "type": "String",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "level",
-      "decorators": [],
-      "entity": {
-        "type": "String",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "serviceCode",
-      "decorators": [],
-      "entity": {
-        "type": "String",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "controller",
-      "decorators": [],
-      "parameters": [
-        {
-          "name": "code",
-          "index": 0,
-          "decorator": []
-        },
-        {
-          "name": "message",
-          "index": 1,
-          "decorator": []
-        },
-        {
-          "name": "data",
-          "index": 2,
-          "decorator": []
-        }
-      ]
-    }
-  ],
-  "Limit": [
-    {
-      "name": "page",
-      "decorators": [],
-      "entity": {
-        "type": "Int",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "psize",
-      "decorators": [],
-      "entity": {
-        "type": "Int",
-        "typeArguments": []
-      }
-    }
-  ],
-  "Message": [
-    {
-      "name": "code",
-      "decorators": [],
-      "entity": {
-        "type": "String",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "message",
-      "decorators": [],
-      "entity": {
-        "type": "String",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "data",
-      "decorators": [],
-      "entity": {
-        "type": "T",
-        "isEntity": false,
         "typeArguments": []
       }
     },
@@ -1145,11 +1047,6 @@
         {
           "name": "message",
           "index": 1,
-          "decorator": []
-        },
-        {
-          "name": "data",
-          "index": 2,
           "decorator": []
         }
       ]

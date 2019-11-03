@@ -1,5 +1,5 @@
 export interface RoomFindInput {
-    id?: number;
-    limitId?: number;
+    title?: string;
+    roomLimitId?: number;
     roomTypeId?: number;
 }

@@ -1,15 +1,11 @@
-import { Module } from "@nestjs/common";
-import { WebAppError } from "../webapp.error";
-import { AccountService } from "./src/accountService";
-import { Auth } from "../core/lib";
-import { AuthImpl } from "../basic/lib";
-import { WebAppBasicModule } from "../basic/basic.module";
+import { Module } from '@nestjs/common';
+import { WebAppBasicModule } from '../basic/basic.module';
+import { MemberService } from './src/memberService';
+import { RoomService } from './src/roomService';
 
 @Module({
-  imports: [WebAppBasicModule],
-  providers: [
-    AccountService
-  ],
-  exports: [AccountService]
+	imports: [WebAppBasicModule],
+	providers: [MemberService,RoomService],
+	exports: [MemberService,RoomService]
 })
-export class WebAppDomainModule {}
+export class WebAppDomainModule { }

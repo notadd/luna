@@ -1,11 +1,11 @@
 {
 	"name": "apis",
-	"inputs": [ "lib/**/*.ts" ],
+	"inputs": ["lib/weapp/**/*.ts","lib/entities/*.ts","lib/message.ts"],
 	"output": "lib/magnus",
 	"assets": "lib/assets",
 	"port": 3000,
 	"debug": false,
-	"client": [ "lib/**/*.graphql" ],
+	"client": ["lib/**/*.graphql"],
 	"def": "lib/assets/magnusWeb/magnus.server.graphql",
 	"runner": {
 		"name": "runner",
