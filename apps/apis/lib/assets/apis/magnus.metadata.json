@@ -45,6 +45,31 @@
       }
     ],
     [
+      "roomFindOne",
+      "RoomFindOne",
+      "RoomsFindOneResult",
+      "roomFindOne",
+      [
+        {
+          "name": "where",
+          "type": "RoomFindOneInput!",
+          "index": 0,
+          "decorator": []
+        }
+      ],
+      {
+        "type": "Message",
+        "isEntity": false,
+        "typeArguments": [
+          {
+            "type": "RoomsFindOneResult",
+            "isEntity": false,
+            "typeArguments": []
+          }
+        ]
+      }
+    ],
+    [
       "roomsFind",
       "RoomsFind",
       "RoomsFindResult",

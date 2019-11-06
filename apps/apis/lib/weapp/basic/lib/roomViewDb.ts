@@ -12,4 +12,12 @@ export class RoomViewDb {
             FROM public.room_with_join_count ${where} order by "join_count" desc
         `);
     }
+
+    async findOne(roomId: number): Promise<any> {
+        return this.db.getConnection().query(`
+            SELECT title, "isHidden", id, "password", "startType", "roomTypeId", owner_id as "ownerId", 
+            create_date, "roomLimitId", "roomLimitTitle", "roomTypeTitle", join_count as "joinCount"
+            FROM public.room_with_join_count where id = ${roomId} order by "join_count" desc
+        `);
+    }
 }

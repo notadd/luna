@@ -7,6 +7,7 @@ import { RoomCreate } from './src/roomCreate';
 import { MemberTicketFind } from './src/memberTicketFind';
 import { MemberTicketCheck } from './src/memberTicketUsed';
 import { RoomAddMember } from './src/roomAddMember';
+import { RoomFindOne } from './src/roomFindOne';
 @Module({
   imports: [WebAppDomainModule],
   controllers: [MemberLogin],
@@ -16,7 +17,8 @@ import { RoomAddMember } from './src/roomAddMember';
     RoomCreate,
     MemberTicketFind,
     MemberTicketCheck,
-    RoomAddMember
+    RoomAddMember,
+    RoomFindOne
   ]
 })
 export class WebAppApiModule { }

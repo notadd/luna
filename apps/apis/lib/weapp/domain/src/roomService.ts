@@ -31,6 +31,36 @@ export class RoomService {
 	}
 
 	/**
+	 * 根据房间号查询房间的具体信息
+	 * @param roomId 
+	 */
+	async roomFindOne(roomId: number): Promise<any> {
+		const roomRepo = this.db.getConnection().getRepository(Room);
+		const room = await roomRepo.findOne({ 
+			where: { id: roomId },
+			relations: ['roomLimit','members','roomType']
+		});
+		if (!room) {
+			throw new WebAppError(`01`, `房间不存在`);
+		}
+		return {
+			id: room.id,
+			title: room.title,
+			password: room.password,
+			startType: room.startType,
+			ownerId: room.ownerId,
+			isHidden: room.isHidden,
+			member: room.members,
+			joinCount: room.members.length,
+			createDate: room.createDate,
+			roomTypeId: room.roomType.id,
+			roomTypeTitle: room.roomType.title,
+			roomLimitId: room.roomLimit.id,
+			roomLimitTitle: room.roomLimit.title
+		}
+	}
+
+	/**
 	 *  创建房间
 	 */
 	async roomCreate(entity: RoomCreateInput): Promise<Room>{

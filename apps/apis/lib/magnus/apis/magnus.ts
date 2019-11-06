@@ -278,6 +278,54 @@ export interface RoomCreateInput {
 	openId: string;
 	startType: string;
 }
+export interface RoomFindOneMember {
+	id: number;
+	nickname: string;
+	avatarUrl: string;
+}
+export interface RoomsFindOneResult {
+	id: number;
+	title: string;
+	password: string;
+	roomTypeId: number;
+	roomTypeTitle: string;
+	roomLimitId: number;
+	roomLimitTitle: string;
+	ownerId: number;
+	isHidden: boolean;
+	member: RoomFindOneMember[];
+	/*暂定'1'自动 '2'手动*/
+	startType: string;
+	createDate: string;
+	joinCount: number;
+}
+/*header refreshToken*/
+export interface RoomsFindOneResultMessage {
+	/*#### 1位:
+> H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员
+#### 2位:
+> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面
+#### 3-5位:
+> 子系统编码
+#### 6-9位
+> 业务编码*/
+	code?: string;
+	/*用户友好提示*/
+	message?: string;
+	/*返回数据*/
+	data?: RoomsFindOneResult;
+	/*H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员*/
+	pre?: string;
+	/*子系统编码 基础信息管理 001*/
+	system?: string;
+	/*> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面*/
+	level?: string;
+	/*业务编码 2000表示正常*/
+	serviceCode?: string;
+}
+export interface RoomFindOneInput {
+	roomId: number;
+}
 export interface RoomsFindResult {
 	id: number;
 	title: string;
@@ -322,6 +370,7 @@ export interface Query {
 	memberTicketLogFind<T>(/*用户唯一编号*/openid: string, __selection?: string): Promise<T & TicketLogMessages>;
 	/*扣除该用户对应房间类型的券*/
 	memberTicketUsed<T>(/**/where: MemberTicketCheckInput, __selection?: string): Promise<T & MessageNoData>;
+	roomFindOne<T>(where: RoomFindOneInput, __selection?: string): Promise<T & RoomsFindOneResultMessage>;
 	/*查找可进入的房间*/
 	roomsFind<T>(/*查找房间的条件*/where: RoomsFindInput, __selection?: string): Promise<T & RoomsFindResultMessages>;
 }
@@ -329,6 +378,6 @@ export interface Mutation {
 	memberUpdate<T>(entity: MemberInput, __selection?: string): Promise<T & MessageNoData>;
 	/*用户加入房间,并且扣除对应的券*/
 	RoomAddMember<T>(/**/where: RoomAddMemberInput, __selection?: string): Promise<T & MessageNoData>;
-	/*创建房间 TODO 当前没有限制房间数量*/
+	/*创建房间，并且扣除创建该房间需要的券 TODO 当前没有限制房间数量*/
 	roomCreate<T>(/**/entity: RoomCreateInput, __selection?: string): Promise<T & RoomMessage>;
 }

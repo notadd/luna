@@ -297,6 +297,51 @@ input RoomCreateInput {
   startType: String!
 }
 
+type RoomFindOneMember {
+  id: Int!
+  nickname: String!
+  avatarUrl: String!
+}
+
+type RoomsFindOneResult {
+  id: Int!
+  title: String!
+  password: String!
+  roomTypeId: Int!
+  roomTypeTitle: String!
+  roomLimitId: Int!
+  roomLimitTitle: String!
+  ownerId: Int!
+  isHidden: Boolean!
+  member: [RoomFindOneMember]!
+  "暂定'1'自动 '2'手动"
+  startType: String!
+  createDate: String!
+  joinCount: Int!
+}
+
+"header refreshToken"
+type RoomsFindOneResultMessage {
+  "#### 1位:\n> H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员\n#### 2位:\n> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面\n#### 3-5位:\n> 子系统编码\n#### 6-9位\n> 业务编码"
+  code: String
+  "用户友好提示"
+  message: String
+  "返回数据"
+  data: RoomsFindOneResult
+  "H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员"
+  pre: String
+  "子系统编码 基础信息管理 001"
+  system: String
+  "> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面"
+  level: String
+  "业务编码 2000表示正常"
+  serviceCode: String
+}
+
+input RoomFindOneInput {
+  roomId: Int!
+}
+
 type RoomsFindResult {
   id: Int!
   title: String!
@@ -343,6 +388,7 @@ type Query {
     ""
     where: MemberTicketCheckInput!
   ): MessageNoData
+  roomFindOne(where: RoomFindOneInput!): RoomsFindOneResultMessage
   "查找可进入的房间"
   roomsFind(
     "查找房间的条件"
@@ -357,7 +403,7 @@ type Mutation {
     ""
     where: RoomAddMemberInput!
   ): MessageNoData
-  "创建房间 TODO 当前没有限制房间数量"
+  "创建房间，并且扣除创建该房间需要的券 TODO 当前没有限制房间数量"
   roomCreate(
     ""
     entity: RoomCreateInput!
