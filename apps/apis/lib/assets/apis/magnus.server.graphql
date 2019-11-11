@@ -39,44 +39,14 @@ scalar Date
 scalar ID
 
 type RoomType {
-  "id"
-  id: Int
-  "类型名"
-  title: String
-  rooms: [Room]
-}
-
-type TicketLog {
-  id: Int
-  ticket: Ticket
-  ticket_Id: Int
-  member: Member
-  member_id: Int
-  createDate: String
-}
-
-type Ticket {
-  id: Int
-  "名称"
-  title: String
-  "金币"
-  fee: Int
-  "总数"
-  count: Int
-  "领取记录"
-  logs: [TicketLog]
-  roomLimit: RoomLimit
-  roomLimitId: Int
-  createDate: String
-  updateDate: String
+  id: Int!
+  title: String!
 }
 
 "段位限制"
 type RoomLimit {
   id: Int
   title: String
-  ticket: Ticket
-  ticketId: Int
   rooms: [Room]
 }
 
@@ -108,8 +78,8 @@ type Room {
   id: Int
   "房间密码"
   password: String
-  "开始方式"
-  startType: String
+  "开始方式,1手动 2自动"
+  startType: Int
   "房间类型、场地选择"
   roomType: RoomType
   roomTypeId: Int
@@ -162,6 +132,31 @@ type ChongZhiLog {
   updateDate: String
 }
 
+type Ticket {
+  id: Int
+  "名称"
+  title: String
+  "金币"
+  fee: Int
+  "总数"
+  count: Int
+  "领取记录"
+  logs: [TicketLog]
+  roomType: RoomType
+  roomTypeId: Int
+  createDate: String
+  updateDate: String
+}
+
+type TicketLog {
+  id: Int
+  ticket: Ticket
+  ticket_Id: Int
+  member: Member
+  member_id: Int
+  createDate: String
+}
+
 type Account {
   id: Int
   steamId: String
@@ -210,23 +205,7 @@ type Member {
   "提现时间"
   createDate: String
   account: Account
-}
-
-type TicketLogMessages {
-  "#### 1位:\n> H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员\n#### 2位:\n> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面\n#### 3-5位:\n> 子系统编码 基础信息管理 001\n#### ６-9\n> 业务编码 2000表示正常"
-  code: String
-  "H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员"
-  pre: String
-  "子系统编码 基础信息管理 001"
-  system: String
-  "> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面"
-  level: String
-  "业务编码 2000表示正常"
-  serviceCode: String
-  "用户友好提示"
-  message: String
-  "返回数据"
-  data: [TicketLog]
+  accountId: Int
 }
 
 type MessageNoData {
@@ -244,9 +223,13 @@ type MessageNoData {
   serviceCode: String
 }
 
-input MemberTicketCheckInput {
-  openId: String!
-  limitId: Int!
+input MemberBindSteamIdInput {
+  openid: String!
+  steamId: String!
+}
+
+input MemberGameLogsInput {
+  openid: String!
 }
 
 input MemberInput {
@@ -260,7 +243,7 @@ input MemberInput {
   language: String!
 }
 
-input RoomAddMemberInput {
+input MemberJoinRoomInput {
   "房间编号"
   roomId: Int!
   "用户标识"
@@ -287,20 +270,20 @@ type RoomMessage {
 
 input RoomCreateInput {
   title: String!
-  password: String!
+  password: String
   "场地黄金白银青铜"
   roomTypeId: Int!
   "段位"
   roomLimitId: Int!
   isHidden: Boolean!
   openId: String!
-  startType: String!
+  startType: Int!
 }
 
 type RoomFindOneMember {
   id: Int!
-  nickname: String!
-  avatarUrl: String!
+  nickname: String
+  avatarUrl: String
 }
 
 type RoomsFindOneResult {
@@ -313,9 +296,9 @@ type RoomsFindOneResult {
   roomLimitTitle: String!
   ownerId: Int!
   isHidden: Boolean!
-  member: [RoomFindOneMember]!
-  "暂定'1'自动 '2'手动"
-  startType: String!
+  members: [RoomFindOneMember]!
+  "暂定 1自动 2手动"
+  startType: Int!
   createDate: String!
   joinCount: Int!
 }
@@ -377,33 +360,120 @@ input RoomsFindInput {
   roomTypeId: Int
 }
 
+type RoomTypesFindResult {
+  "房间段位"
+  roomLimitTypes: [RoomType]!
+  "房间场地"
+  roomTypes: [RoomType]!
+}
+
+"header refreshToken"
+type RoomTypesFindResultMessage {
+  "#### 1位:\n> H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员\n#### 2位:\n> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面\n#### 3-5位:\n> 子系统编码\n#### 6-9位\n> 业务编码"
+  code: String
+  "用户友好提示"
+  message: String
+  "返回数据"
+  data: RoomTypesFindResult
+  "H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员"
+  pre: String
+  "子系统编码 基础信息管理 001"
+  system: String
+  "> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面"
+  level: String
+  "业务编码 2000表示正常"
+  serviceCode: String
+}
+
+type TicketLogMessages {
+  "#### 1位:\n> H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员\n#### 2位:\n> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面\n#### 3-5位:\n> 子系统编码 基础信息管理 001\n#### ６-9\n> 业务编码 2000表示正常"
+  code: String
+  "H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员"
+  pre: String
+  "子系统编码 基础信息管理 001"
+  system: String
+  "> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面"
+  level: String
+  "业务编码 2000表示正常"
+  serviceCode: String
+  "用户友好提示"
+  message: String
+  "返回数据"
+  data: [TicketLog]
+}
+
+type TicketTitleAndCount {
+  "卷的名字"
+  title: String!
+  "卷的数量"
+  count: Int!
+}
+
+type MemberTicketNumberResult {
+  "用户的id"
+  id: Int!
+  "用户的名字"
+  nickname: String!
+  allTicketTitleAndCount: [TicketTitleAndCount]!
+}
+
+"header refreshToken"
+type MemberTicketNumberResultMessage {
+  "#### 1位:\n> H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员\n#### 2位:\n> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面\n#### 3-5位:\n> 子系统编码\n#### 6-9位\n> 业务编码"
+  code: String
+  "用户友好提示"
+  message: String
+  "返回数据"
+  data: MemberTicketNumberResult
+  "H: Http 网络维护人员 B: Backend 后端人员 C: Client 前端人员"
+  pre: String
+  "子系统编码 基础信息管理 001"
+  system: String
+  "> 错误等级,0 log提示 无, 1 info提示, 2 warning提示 3 error提示 4 info 弹框 5 warning 弹框 6 error弹框 7 权限不足 8 全屏警告 9 错误页面"
+  level: String
+  "业务编码 2000表示正常"
+  serviceCode: String
+}
+
+input MemberTicketNumberInput {
+  openid: String!
+}
+
 type Query {
-  "查询用户的所有类型的参赛券"
-  memberTicketLogFind(
-    "用户唯一编号"
-    openid: String!
-  ): TicketLogMessages
-  "扣除该用户对应房间类型的券"
-  memberTicketUsed(
-    ""
-    where: MemberTicketCheckInput!
-  ): MessageNoData
+  memberGameLogsFind(where: MemberGameLogsInput!): Json
   roomFindOne(where: RoomFindOneInput!): RoomsFindOneResultMessage
   "查找可进入的房间"
   roomsFind(
     "查找房间的条件"
     where: RoomsFindInput!
   ): RoomsFindResultMessages
+  "查询房间的段位类型和场地类型"
+  roomTypesFind: RoomTypesFindResultMessage
+  "查询用户拥有的所有类型的参赛券"
+  memberTicketLogFind(
+    "用户唯一编号"
+    openid: String!
+  ): TicketLogMessages
+  "用户名字,拥有了多少券"
+  memberTicketNumber(
+    "查询条件,用户信息"
+    where: MemberTicketNumberInput!
+  ): MemberTicketNumberResultMessage
 }
 
 type Mutation {
+  "用户绑定steamId"
+  memberBindSteamId(
+    "用户openid和steamId"
+    input: MemberBindSteamIdInput!
+  ): MessageNoData
   memberUpdate(entity: MemberInput!): MessageNoData
   "用户加入房间,并且扣除对应的券"
-  RoomAddMember(
+  memberJoinRoom(
     ""
-    where: RoomAddMemberInput!
+    where: MemberJoinRoomInput!
   ): MessageNoData
-  "创建房间，并且扣除创建该房间需要的券 TODO 当前没有限制房间数量"
+  "创建房间，并且扣除创建该房间需要的券加入房间 TODO 当前没有限制房间数量"
   roomCreate(
     ""
     entity: RoomCreateInput!

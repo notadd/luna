@@ -1,8 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, OneToMany, ManyToOne, Column, CreateDateColumn } from "typeorm";
+import { JoinColumn } from "@notadd/magnus-typeorm";
+import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Member } from "./member";
 import { Ticket } from "./ticket";
-import * as transformer from './transformer'
-import { JoinColumn } from "@notadd/magnus-typeorm";
+import * as transformer from './transformer';
 
 @Entity()
 export class TicketLog {

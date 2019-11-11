@@ -1,39 +1,14 @@
 {
-  "query": [
+  "mutation": [
     [
-      "memberTicketLogFind",
-      "MemberTicketFind",
-      "TicketLog",
-      "memberTicketLogFind",
-      [
-        {
-          "name": "openid",
-          "type": "String!",
-          "index": 0,
-          "decorator": []
-        }
-      ],
-      {
-        "type": "Messages",
-        "isEntity": false,
-        "typeArguments": [
-          {
-            "type": "TicketLog",
-            "isEntity": false,
-            "typeArguments": []
-          }
-        ]
-      }
-    ],
-    [
-      "memberTicketUsed",
-      "MemberTicketCheck",
+      "memberBindSteamId",
+      "MemberBindSteamId",
       "",
-      "memberTicketUsed",
+      "memberBindSteamId",
       [
         {
-          "name": "where",
-          "type": "MemberTicketCheckInput!",
+          "name": "input",
+          "type": "MemberBindSteamIdInput!",
           "index": 0,
           "decorator": []
         }
@@ -41,6 +16,89 @@
       {
         "type": "MessageNoData",
         "isEntity": false,
+        "typeArguments": []
+      }
+    ],
+    [
+      "memberUpdate",
+      "MemberUpdate",
+      "",
+      "memberUpdate",
+      [
+        {
+          "name": "entity",
+          "type": "MemberInput!",
+          "index": 0,
+          "decorator": []
+        }
+      ],
+      {
+        "type": "MessageNoData",
+        "isEntity": false,
+        "typeArguments": []
+      }
+    ],
+    [
+      "memberJoinRoom",
+      "MemberJoinRoom",
+      "",
+      "memberJoinRoom",
+      [
+        {
+          "name": "where",
+          "type": "MemberJoinRoomInput!",
+          "index": 0,
+          "decorator": []
+        }
+      ],
+      {
+        "type": "MessageNoData",
+        "isEntity": false,
+        "typeArguments": []
+      }
+    ],
+    [
+      "roomCreate",
+      "RoomCreate",
+      "Room",
+      "roomCreate",
+      [
+        {
+          "name": "entity",
+          "type": "RoomCreateInput!",
+          "index": 0,
+          "decorator": []
+        }
+      ],
+      {
+        "type": "Message",
+        "isEntity": false,
+        "typeArguments": [
+          {
+            "type": "Room",
+            "isEntity": false,
+            "typeArguments": []
+          }
+        ]
+      }
+    ]
+  ],
+  "query": [
+    [
+      "memberGameLogsFind",
+      "MemberGameLogsFind",
+      "",
+      "memberGameLogsFind",
+      [
+        {
+          "name": "where",
+          "type": "MemberGameLogsInput!",
+          "index": 0,
+          "decorator": []
+        }
+      ],
+      {
+        "type": "Json",
         "typeArguments": []
       }
     ],
@@ -93,56 +151,59 @@
           }
         ]
       }
-    ]
-  ],
-  "mutation": [
+    ],
     [
-      "memberUpdate",
-      "MemberUpdate",
-      "",
-      "memberUpdate",
+      "roomTypesFind",
+      "RoomTypesFind",
+      "RoomTypesFindResult",
+      "roomTypesFind",
+      [],
+      {
+        "type": "Message",
+        "isEntity": false,
+        "typeArguments": [
+          {
+            "type": "RoomTypesFindResult",
+            "isEntity": false,
+            "typeArguments": []
+          }
+        ]
+      }
+    ],
+    [
+      "memberTicketLogFind",
+      "MemberTicketFind",
+      "TicketLog",
+      "memberTicketLogFind",
       [
         {
-          "name": "entity",
-          "type": "MemberInput!",
+          "name": "openid",
+          "type": "String!",
           "index": 0,
           "decorator": []
         }
       ],
       {
-        "type": "MessageNoData",
+        "type": "Messages",
         "isEntity": false,
-        "typeArguments": []
+        "typeArguments": [
+          {
+            "type": "TicketLog",
+            "isEntity": false,
+            "typeArguments": []
+          }
+        ]
       }
     ],
     [
-      "RoomAddMember",
-      "RoomAddMember",
-      "",
-      "RoomAddMember",
+      "memberTicketNumber",
+      "MemberTicketNumber",
+      "MemberTicketNumberResult",
+      "memberTicketNumber",
       [
         {
           "name": "where",
-          "type": "RoomAddMemberInput!",
-          "index": 0,
-          "decorator": []
-        }
-      ],
-      {
-        "type": "MessageNoData",
-        "isEntity": false,
-        "typeArguments": []
-      }
-    ],
-    [
-      "roomCreate",
-      "RoomCreate",
-      "Room",
-      "roomCreate",
-      [
-        {
-          "name": "entity",
-          "type": "RoomCreateInput!",
+          "type": "MemberTicketNumberInput!",
           "index": 0,
           "decorator": []
         }
@@ -152,7 +213,7 @@
         "isEntity": false,
         "typeArguments": [
           {
-            "type": "Room",
+            "type": "MemberTicketNumberResult",
             "isEntity": false,
             "typeArguments": []
           }

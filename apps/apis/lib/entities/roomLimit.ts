@@ -16,14 +16,6 @@ export class RoomLimit {
     @Column()
     title: string;
 
-    @OneToOne(() => Ticket,type => type.roomLimit)
-    ticket: Ticket;
-
-    @Column({
-        nullable: true
-    })
-    ticketId: number;
-
     @OneToMany(() => Room, type => type.roomLimit)
     rooms: Room[];
 }

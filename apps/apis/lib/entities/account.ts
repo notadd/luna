@@ -1,4 +1,4 @@
-import { PrimaryGeneratedColumn, Column } from "@notadd/magnus-typeorm";
+import { PrimaryGeneratedColumn, Column, JoinColumn } from "@notadd/magnus-typeorm";
 import { Entity, OneToOne } from "typeorm";
 import { Member } from "./member";
 import * as transformer from './transformer'
@@ -11,8 +11,9 @@ export class Account {
 
     @Column({
         nullable: true,
+        unique: true
     })
-    steamId: string;
+    steamId?: string;
 
     @OneToOne(() => Member, type => type.account)
     member: Member;
@@ -20,5 +21,5 @@ export class Account {
     @Column({
         nullable: true,
     })
-    level: string;
+    level?: string;
 }

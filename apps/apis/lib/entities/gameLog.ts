@@ -22,6 +22,14 @@ export class GameLog {
     count: number;
 
     /**
+     * 段位
+     */
+    @Column({
+        default: ``
+    })
+    level: string;
+
+    /**
      * 开始时间
      */
     @Column({

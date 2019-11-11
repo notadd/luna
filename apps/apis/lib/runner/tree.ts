@@ -11,7 +11,7 @@ import {
 } from '@notadd/magnus-core';
 import { getTreeRepository, GetSelectionSet, createWhere } from '@notadd/magnus-typeorm';
 import { Relation, SelectionSet } from '@notadd/magnus-typeorm';
-import { Limit, ListMessages, Message, Messages } from '../message';
+import { Limit, ListMessages, Message, Messages } from '../weapp/api/message';
 
 @Magnus({
     entities: []

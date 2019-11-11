@@ -1,205 +1,4 @@
 {
-  "RoomType": [
-    {
-      "name": "id",
-      "decorators": [
-        "PrimaryGeneratedColumn"
-      ],
-      "entity": {
-        "type": "Int",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "title",
-      "decorators": [
-        "Column"
-      ],
-      "entity": {
-        "type": "String",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "rooms",
-      "decorators": [
-        "OneToMany"
-      ],
-      "entity": {
-        "kind": "ArrayType",
-        "isArray": true,
-        "type": {
-          "type": "Room",
-          "isEntity": false,
-          "typeArguments": []
-        }
-      }
-    }
-  ],
-  "TicketLog": [
-    {
-      "name": "id",
-      "decorators": [
-        "PrimaryGeneratedColumn"
-      ],
-      "entity": {
-        "type": "Int",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "ticket",
-      "decorators": [
-        "ManyToOne",
-        "JoinColumn"
-      ],
-      "entity": {
-        "type": "Ticket",
-        "isEntity": false,
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "ticket_Id",
-      "decorators": [
-        "Column"
-      ],
-      "entity": {
-        "type": "Int",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "member",
-      "decorators": [
-        "ManyToOne",
-        "JoinColumn"
-      ],
-      "entity": {
-        "type": "Member",
-        "isEntity": false,
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "member_id",
-      "decorators": [
-        "Column"
-      ],
-      "entity": {
-        "type": "Int",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "createDate",
-      "decorators": [
-        "CreateDateColumn"
-      ],
-      "entity": {
-        "type": "String",
-        "typeArguments": []
-      }
-    }
-  ],
-  "Ticket": [
-    {
-      "name": "id",
-      "decorators": [
-        "PrimaryGeneratedColumn"
-      ],
-      "entity": {
-        "type": "Int",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "title",
-      "decorators": [
-        "Column"
-      ],
-      "entity": {
-        "type": "String",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "fee",
-      "decorators": [
-        "Column"
-      ],
-      "entity": {
-        "type": "Int",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "count",
-      "decorators": [
-        "Column"
-      ],
-      "entity": {
-        "type": "Int",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "logs",
-      "decorators": [
-        "OneToMany"
-      ],
-      "entity": {
-        "kind": "ArrayType",
-        "isArray": true,
-        "type": {
-          "type": "TicketLog",
-          "isEntity": false,
-          "typeArguments": []
-        }
-      }
-    },
-    {
-      "name": "roomLimit",
-      "decorators": [
-        "OneToOne"
-      ],
-      "entity": {
-        "type": "RoomLimit",
-        "isEntity": false,
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "roomLimitId",
-      "decorators": [
-        "Column"
-      ],
-      "entity": {
-        "type": "Int",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "createDate",
-      "decorators": [
-        "CreateDateColumn"
-      ],
-      "entity": {
-        "type": "String",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "updateDate",
-      "decorators": [
-        "UpdateDateColumn"
-      ],
-      "entity": {
-        "type": "String",
-        "typeArguments": []
-      }
-    }
-  ],
   "RoomLimit": [
     {
       "name": "id",
@@ -218,27 +17,6 @@
       ],
       "entity": {
         "type": "String",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "ticket",
-      "decorators": [
-        "OneToOne"
-      ],
-      "entity": {
-        "type": "Ticket",
-        "isEntity": false,
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "ticketId",
-      "decorators": [
-        "Column"
-      ],
-      "entity": {
-        "type": "Int",
         "typeArguments": []
       }
     },
@@ -413,7 +191,7 @@
         "Column"
       ],
       "entity": {
-        "type": "String",
+        "type": "Int",
         "typeArguments": []
       }
     },
@@ -674,6 +452,170 @@
       "name": "updateDate",
       "decorators": [
         "UpdateDateColumn"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    }
+  ],
+  "Ticket": [
+    {
+      "name": "id",
+      "decorators": [
+        "PrimaryGeneratedColumn"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "title",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "fee",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "count",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "logs",
+      "decorators": [
+        "OneToMany"
+      ],
+      "entity": {
+        "kind": "ArrayType",
+        "isArray": true,
+        "type": {
+          "type": "TicketLog",
+          "isEntity": false,
+          "typeArguments": []
+        }
+      }
+    },
+    {
+      "name": "roomType",
+      "decorators": [
+        "OneToOne"
+      ],
+      "entity": {
+        "type": "RoomType",
+        "isEntity": false,
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "roomTypeId",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "createDate",
+      "decorators": [
+        "CreateDateColumn"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "updateDate",
+      "decorators": [
+        "UpdateDateColumn"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    }
+  ],
+  "TicketLog": [
+    {
+      "name": "id",
+      "decorators": [
+        "PrimaryGeneratedColumn"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "ticket",
+      "decorators": [
+        "ManyToOne",
+        "JoinColumn"
+      ],
+      "entity": {
+        "type": "Ticket",
+        "isEntity": false,
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "ticket_Id",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "member",
+      "decorators": [
+        "ManyToOne",
+        "JoinColumn"
+      ],
+      "entity": {
+        "type": "Member",
+        "isEntity": false,
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "member_id",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "createDate",
+      "decorators": [
+        "CreateDateColumn"
       ],
       "entity": {
         "type": "String",
@@ -979,12 +921,81 @@
     {
       "name": "account",
       "decorators": [
-        "OneToOne"
+        "OneToOne",
+        "JoinColumn"
       ],
       "entity": {
         "type": "Account",
         "isEntity": false,
         "typeArguments": []
+      }
+    },
+    {
+      "name": "accountId",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    }
+  ],
+  "RoomType": [
+    {
+      "name": "id",
+      "decorators": [
+        "PrimaryGeneratedColumn"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "title",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "ticket",
+      "decorators": [
+        "OneToOne"
+      ],
+      "entity": {
+        "type": "Ticket",
+        "isEntity": false,
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "ticketId",
+      "decorators": [
+        "Column"
+      ],
+      "entity": {
+        "type": "Int",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "rooms",
+      "decorators": [
+        "OneToMany"
+      ],
+      "entity": {
+        "kind": "ArrayType",
+        "isArray": true,
+        "type": {
+          "type": "Room",
+          "isEntity": false,
+          "typeArguments": []
+        }
       }
     }
   ],
@@ -1028,90 +1039,6 @@
         "type": "Json",
         "typeArguments": []
       }
-    }
-  ],
-  "Messages": [
-    {
-      "name": "code",
-      "decorators": [],
-      "entity": {
-        "type": "String",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "pre",
-      "decorators": [],
-      "entity": {
-        "type": "String",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "system",
-      "decorators": [],
-      "entity": {
-        "type": "String",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "level",
-      "decorators": [],
-      "entity": {
-        "type": "String",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "serviceCode",
-      "decorators": [],
-      "entity": {
-        "type": "String",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "message",
-      "decorators": [],
-      "entity": {
-        "type": "String",
-        "typeArguments": []
-      }
-    },
-    {
-      "name": "data",
-      "decorators": [],
-      "entity": {
-        "kind": "ArrayType",
-        "isArray": true,
-        "type": {
-          "type": "T",
-          "isEntity": false,
-          "typeArguments": []
-        }
-      }
-    },
-    {
-      "name": "controller",
-      "decorators": [],
-      "parameters": [
-        {
-          "name": "code",
-          "index": 0,
-          "decorator": []
-        },
-        {
-          "name": "message",
-          "index": 1,
-          "decorator": []
-        },
-        {
-          "name": "data",
-          "index": 2,
-          "decorator": []
-        }
-      ]
     }
   ],
   "MessageNoData": [
@@ -1236,6 +1163,90 @@
       "entity": {
         "type": "String",
         "typeArguments": []
+      }
+    },
+    {
+      "name": "controller",
+      "decorators": [],
+      "parameters": [
+        {
+          "name": "code",
+          "index": 0,
+          "decorator": []
+        },
+        {
+          "name": "message",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "data",
+          "index": 2,
+          "decorator": []
+        }
+      ]
+    }
+  ],
+  "Messages": [
+    {
+      "name": "code",
+      "decorators": [],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "pre",
+      "decorators": [],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "system",
+      "decorators": [],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "level",
+      "decorators": [],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "serviceCode",
+      "decorators": [],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "message",
+      "decorators": [],
+      "entity": {
+        "type": "String",
+        "typeArguments": []
+      }
+    },
+    {
+      "name": "data",
+      "decorators": [],
+      "entity": {
+        "kind": "ArrayType",
+        "isArray": true,
+        "type": {
+          "type": "T",
+          "isEntity": false,
+          "typeArguments": []
+        }
       }
     },
     {

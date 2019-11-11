@@ -1,5 +1,5 @@
 import { Magnus, Query, Mutation, Where, Order, MagnusBase, ID, Simple } from '@notadd/magnus-core';
-import { Limit, ListMessages, Messages, Message } from '../message';
+import { Limit, ListMessages, Messages, Message } from '../weapp/api/message';
 import { getRepository, GetSelectionSet, FindManyOptions, createWhere } from '@notadd/magnus-typeorm';
 import { Selection, Relation, SelectionSet } from '@notadd/magnus-typeorm';
 import { GameLog } from '../entities/gameLog';

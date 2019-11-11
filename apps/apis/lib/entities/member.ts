@@ -89,19 +89,25 @@ export class Member {
     /**
      * 余额
      */
-    @Column()
+    @Column({
+        default: 0,
+    })
     fee: number;
 
     /**
      * 金币
      */
-    @Column()
+    @Column({
+        default: 0,
+    })
     fee2: number;
 
     /**
      * 钻石
      */
-    @Column()
+    @Column({
+        default: 0,
+    })
     fee3: number;
 
     /**
@@ -149,6 +155,17 @@ export class Member {
     })
     createDate: string;
 
-    @OneToOne(() => Account, type => type.member)
+    @OneToOne(() => Account, type => type.member, {
+        cascade: ['insert', 'update']
+    })
+    @JoinColumn({
+        name: 'account_id'
+    })
     account: Account;
+
+    @Column({
+        name: 'account_id',
+        nullable: true
+    })
+    accountId: number;
 }

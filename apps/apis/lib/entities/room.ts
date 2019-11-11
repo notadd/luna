@@ -29,14 +29,16 @@ export class Room {
     /**
      * 房间密码
      */
-    @Column()
+    @Column({
+        nullable: true
+    })
     password: string;
 
     /**
-     * 开始方式
+     * 开始方式,1手动 2自动
      */
     @Column()
-    startType: string;
+    startType: number;
 
     /**
      * 房间类型、场地选择

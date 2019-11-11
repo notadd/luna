@@ -1,5 +1,5 @@
 import { Controller, Get, Query } from '@nestjs/common';
-import { Message } from '../../../message';
+import { Message } from '../message';
 import { MemberService } from '../../domain/src/memberService';
 interface LoginResult {
     openid?: string;
@@ -16,9 +16,9 @@ export class MemberLogin {
         try {
             const res = await this.accountService.memberLogin(code);
             await this.accountService.memberSave(res.openid);
-            return new Message<LoginResult>(`B00010100`, '登录成功', res);
+            return new Message<LoginResult>(`B00013400`, '登录成功', res);
         } catch (e) {
-            return new Message<LoginResult>(`B200101${e.code}`, `登录失败,${e.message}`);
+            return new Message<LoginResult>(`B200134${e.code}`, `登录失败,${e.message}`);
         }
     }
 }

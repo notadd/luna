@@ -2,8 +2,7 @@ import { Column, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn, Cr
 import { TicketLog } from "./ticketLog";
 import * as transformer from './transformer';
 import { OneToOne } from "@notadd/magnus-typeorm";
-import { Room } from "./room";
-import { RoomLimit } from "./roomLimit";
+import { RoomType } from "./roomType";
 @Entity()
 export class Ticket {
     @PrimaryGeneratedColumn()
@@ -35,11 +34,11 @@ export class Ticket {
     @OneToMany(() => TicketLog, type => type.ticket)
     logs: TicketLog[];
 
-    @OneToOne(() => RoomLimit, type => type.ticket)
-    roomLimit: RoomLimit;
+    @OneToOne(() => RoomType, type => type.ticket)
+    roomType: RoomType;
 
     @Column()
-    roomLimitId: number;
+    roomTypeId: number;
 
 
     @CreateDateColumn({

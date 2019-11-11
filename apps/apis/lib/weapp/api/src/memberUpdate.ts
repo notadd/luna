@@ -1,5 +1,5 @@
 import { Magnus, Mutation } from '@notadd/magnus-core';
-import { MessageNoData } from '../../../message';
+import { MessageNoData } from '../message';
 import { MemberService } from '../../domain/src/memberService';
 interface MemberInput {
     openid: string;
@@ -20,9 +20,9 @@ export class MemberUpdate {
 	async memberUpdate(entity: MemberInput): Promise<MessageNoData> {
 		try {
 			await this.memberService.updateMember(entity);
-			return new MessageNoData('B00010400', '更新成功');
+			return new MessageNoData('B00013500', '更新成功');
 		} catch (e) {
-			return new MessageNoData(`B200104${e.code}`, `更新失败,${e.message}`);
+			return new MessageNoData(`B200135${e.code}`, `更新失败,${e.message}`);
 		}
 	}
 }

@@ -1,6 +1,6 @@
 import { Magnus, Query } from '@notadd/magnus-core';
-import { RoomService } from '../../domain/src/roomService';
-import { Message } from '../../../message';
+import { RoomService } from '../../../domain/src/roomService';
+import { Message } from '../../message';
 
 interface RoomFindOneInput {
     roomId: number;
@@ -16,34 +16,34 @@ interface RoomsFindOneResult {
     roomLimitTitle: string;
     ownerId: number;
     isHidden: boolean;
-    member: RoomFindOneMember[];
+    members: RoomFindOneMember[];
     /**
-     * 暂定'1'自动 '2'手动
+     * 暂定 1自动 2手动
      */
-    startType: string;
+    startType: number;
     createDate: string;
     joinCount: number;
 }
 
 interface RoomFindOneMember {
     id: number;
-    nickname: string;
-    avatarUrl: string;
+    nickname?: string;
+    avatarUrl?: string;
 }
 
 @Magnus()
 export class RoomFindOne {
 
-    constructor(public roomService: RoomService){}
+    constructor(public roomService: RoomService) { }
 
     @Query()
     async roomFindOne(where: RoomFindOneInput): Promise<Message<RoomsFindOneResult>> {
         try {
             const room = await this.roomService.roomFindOne(where.roomId);
-            return new Message(`B00010700`, `查询成功`, room);
+            return new Message(`B00010400`, `查询成功`, room);
         } catch (e) {
-            return new Message(`B000107${e.code}`,`查询失败`)
+            return new Message(`B200104${e.code}`, `查询失败,${e.message}`);
         }
     }
-        
+
 }

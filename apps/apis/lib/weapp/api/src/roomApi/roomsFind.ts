@@ -1,6 +1,6 @@
 import { Magnus, Query } from "@notadd/magnus-core";
-import { RoomService } from "../../domain/src/roomService";
-import { Messages } from "../../../message";
+import { RoomService } from "../../../domain/src/roomService";
+import { Messages } from "../../message";
 
 interface RoomsFindInput {
     title?: string;
@@ -32,9 +32,9 @@ export class RoomsFind {
     async roomsFind(where: RoomsFindInput): Promise<Messages<RoomsFindResult>> {
         try {
             const rooms = await this.roomService.roomFind(where);
-            return new Messages<RoomsFindResult>(`B00010800`,`查询成功`,rooms)
+            return new Messages<RoomsFindResult>(`B00010700`, `查询成功`, rooms);
         } catch (e) {
-            return new Messages<RoomsFindResult>(`B200108${e.code}`,`查询失败,${e.message}`,[])
+            return new Messages<RoomsFindResult>(`B200107${e.code}`, `查询失败,${e.message}`, []);
         }
     }
 }
