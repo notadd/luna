@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { Member, Room, RoomLimit, RoomType } from '../../../entities';
 import { RoomViewDb } from '../../basic/lib/roomViewDb';
 import { Db } from '../../core/repository/db';
-import { encryptionPassword, vefiryPassword } from '../../domain/src/utils/security';
 import { ServiceError, TypeError, TypeOrmError } from '../../luna.error';
 import { RoomCreateInput, RoomFindInput, RoomTypesFindResult } from '../type';
 import { TicketService } from './ticketService';
@@ -93,10 +92,6 @@ export class RoomService {
 			startType: entity.startType,
 			ownerId: member.id
 		}
-		if (entity.password) {
-			const password = encryptionPassword(entity.password);
-			roomEntity[`password`] = password;
-		}
 		try {
 			return await roomRepo.save(roomRepo.create({ ...roomEntity, members: [member] }));
 		} catch (e) {
@@ -131,22 +126,6 @@ export class RoomService {
 		} catch (e) {
 			throw new TypeOrmError(`10`, e.message)
 		}
-	}
-
-	/**
-	 * 验证房间密码
-	 * @param id 房间编号
-	 * @param password 需要被验证的密码
-	 */
-	async verifyRoomPassword(id: number, password: string): Promise<boolean> {
-		if (!id || !password) {
-			throw new TypeError(`01`, `房间编号或密码不能为空`)
-		}
-		const room = await this.db.getConnection().getRepository(Room).findOne({ where: { id } });
-		if (!room) {
-			throw new ServiceError(`02`, `房间不存在`)
-		}
-		return vefiryPassword(password, room.password)
 	}
 
 	/**
