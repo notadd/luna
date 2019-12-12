@@ -15,6 +15,12 @@ export class Account {
     })
     steamId?: string;
 
+    @Column({
+        nullable: true,
+        unique: true
+    })
+    key?: string;
+
     @OneToOne(() => Member, type => type.account)
     member: Member;
 
