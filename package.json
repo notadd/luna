@@ -24,7 +24,7 @@
     "@notadd/magnus-core": "^3.3.7",
     "argon2": "^0.24.0",
     "dotenv": "^8.0.0",
-    "mocha": "^6.2.0",
+    "mocha": "^7.1.1",
     "nestjs-config": "^1.4.3",
     "pg": "^7.11.0",
     "rxjs": "^6.5.2",
