@@ -30,7 +30,7 @@
     "@tarojs/mobx": "1.3.20",
     "@tarojs/mobx-h5": "1.3.20",
     "@tarojs/mobx-rn": "1.3.20",
-    "@tarojs/rn-runner": "1.3.20",
+    "@tarojs/rn-runner": "2.1.0",
     "@tarojs/router": "1.3.20",
     "@tarojs/taro": "1.3.20",
     "@tarojs/taro-alipay": "1.3.20",
