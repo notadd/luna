@@ -4,7 +4,9 @@
   "scripts": {
     "commit": "git add . && git-cz",
     "start": "yarn ts apps/apis/lib/main.ts",
-    "ts": "ts-node -r tsconfig-paths/register"
+    "ts": "ts-node -r tsconfig-paths/register",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "devDependencies": {
     "lerna": "^3.14.1",
@@ -28,6 +30,8 @@
     "nestjs-config": "^1.4.3",
     "pg": "^7.11.0",
     "rxjs": "^6.5.2",
-    "typeorm": "^0.2.18"
-  }
+    "typeorm": "^0.2.18",
+    "snyk": "^1.316.1"
+  },
+  "snyk": true
 }
