@@ -1,0 +1,62 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - '@tarojs/router > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/rn-runner > inquirer > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/rn-runner > xdl > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/mobx-rn > @tarojs/taro-rn > expo-av > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/rn-runner > xdl > @expo/schemer > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/rn-runner > xdl > analytics-node > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/rn-runner > xdl > inquirer > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/rn-runner > xdl > redux > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/mobx-rn > @tarojs/taro-rn > babel-preset-expo > @babel/core > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/mobx-rn > @tarojs/taro-rn > react-native-unimodules > @unimodules/react-native-adapter > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/rn-runner > xdl > auth0 > lru-memoizer > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/rn-runner > xdl > request-promise-native > request-promise-core > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/mobx-rn > @tarojs/taro-rn > babel-preset-expo > @babel/preset-env > @babel/plugin-transform-block-scoping > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/mobx-rn > @tarojs/taro-rn > babel-preset-expo > metro-react-native-babel-preset > @babel/plugin-transform-block-scoping > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/mobx-rn > @tarojs/taro-rn > babel-preset-expo > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/mobx-rn > @tarojs/taro-rn > babel-preset-expo > metro-react-native-babel-preset > @babel/plugin-transform-classes > @babel/helper-define-map > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/mobx-rn > @tarojs/taro-rn > babel-preset-expo > metro-react-native-babel-preset > react-transform-hmr > react-proxy > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/mobx-rn > @tarojs/taro-rn > babel-preset-expo > @babel/preset-env > @babel/plugin-transform-parameters > @babel/helper-call-delegate > @babel/traverse > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/mobx-rn > @tarojs/taro-rn > babel-preset-expo > metro-react-native-babel-preset > @babel/plugin-transform-parameters > @babel/helper-call-delegate > @babel/traverse > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/mobx-rn > @tarojs/taro-rn > babel-preset-expo > metro-react-native-babel-preset > metro-babel7-plugin-react-transform > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/mobx-rn > @tarojs/taro-rn > babel-preset-expo > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/mobx-rn > @tarojs/taro-rn > babel-preset-expo > metro-react-native-babel-preset > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/mobx-rn > @tarojs/taro-rn > babel-preset-expo > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/mobx-rn > @tarojs/taro-rn > babel-preset-expo > metro-react-native-babel-preset > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/generator > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/mobx-rn > @tarojs/taro-rn > babel-preset-expo > metro-react-native-babel-preset > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/mobx-rn > @tarojs/taro-rn > babel-preset-expo > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/mobx-rn > @tarojs/taro-rn > babel-preset-expo > metro-react-native-babel-preset > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
+    - '@tarojs/mobx-rn > @tarojs/taro-rn > babel-preset-expo > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-05-01T08:21:30.712Z'
