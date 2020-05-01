@@ -21,7 +21,9 @@
     "dev:alipay": "npm run build:alipay -- --watch",
     "dev:tt": "npm run build:tt -- --watch",
     "dev:h5": "npm run build:h5 -- --watch",
-    "dev:rn": "npm run build:rn -- --watch"
+    "dev:rn": "npm run build:rn -- --watch",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "author": "",
   "license": "MIT",
@@ -40,7 +42,8 @@
     "@tarojs/taro-weapp": "1.3.20",
     "mobx": "4.8.0",
     "nerv-devtools": "^1.4.0",
-    "nervjs": "^1.4.0"
+    "nervjs": "^1.4.0",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@tarojs/plugin-babel": "1.3.20",
@@ -68,5 +71,6 @@
     "stylelint-config-taro-rn": "1.3.20",
     "stylelint-taro-rn": "1.3.20",
     "typescript": "^3.0.1"
-  }
+  },
+  "snyk": true
 }
