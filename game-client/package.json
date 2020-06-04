@@ -39,8 +39,8 @@
     "@tarojs/taro-tt": "1.3.20",
     "@tarojs/taro-weapp": "1.3.20",
     "mobx": "4.8.0",
-    "nerv-devtools": "^1.4.0",
-    "nervjs": "^1.4.0"
+    "nerv-devtools": "^1.5.7",
+    "nervjs": "^1.5.7"
   },
   "devDependencies": {
     "@tarojs/plugin-babel": "1.3.20",
