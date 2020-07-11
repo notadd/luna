@@ -17,7 +17,7 @@
     "@delon/form": "^8.4.0",
     "@nestjs/common": "^6.5.3",
     "@nestjs/core": "^6.5.3",
-    "@nestjs/graphql": "^6.4.2",
+    "@nestjs/graphql": "^7.5.2",
     "@nestjs/microservices": "^6.5.3",
     "@nestjs/platform-express": "^6.5.3",
     "@notadd/magnus-apollo": "^3.3.7",
