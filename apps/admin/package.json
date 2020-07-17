@@ -27,7 +27,7 @@
     "@delon/form": "^8.4.0",
     "@delon/theme": "^8.4.0",
     "@swimlane/ngx-charts": "^12.0.1",
-    "ajv": "^6.10.2",
+    "ajv": "^6.12.3",
     "apollo-angular": "^1.7.0",
     "apollo-angular-link-http": "^1.8.0",
     "apollo-cache-inmemory": "^1.6.3",
