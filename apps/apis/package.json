@@ -19,9 +19,9 @@
   "dependencies": {
     "@delon/abc": "^8.4.0",
     "@delon/form": "^8.4.0",
-    "@magnus-plugins/nest-graphql-fastify": "^1.1.7",
+    "@magnus-plugins/nest-graphql-fastify": "^1.1.9",
     "@magnus-plugins/nest-resolver": "^1.1.7",
-    "@nestjs/platform-fastify": "^6.6.7",
+    "@nestjs/platform-fastify": "^7.3.0",
     "@notadd/magnus-core": "^3.6.1",
     "@notadd/magnus-typeorm": "^0.8.7",
     "apollo-server-fastify": "^2.9.3",
